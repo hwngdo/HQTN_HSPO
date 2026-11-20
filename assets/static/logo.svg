@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+ <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a78c8"/><stop offset="1" stop-color="#004d88"/></linearGradient></defs>
+ <path d="M36 3 63 13v20c0 18-11.4 29.7-27 36C20.4 62.7 9 51 9 33V13z" fill="url(#g)" stroke="#fff" stroke-width="2"/>
+ <path d="M20 21h29M20 30h21M20 39h16" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".95"/>
+ <circle cx="48" cy="45" r="10" fill="#eaf6ff" stroke="#fff" stroke-width="3"/>
+ <path d="m55.5 52.5 8 8" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+ <text x="22" y="55" fill="#fff" font-family="Segoe UI,Arial" font-size="10" font-weight="800">HS</text>
+</svg>

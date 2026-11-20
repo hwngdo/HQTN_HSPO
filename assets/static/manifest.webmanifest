@@ -1,0 +1,22 @@
+{
+  "id": "/",
+  "name": "HQTN_HSPO v1.9.6.8",
+  "short_name": "HQTN_HSPO",
+  "description": "Tra cứu HS, VAT, CAS và chính sách mặt hàng — Hải quan Thái Nguyên",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eef6ff",
+  "theme_color": "#0b6ea8",
+  "icons": [
+    {
+      "src": "/static/hspo_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/hspo_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

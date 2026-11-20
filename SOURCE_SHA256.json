@@ -1,0 +1,1456 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-11-20",
+  "snapshot_base": "HQTN_HSPO_v1.9.7_RC2.1_UAT_WIN64_WITH_8970_PREVIEW.zip",
+  "newer_release_1_9_8_bytes_accessible": true,
+  "full_original_source": false,
+  "source_sections": [
+    "apps/core-recovered",
+    "apps/qa-gateway",
+    "apps/uat-preview-8970",
+    "apps/legal-lookup-reference",
+    "apps/release-v198"
+  ],
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 73,
+      "sha256": "2f2e7718af4ba0a041c06d86da3dabdb710a24dba13889366767f55efcd4b5d2"
+    },
+    {
+      "path": ".github/workflows/qa-windows.yml",
+      "size": 1329,
+      "sha256": "eac6826cde4a2dc4d56ae67da5cffceb805d8e48448dd4587d14edfc39607e21"
+    },
+    {
+      "path": ".gitignore",
+      "size": 299,
+      "sha256": "f1f012c7903aca0cd8e79d21d1859ca19e3260adcf16bd31d1503cf25ff236f5"
+    },
+    {
+      "path": "AGENTS.md",
+      "size": 2848,
+      "sha256": "af676bf05c47553cffce09d1608538950eed0eda180c2583a5a1b17ca775ba11"
+    },
+    {
+      "path": "README.md",
+      "size": 3333,
+      "sha256": "0b36918839ccc6b79fe3ef459fa49fe2e44cf855f9607785a64b4de485b6cbf7"
+    },
+    {
+      "path": "apps/core-recovered/README.md",
+      "size": 506,
+      "sha256": "9c1b94115e5df3e8f1de591eb1fe667157306c562db670b6b031bb9eddcbe7ec"
+    },
+    {
+      "path": "apps/core-recovered/build_windows.bat",
+      "size": 373,
+      "sha256": "69c05e8f305fc35e0aa7777386075904321423856e99c52cca5b6968d0a0181d"
+    },
+    {
+      "path": "apps/core-recovered/cmd/hspo-core/main.go",
+      "size": 1425,
+      "sha256": "47cc3b6ddc089a6eb64b458391f911121b3837f4cd67e1d77dcd3583da84ce8d"
+    },
+    {
+      "path": "apps/core-recovered/cmd/hspo-launcher/main.go",
+      "size": 1797,
+      "sha256": "11713a94a10deff0545b81f5af70e5272363e7a55603eb20fe2864f92eec7b59"
+    },
+    {
+      "path": "apps/core-recovered/docs/CODEX_TASK.md",
+      "size": 1178,
+      "sha256": "1242e5ad742e0dceaf58d039619ae20cb2de277b18147a5bc3b6277deabeaced"
+    },
+    {
+      "path": "apps/core-recovered/docs/RECOVERY_MAP.md",
+      "size": 2932,
+      "sha256": "c8c11458defc6f07c6d83ea9efb79697b6cd95a2c3269652e4d73430c439fc7a"
+    },
+    {
+      "path": "apps/core-recovered/go.mod",
+      "size": 38,
+      "sha256": "22650b991e50a6b6bcde8534a6214f6bfcebf32746f6e4923c40c758888ec449"
+    },
+    {
+      "path": "apps/core-recovered/internal/hspo/accounts.go",
+      "size": 6473,
+      "sha256": "069f0c6b1695be7cb3196ef1f3be9ea4238e1397f36b3b816e3929387d8e54d4"
+    },
+    {
+      "path": "apps/core-recovered/internal/hspo/app.go",
+      "size": 16514,
+      "sha256": "f395d07971859dee2907ee33b58f33352ca4e7f069fd48137b8388722663a3bc"
+    },
+    {
+      "path": "apps/core-recovered/internal/hspo/app_test.go",
+      "size": 1857,
+      "sha256": "05327b992c9ba64405e407c80ebe6ca2f75a6793edead6f2d16b02cd19387518"
+    },
+    {
+      "path": "apps/core-recovered/internal/hspo/chemical.go",
+      "size": 8890,
+      "sha256": "eefd9e3bad1e591e1b8ebdb219dcc9e6b77665766b0b1912850446e39de64238"
+    },
+    {
+      "path": "apps/core-recovered/internal/hspo/chemical_test.go",
+      "size": 3408,
+      "sha256": "853266d5bfb5505f08a457f787326e31112921cbc2b525a2c2621a1adad018eb"
+    },
+    {
+      "path": "apps/core-recovered/internal/hspo/ocr.go",
+      "size": 3723,
+      "sha256": "9dd7505cd5a90435b3d410f5130e9d4e2fea2fc36b1cfb8d846e95fd32566c7f"
+    },
+    {
+      "path": "apps/core-recovered/internal/hspo/types.go",
+      "size": 2549,
+      "sha256": "b91627768761114ab6227afbee030cb4dfb60066459607b9f934288257846fd6"
+    },
+    {
+      "path": "apps/legal-lookup-reference/MODULE_CONTRACT.md",
+      "size": 448,
+      "sha256": "e43aa480b1c2b7385edda381a7b7db105f061a1a40016db81f69304533a25ce4"
+    },
+    {
+      "path": "apps/legal-lookup-reference/SCHEMA.md",
+      "size": 484,
+      "sha256": "e655ffc26b618aecf35282fdd0fc28183113ab6b47dbb05a4c0feadf073833d6"
+    },
+    {
+      "path": "apps/legal-lookup-reference/adapter_fastapi.py",
+      "size": 858,
+      "sha256": "ca7eba3417652c8bd32f373e1ce112526d1e623fb506af3b34c8d61e3fe44b6a"
+    },
+    {
+      "path": "apps/legal-lookup-reference/adapter_flask.py",
+      "size": 938,
+      "sha256": "8779ca482a271e40c8dab76935d4814ea5372e7047adacddb83a104226b59cd5"
+    },
+    {
+      "path": "apps/legal-lookup-reference/apply_update.py",
+      "size": 925,
+      "sha256": "7cae2b8af06290b68c7078bde8ae915de1caced373cd2c1e7f88c8f4e56e8cf3"
+    },
+    {
+      "path": "apps/legal-lookup-reference/backend.py",
+      "size": 11539,
+      "sha256": "369e71f09ddf5db1409b74a32a75f60bbe1215b1ee26aa412f304e0b565cc4c7"
+    },
+    {
+      "path": "apps/legal-lookup-reference/data/config.json",
+      "size": 372,
+      "sha256": "c044aa1b180261f657f4b4c2780b59e1ee4bc01f8835a2b67fca061827f07f63"
+    },
+    {
+      "path": "apps/legal-lookup-reference/data/seed_documents.json",
+      "size": 14915,
+      "sha256": "7ec91b2a3da4a8a1acdf2de62f3e42c70a294373e292d77b151da3b385cd890d"
+    },
+    {
+      "path": "apps/legal-lookup-reference/data/seed_forms.json",
+      "size": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "apps/legal-lookup-reference/data/seed_relations.json",
+      "size": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "apps/legal-lookup-reference/data/update_bundle.example.json",
+      "size": 593,
+      "sha256": "83641a6559a245b7a163cd6cbe1f05950a5d06d73a0f6dcb8699b0e9003c7e0e"
+    },
+    {
+      "path": "apps/legal-lookup-reference/index_documents.py",
+      "size": 4160,
+      "sha256": "fb1e5a82a9ae9ae487194a19c211d2e8d7de2c6b6e2690d5e9b1461d7a9570f0"
+    },
+    {
+      "path": "apps/legal-lookup-reference/module.json",
+      "size": 410,
+      "sha256": "0fe7b95362ce732c6e60629641996172750b7621899e965cf3f2d25fd3f48c10"
+    },
+    {
+      "path": "apps/legal-lookup-reference/standalone_server.py",
+      "size": 2662,
+      "sha256": "a3f91ff45c4eba1087005f6529f35e5dc51e38116ece7ae768f7f0e839bcf10c"
+    },
+    {
+      "path": "apps/legal-lookup-reference/tests/test_backend.py",
+      "size": 393,
+      "sha256": "718349e0a357dac37947850b3f62285eb2ff472a53f92a4c95e733b631c75cad"
+    },
+    {
+      "path": "apps/legal-lookup-reference/web/index.html",
+      "size": 10569,
+      "sha256": "85a8bcec810bad7e755e2d9d0e9f8789e035d1b76a777e76f163fc7740835bfe"
+    },
+    {
+      "path": "apps/qa-gateway/cmd/hspo-qa-gateway/main.go",
+      "size": 1821,
+      "sha256": "7894fdaa60e38e787fbbcd2bfba207b34fb5a89d731dd7ac74615d05a808634a"
+    },
+    {
+      "path": "apps/qa-gateway/go.mod",
+      "size": 43,
+      "sha256": "6e036abdf6ff3e3c8466837f589844fe1bf1702d67d239da0f1b33af855894db"
+    },
+    {
+      "path": "apps/qa-gateway/internal/accounts/http.go",
+      "size": 2958,
+      "sha256": "32c2cee4d2d3218ba78c2fb9703df90e9bf72f45f6b99ae964f64dc6e09e6718"
+    },
+    {
+      "path": "apps/qa-gateway/internal/accounts/http_test.go",
+      "size": 2149,
+      "sha256": "c4aafba9f3abc50d87acf620a3885bcde714b6986e4faa3cacab65ee72bad318"
+    },
+    {
+      "path": "apps/qa-gateway/internal/accounts/production_fixture_test.go",
+      "size": 1876,
+      "sha256": "b2428f7dd62bda0189a17f7566798a092c700fa9120e065ba9b8254cf0e1e0a1"
+    },
+    {
+      "path": "apps/qa-gateway/internal/accounts/session.go",
+      "size": 2268,
+      "sha256": "6e41d002a3392754a298afcbf348dccd5fda26f6135f48b39279e1fddc608744"
+    },
+    {
+      "path": "apps/qa-gateway/internal/accounts/session_test.go",
+      "size": 4613,
+      "sha256": "afb03dac225834d525a639804a22b52f443b6f9f38a369ff50349706e6479286"
+    },
+    {
+      "path": "apps/qa-gateway/internal/accounts/store.go",
+      "size": 8655,
+      "sha256": "2eb87573fe3d1443976d6441a310174f4495b4c5cce2f00bb41377743e80ffea"
+    },
+    {
+      "path": "apps/qa-gateway/internal/accounts/store_test.go",
+      "size": 4287,
+      "sha256": "1a3e16bf8fe593bb110c33b754a60cc0676aa1fa9efb9acd1f8fa1700a1204fb"
+    },
+    {
+      "path": "apps/qa-gateway/internal/diagnostics/http.go",
+      "size": 3965,
+      "sha256": "a5767a77bde458b01b2746239b7b6d5272cf747bb351d1b1bd540bace39577a7"
+    },
+    {
+      "path": "apps/qa-gateway/internal/diagnostics/http_test.go",
+      "size": 4953,
+      "sha256": "66a040c47a35f21eaf84ed5875b4947f4a1d91a700844b4d76d5b48912a3d601"
+    },
+    {
+      "path": "apps/qa-gateway/internal/diagnostics/list.go",
+      "size": 2248,
+      "sha256": "ba97088b87db18feb115dd2bb68d7730deecd6bfb341928abd84af3d33573c92"
+    },
+    {
+      "path": "apps/qa-gateway/internal/diagnostics/list_test.go",
+      "size": 957,
+      "sha256": "0a589e618e68718ba78ec42d3e42c41fb61f65dbecc25181a7a7474837066a7f"
+    },
+    {
+      "path": "apps/qa-gateway/internal/diagnostics/store.go",
+      "size": 7870,
+      "sha256": "26cf372c9ce88dc63f44ae28bae5cd4701421c0e19465ecb0a24fe13eeb8fc52"
+    },
+    {
+      "path": "apps/qa-gateway/internal/diagnostics/store_test.go",
+      "size": 3634,
+      "sha256": "207fc423b0bc0c4ae7ba3508e367cf47465ec19719b324bd1aa826411a5edb55"
+    },
+    {
+      "path": "apps/qa-gateway/internal/gateway/gateway.go",
+      "size": 9620,
+      "sha256": "24d9212c107b917591ff70cdad6afa852d859332f1142bdd555aab59d6525833"
+    },
+    {
+      "path": "apps/qa-gateway/internal/gateway/gateway_test.go",
+      "size": 10041,
+      "sha256": "4a6ff54e8d17c8b9a421983fce3673bdd75adeb100f637cbc89541af7207df20"
+    },
+    {
+      "path": "apps/qa-gateway/internal/gateway/network_e2e_test.go",
+      "size": 6616,
+      "sha256": "b5d5d9bcf5c9a4556b93cbcffdb40395e2853d052b2e3399b769d4878cc3ca76"
+    },
+    {
+      "path": "apps/release-v198/INPUT_PROVENANCE.json",
+      "size": 2063,
+      "sha256": "49eb1071484e42819cab65b5c3329cdfac09309233565bea47ba70c65d3e9390"
+    },
+    {
+      "path": "apps/release-v198/cmd/launcher/main.go",
+      "size": 5911,
+      "sha256": "1747e048b5afee6c8a3a16dfe336424eb6f8a1587b412a98f5b25a151637b482"
+    },
+    {
+      "path": "apps/release-v198/cmd/tray/main.go",
+      "size": 14543,
+      "sha256": "296b398bb077d60900e18319590ff7fbebe90f842cbf04c190ac1af24d004017"
+    },
+    {
+      "path": "apps/release-v198/cmd/update-gateway/github_release.go",
+      "size": 5100,
+      "sha256": "aa24c52a99b88e177644c7b95bb244dcece78b2fe9c9d7ff6419c5db782b5fff"
+    },
+    {
+      "path": "apps/release-v198/cmd/update-gateway/github_release_test.go",
+      "size": 3752,
+      "sha256": "2c978235f2904da969bfcb526d29ee7c17c797697a493881fa8fd0b32458ad8f"
+    },
+    {
+      "path": "apps/release-v198/cmd/update-gateway/main.go",
+      "size": 28756,
+      "sha256": "aa73360d0de7265578fadfeb4faa896f8da8a4c648f722cb54c30203bae96bb4"
+    },
+    {
+      "path": "apps/release-v198/cmd/update-gateway/main_test.go",
+      "size": 7780,
+      "sha256": "efe3e987d3ac5cebfed8da757f95cabc81b48d4a8ea20ebb1d2b8f827a79b444"
+    },
+    {
+      "path": "apps/release-v198/go.mod",
+      "size": 39,
+      "sha256": "587fd6573816a3a0a8068f5f09251c5110971ea22b90d4dd65d1f484100c519c"
+    },
+    {
+      "path": "apps/release-v198/tools/HQTN_HSPO_OCR_Worker.ps1",
+      "size": 20558,
+      "sha256": "6f636286f1e72ac14ac8d438bc07700937af81a1363164b55b1c5c197fa80fc9"
+    },
+    {
+      "path": "apps/release-v198/tools/TAO_GOI_DU_LIEU.py",
+      "size": 1777,
+      "sha256": "2896dc133e0c84535d3beae19878a7fdfddae3ca0d51627f99821af0569fc363"
+    },
+    {
+      "path": "apps/release-v198/web/check-tariff.cjs",
+      "size": 1810,
+      "sha256": "c739753b02114b07172fa0b6f6672b2a8de4408d76910637bf7ad8c392b71262"
+    },
+    {
+      "path": "apps/release-v198/web/static/chemical_legal_exceptions.json",
+      "size": 389,
+      "sha256": "2dc90f973f14a3d2ba1a40920475cb871574bfc8525cba2ec543a182b9304a68"
+    },
+    {
+      "path": "apps/release-v198/web/static/documents/pdf/24_2026_ND-CP_ngoai-tru_QA.pdf",
+      "size": 3868512,
+      "sha256": "811312352de9a3d925db7b83b35f61c65c21fe45f21f5cbf94fc819e92b4cdf5"
+    },
+    {
+      "path": "apps/release-v198/web/static/index.html",
+      "size": 252737,
+      "sha256": "da6ce919ec8c6da93382d31c539e22709f57c65ec3962095ae079771f56f6c3d"
+    },
+    {
+      "path": "apps/release-v198/web/static/tariff-data.js",
+      "size": 1924,
+      "sha256": "17252eb14509f32790d432c649b27ff49f8301f1f378e73d1a8059af40bc9fb6"
+    },
+    {
+      "path": "apps/release-v198/web/static/tariff-view.js",
+      "size": 3007,
+      "sha256": "5fd61aaae42658745baec26410e870077a5734ac10ca9e5a745d89aebce93a0d"
+    },
+    {
+      "path": "apps/release-v198/web/static/tariff-warnings.js",
+      "size": 899,
+      "sha256": "3056c7194c30821586f455e1b58b0a74e320c4ca3ef7a9c3376e6ac1dbe55730"
+    },
+    {
+      "path": "apps/uat-preview-8970/README_UAT_8970.md",
+      "size": 3868,
+      "sha256": "3824ad874f7a640e049f31d15b078ca7d7003474c6a3cf4a94641b2fba17799b"
+    },
+    {
+      "path": "apps/uat-preview-8970/REPORT_UAT_8970.md",
+      "size": 1712,
+      "sha256": "6e0331c580b06e9d241b692fe326d48f6049f373b9fb3c327d8cda969ab91c29"
+    },
+    {
+      "path": "apps/uat-preview-8970/cmd/uat-server/main.go",
+      "size": 3725,
+      "sha256": "ad97c99bc509c51ba9ed86a5e2143af9c21a630bf73915fe9de9d20bb52fdcfb"
+    },
+    {
+      "path": "apps/uat-preview-8970/cmd/uat-server/main_test.go",
+      "size": 1920,
+      "sha256": "52f5fb4568d3b83976e2f68a85ff94b5cb58b302cc0068b60f1dffb05abbaed7"
+    },
+    {
+      "path": "apps/uat-preview-8970/go.mod",
+      "size": 35,
+      "sha256": "80a6f9015cf92ceb265888479ef8e5543b4cb1d13a460b4c9c5233575802de66"
+    },
+    {
+      "path": "apps/uat-preview-8970/preview.html",
+      "size": 3822,
+      "sha256": "4b1956dad8e511f9a412137d8f45a50adf58d82d27b3db882ade5134246bb7fc"
+    },
+    {
+      "path": "apps/uat-preview-8970/static/index.html",
+      "size": 229228,
+      "sha256": "653f9f7cec6725378af36ec5416c1f04274918a26175480b01b8a56d580e2e11"
+    },
+    {
+      "path": "assets/policy_data/chemical_policy.json",
+      "size": 944897,
+      "sha256": "6987efb78b9813ee7496e97b9f72a7126837c6975c011b76c5907e7b9b9f54d4"
+    },
+    {
+      "path": "assets/policy_data/chemical_rules.json",
+      "size": 21276,
+      "sha256": "3070db31fbdc83f7c5a4ca8970f7b6ca7a1928dbd5be3958e34890a99ec859ea"
+    },
+    {
+      "path": "assets/policy_data/chemical_sources.json",
+      "size": 1204,
+      "sha256": "af005d60c6caec3f35d1b51bc173e368728ac670ce488f906ac2f5e0e9d4d4a6"
+    },
+    {
+      "path": "assets/policy_data/hs_policy.json",
+      "size": 17803169,
+      "sha256": "8d23025f357b87bfdb48dfd88c3745eccba5f44d2d213212109eb64dfa9cbed9"
+    },
+    {
+      "path": "assets/policy_data/policy_engine_v2.json",
+      "size": 15537,
+      "sha256": "b9a047c53b37ea12b6ced7334e4313a1fb3e05c6dc8f404a7255df15a43b0fe0"
+    },
+    {
+      "path": "assets/policy_data/quarantine_hs_candidates_v1.9.5.json",
+      "size": 1562,
+      "sha256": "945a28c7e34b4ef85c9b7edc1ffde644dbd047c9c50bba48ee03208cddfe82bd"
+    },
+    {
+      "path": "assets/policy_data/quarantine_policy.json",
+      "size": 830441,
+      "sha256": "ade52835a9a2eaae8e2643de1acee02768a9413762ffef825ce581935bb6760f"
+    },
+    {
+      "path": "assets/policy_data/quarantine_regression_v1.9.5.json",
+      "size": 1418,
+      "sha256": "5431037c9d02defca163667e994582f026ec6b2cd1e8f19fc33ea677b49c256e"
+    },
+    {
+      "path": "assets/policy_data/specialized_inspection_01_2024.json",
+      "size": 588612,
+      "sha256": "9407b687b793b366db20af3dbbf2a8b30c65ba2baf2d60825fc9e8acbfb13472"
+    },
+    {
+      "path": "assets/policy_data/tariff_manifest.json",
+      "size": 3632,
+      "sha256": "686e2b41d13ace308e9a9088cf7c7af190cb15d993c89680b431b403687a3ec6"
+    },
+    {
+      "path": "assets/static/dataset_status_1.9.5.5.json",
+      "size": 865,
+      "sha256": "b5521a891f9a215119ff427dd33b0e1e4c5f2d3d4de51be4f05e0e31acf5998a"
+    },
+    {
+      "path": "assets/static/dataset_status_1.9.6.json",
+      "size": 1092,
+      "sha256": "cf9c0e0e50b28a12eea5ccf7704d722cab55cafbf4e1390fe95ff6db2fd5c780"
+    },
+    {
+      "path": "assets/static/documents/01_2018_TT-BCT.docx",
+      "size": 13353,
+      "sha256": "1233cbd06c2ceff7fad2036388989439b9c2c9dac4a4df8e81b19555f877cccf"
+    },
+    {
+      "path": "assets/static/documents/01_2024_TT-BNNPTNT.docx",
+      "size": 1177174,
+      "sha256": "5206d7a5b3e13d28105edee56b03e83ee4980ce19ecf6964156a2028cf9d67b1"
+    },
+    {
+      "path": "assets/static/documents/01_2024_TT-BNNPTNT_Phu_luc.doc",
+      "size": 5366784,
+      "sha256": "be9d7e96e53316de00b8a029f0a745f3eb9a7fca5ad645966e0290bdc4f15615"
+    },
+    {
+      "path": "assets/static/documents/01_2026_TT-BNNMT.docx",
+      "size": 677350,
+      "sha256": "df5932bae9ed7fbda9a1359e99fd81327599dec6be60504202fe33b43bdfddde"
+    },
+    {
+      "path": "assets/static/documents/02_2018_TT-BCT.docx",
+      "size": 19814,
+      "sha256": "961ec27925888b0945827c69a1e717850a68e08e2428cf5bbfc8bd4db91aafdf"
+    },
+    {
+      "path": "assets/static/documents/02_VBHN-BCT_2024_Khoang_san.docx",
+      "size": 22905,
+      "sha256": "239655cc0816899a917892f7dc3ca2fc6e7ddac64217f5f6db87764110f28de3"
+    },
+    {
+      "path": "assets/static/documents/02_VBHN-BCT_2026_Hoa_chat.docx",
+      "size": 1376645,
+      "sha256": "92c8f2e9569b36cc0fdadad1be80cb1f9c1a5fe33eb89633cb4d86ac896c9547"
+    },
+    {
+      "path": "assets/static/documents/03_2026_TT-BNNMT.docx",
+      "size": 2683919,
+      "sha256": "08042bf428274b4794b14aafe3dbcc34cef6714af9bbb00bea9e14e39bb3948d"
+    },
+    {
+      "path": "assets/static/documents/07_2023_TT-NHNN.docx",
+      "size": 11707,
+      "sha256": "7dcf0426f5fa069f02aa06610a663b4b0051e4728e4e41bc26ed2194a56ec326"
+    },
+    {
+      "path": "assets/static/documents/08_2023_TT-BCT.docx",
+      "size": 49050,
+      "sha256": "d64953361226ddfe4044f11b42cc73744c8e1bd0a5d2812b41918cc787aa2316"
+    },
+    {
+      "path": "assets/static/documents/09_2024_TT-BYT.docx",
+      "size": 337804,
+      "sha256": "ac6aabd9d98acb1524ff815c601d223e018a6a6d9d18bfa3512e00c368e3e00f"
+    },
+    {
+      "path": "assets/static/documents/11_2018_TT-BTTTT.docx",
+      "size": 12380,
+      "sha256": "aebcbdf0fcbee5c08aedac6a1ec8a8ec31158956025b03062cf1492bfc01b538"
+    },
+    {
+      "path": "assets/static/documents/11_2024_TT-BTTTT.docx",
+      "size": 14747,
+      "sha256": "9669eac91a62dccad6e52e948460ab3eb6419e8e20a29fae0b08ee9753def7d2"
+    },
+    {
+      "path": "assets/static/documents/11_2026_TT-BXD.docx",
+      "size": 15233,
+      "sha256": "47bdb2e172e24350d62ecef9120ea4d70847070eb7a1435e34f4c32300852d39"
+    },
+    {
+      "path": "assets/static/documents/125_2026_TT-BCA.docx",
+      "size": 13248,
+      "sha256": "fe78bd242ed5b9e3ddf599be6edd7a6820cc354e89bf567223b15c32f73ade1a"
+    },
+    {
+      "path": "assets/static/documents/126_2026_TT-BQP.docx",
+      "size": 10254,
+      "sha256": "b2c3e5c59d813f18b0942385b4dfc71c8a14c803e2e0033247bf2c02f99a1fdc"
+    },
+    {
+      "path": "assets/static/documents/12_2018_TT-BCT.docx",
+      "size": 213444,
+      "sha256": "ca5c5b5484981f3b9d202058268d2ce436a79a5a71d9e88b6024480e440a0104"
+    },
+    {
+      "path": "assets/static/documents/12_VBHN-BCT_2026_Thuoc_la.docx",
+      "size": 19326,
+      "sha256": "a17c14d258739830188dbf92ca4b54cf6e49d17c756646db6247f436967f560e"
+    },
+    {
+      "path": "assets/static/documents/13_2023_QD-TTg.docx",
+      "size": 10852,
+      "sha256": "5e89bbe7c37399d5345979ccfc63a9fa4b0ae27238dd8d3c240e02c7990dae0e"
+    },
+    {
+      "path": "assets/static/documents/14_2024_TT-BNNPTNT.docx",
+      "size": 8718,
+      "sha256": "9d959aae332e9ec2ff839ce39405aa4defa530a59fbb878bf1e679773d2ab209"
+    },
+    {
+      "path": "assets/static/documents/15_2024_TT-BYT.docx",
+      "size": 50887,
+      "sha256": "66a511385b73a4346655527f040b9d601e055ea86747e94a3acd0f61e06b17f2"
+    },
+    {
+      "path": "assets/static/documents/16_2024_TT-BYT.docx",
+      "size": 13013,
+      "sha256": "b02767b0b2243d59a070ca4a71cd8644c7eec7384dbe0a495738e05b4fe2fded"
+    },
+    {
+      "path": "assets/static/documents/16_2026_TT-BNV.docx",
+      "size": 14136,
+      "sha256": "fac0c6b24924ae16eaed0b99861454e0f0fd926c3994019aa86629b9c679f9af"
+    },
+    {
+      "path": "assets/static/documents/173_2018_TT-BQP.docx",
+      "size": 13112,
+      "sha256": "399dc19f7f98bc7dbb62950869b2af397bcfa01958b58e7f892578a6d514facf"
+    },
+    {
+      "path": "assets/static/documents/17_2023_TT-BNNPTNT.docx",
+      "size": 1549404,
+      "sha256": "7abad74f3c4d8541f4b3e457d2773b4e372142d92651e509128bde890dcd05de"
+    },
+    {
+      "path": "assets/static/documents/18_2024_TT-BNNPTNT.docx",
+      "size": 17550156,
+      "sha256": "947f2de8ab257ed8e35b7ab2c0726839533bcddff01239ad178dd0e84cd068d2"
+    },
+    {
+      "path": "assets/static/documents/211_2025_ND-CP.docx",
+      "size": 40334,
+      "sha256": "3996beb36866d56f516eaaea198525c21a6dbdd97fb8070567659385d915393a"
+    },
+    {
+      "path": "assets/static/documents/22_2018_TT-BTTTT.docx",
+      "size": 14736,
+      "sha256": "e01ea3bf2306cbeb8323efe5c5261c743ff6595ac2f94c0a810767b1143af52e"
+    },
+    {
+      "path": "assets/static/documents/23_2019_QD-TTg.docx",
+      "size": 14482,
+      "sha256": "c08337797850deb601c6c82368a24ee47b00063491cc26fe778f1ea779c4b45e"
+    },
+    {
+      "path": "assets/static/documents/24_2026_ND-CP.docx",
+      "size": 139090,
+      "sha256": "4de3a994100752d4916e96976a1029df267806d1e8cb099069ca12f2d8b5dd39"
+    },
+    {
+      "path": "assets/static/documents/26_2026_ND-CP.docx",
+      "size": 33289,
+      "sha256": "46960f063b3eec1e982093d26d6dd7f60b46b566147875b18ed64f4610059bac"
+    },
+    {
+      "path": "assets/static/documents/27_2026_TT-BNNMT.docx",
+      "size": 84650,
+      "sha256": "e91edf5bb6615affee3fedcf650645b28321357e77f1d265c00c65997d9f620a"
+    },
+    {
+      "path": "assets/static/documents/27_2026_TT-BYT.docx",
+      "size": 9058,
+      "sha256": "841e9b562e5d4a284b9c871be1c810921e4f84f22d6ef1b8fa2e5c352e2f1964"
+    },
+    {
+      "path": "assets/static/documents/28_2026_TT-BYT.docx",
+      "size": 12154,
+      "sha256": "f820104cdd621e835864ef09bd8e4a307ba218ce2d0665bd26a5b2df34b624b7"
+    },
+    {
+      "path": "assets/static/documents/292_2026_ND-CP.docx",
+      "size": 84883,
+      "sha256": "56e3763772e90a5d423aa0f832466d05f0ad42454be9a500390892168b1153a8"
+    },
+    {
+      "path": "assets/static/documents/31_2022_TT-BTC.docx",
+      "size": 4139630,
+      "sha256": "964acd577bda1499c831af229c157469b16ead3d96c2e08c9b2f87075bb7e490"
+    },
+    {
+      "path": "assets/static/documents/31_2022_TT-BTC_Phu_luc_I.doc",
+      "size": 44651008,
+      "sha256": "23bef4c4a14ec496b85914194d71e88e31d7a93fc6b38e20ee776bfe7670bb51"
+    },
+    {
+      "path": "assets/static/documents/33_2024_ND-CP.docx",
+      "size": 330674,
+      "sha256": "c03ea05453b333c209449ba60a9f4e16c16344e85095abf15b3466964b66698d"
+    },
+    {
+      "path": "assets/static/documents/33_2025_TT-BCT.docx",
+      "size": 10666,
+      "sha256": "c1bc99247d93d75954819a1b9ce1887341854a333403a66eaddccaca27950d05"
+    },
+    {
+      "path": "assets/static/documents/33_2026_TT-BCT.docx",
+      "size": 40242,
+      "sha256": "0ad42c2ea4beaa70d9e4c1cbb82a95ee0182851f8113f268a281dafbf3fee2c0"
+    },
+    {
+      "path": "assets/static/documents/34_2025_TT-BCT.docx",
+      "size": 18569,
+      "sha256": "1dee8376ecc48dcd61c995aec44bda94268251460441fbd9f504ec920bf724ce"
+    },
+    {
+      "path": "assets/static/documents/36_2026_TT-BKHCN.docx",
+      "size": 87651,
+      "sha256": "6182590e6b61073b72a6df1019a762ccc989e32068e008f8b247b1c42be598ec"
+    },
+    {
+      "path": "assets/static/documents/37_2026_ND-CP.doc",
+      "size": 1005056,
+      "sha256": "5c2ad7c8caff36ac8863f3026deca986c72fe422a655e2b37b2c59c98b7d730e"
+    },
+    {
+      "path": "assets/static/documents/38_2018_TT-NHNN.docx",
+      "size": 11284,
+      "sha256": "495b231478e65faadfccb4c65a38021068fc6c49145f1fb168a62202ea3b3a31"
+    },
+    {
+      "path": "assets/static/documents/41_2019_TT-BCT.docx",
+      "size": 18947,
+      "sha256": "010dffe47f59689ababde7c6b588236599ef5e0838f5873718302098d38fd7db"
+    },
+    {
+      "path": "assets/static/documents/41_2026_TT-BCT.docx",
+      "size": 22446,
+      "sha256": "b65c16fcf8bc758f136c3351b7aae8883c4b3d9ee975fc1553ddb8bf66f5638d"
+    },
+    {
+      "path": "assets/static/documents/41_2026_TT-BXD.docx",
+      "size": 28438,
+      "sha256": "312743d4f839cd27516fbf6c060b7e5550590642e98bc42bfadc490e803b3d0e"
+    },
+    {
+      "path": "assets/static/documents/42_2019_TT-BCT.docx",
+      "size": 53357,
+      "sha256": "4cb004ab9c774d03d66073ae2c04de609ed5763ae72cc38b8807bee2dcc9529c"
+    },
+    {
+      "path": "assets/static/documents/47_2018_TT-NHNN.docx",
+      "size": 7560,
+      "sha256": "8b8ba3a46875c493199d8a6e8a216d8bf6e387ae7950b64936683bc0d2e2a680"
+    },
+    {
+      "path": "assets/static/documents/48_2026_TT-BCT.docx",
+      "size": 110014,
+      "sha256": "8334fc3ce943413816f25724773eb3f2a445ffdc69df0a23ca76e3c6f5d9c72e"
+    },
+    {
+      "path": "assets/static/documents/49_2026_TT-BXD.docx",
+      "size": 23774,
+      "sha256": "43ba71fa489bc885fe2b5ef2fc39f5cfe167f76a18baebe4eaff371ab194d5a4"
+    },
+    {
+      "path": "assets/static/documents/67_VBHN-BNNMT.docx",
+      "size": 662869,
+      "sha256": "da676a2b2acefb907076e9e28b7ca234ce1ca4965ae45e75cf575db5e41e7cce"
+    },
+    {
+      "path": "assets/static/documents/pdf/09_2024_TT-BYT.pdf",
+      "size": 10190944,
+      "sha256": "09b6dc5772c448ccaf118cb619717e99a29c82474f9d8e3eed5fba6e7d2c70ba"
+    },
+    {
+      "path": "assets/static/documents/pdf/125_2026_TT-BCA.pdf",
+      "size": 147559,
+      "sha256": "cc780ec3b73a336743a3289004ef609f87eef86bddb6cdc7f7a59aeab711ab44"
+    },
+    {
+      "path": "assets/static/documents/pdf/126_2026_TT-BQP.pdf",
+      "size": 113269,
+      "sha256": "67a72a24d55e30ca5aa88c49f8a18f032225912530f6284a12f1cd5cc922f967"
+    },
+    {
+      "path": "assets/static/documents/pdf/16_2026_TT-BNV.pdf",
+      "size": 170351,
+      "sha256": "890e57f48c0ae4d9d573538d3a903076f282d9b142fe96adaf4634227285e6ce"
+    },
+    {
+      "path": "assets/static/documents/pdf/24_2026_ND-CP.pdf",
+      "size": 3740830,
+      "sha256": "639805192a9d030fb375e59bbe7f484a01b34ad8b5293c7fe833888474572919"
+    },
+    {
+      "path": "assets/static/documents/pdf/26_2026_ND-CP.pdf",
+      "size": 275373,
+      "sha256": "8ff1c4ab4c370b01e8e3e4349840a93721868a5dec7ba56e502660b4666c715f"
+    },
+    {
+      "path": "assets/static/documents/pdf/27_2026_TT-BNNMT.pdf",
+      "size": 1466166,
+      "sha256": "cd910f60cf164acfaa2f5e922cc217182a5ef43bc6d4f4d61ef35762e17d3608"
+    },
+    {
+      "path": "assets/static/documents/pdf/27_2026_TT-BYT.pdf",
+      "size": 102566,
+      "sha256": "5babe45ee0b05ab7190c9d7ee0ba670bf8a823fc3c8bf08d0d737483d44a5954"
+    },
+    {
+      "path": "assets/static/documents/pdf/28_2026_TT-BYT.pdf",
+      "size": 132303,
+      "sha256": "3b1dfb0eb9535aa2088bfcbfe54863765e646acdf8df0f163cc136fe39c20ff0"
+    },
+    {
+      "path": "assets/static/documents/pdf/31_2022_TT-BTC.pdf",
+      "size": 120126,
+      "sha256": "237767fc6650c39d656d5f77ad5dc201c073397e19c35ec58639cb5bf44eecd8"
+    },
+    {
+      "path": "assets/static/documents/pdf/33_2026_TT-BCT.pdf",
+      "size": 680296,
+      "sha256": "4bf66593a37e808cdf129663ed5ac63d6f8689d90bd97196848f566999343308"
+    },
+    {
+      "path": "assets/static/documents/pdf/36_2026_TT-BKHCN.pdf",
+      "size": 1197157,
+      "sha256": "79e4ce9eb08b8c5a04bfd68e884ef7443429732d218e54aa7668eb57b722fbef"
+    },
+    {
+      "path": "assets/static/documents/pdf/37_2026_ND-CP.pdf",
+      "size": 1205347,
+      "sha256": "88839b5842d83e26c87b11f0f9d1ff39e5fb68805ee2811d3990da89b6827b66"
+    },
+    {
+      "path": "assets/static/documents/pdf/41_2026_TT-BXD.pdf",
+      "size": 410685,
+      "sha256": "09707e4a32f89c674a46e87430431b5ed1bc0f58a46430886ab8ef74bcb3f725"
+    },
+    {
+      "path": "assets/static/documents/pdf/49_2026_TT-BXD.pdf",
+      "size": 391342,
+      "sha256": "c600995f256426cedfed79a4bb51477208ae7a6bdd18504d85aa5e3f8b2b8861"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/01_2018_TT-BCT.pdf",
+      "size": 200107,
+      "sha256": "b8d907d4b6fce33db51869ebf9ebb2b7e75233d420e079ac493f9305ca49b49d"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/01_2024_TT-BNNPTNT.pdf",
+      "size": 94447,
+      "sha256": "c2a75a544449f1ea11183f55502bb44dc7bb6f3a4e80b0a36992b6bf9fa34141"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/01_2026_TT-BNNMT.pdf",
+      "size": 1707252,
+      "sha256": "5caa9ed79772d57f176c5874cf69775d57d131da817cd1a926bf6e4c5ef5f3a1"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/02_2018_TT-BCT.pdf",
+      "size": 339463,
+      "sha256": "e292d6e14573a49c94e81b7956a15c40b01e0f57f94ceb943396a88f379ac1b9"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/02_VBHN-BCT_2024_Khoang_san.pdf",
+      "size": 292713,
+      "sha256": "2784e64ab06e5d8456d6a40a85c55e62e9955b2383bb2b7f75db857ce72c9787"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/02_VBHN-BCT_2026_Hoa_chat.pdf",
+      "size": 1725391,
+      "sha256": "e9b98b66e20de7e4837fabd741f9b812e1b89925d69ee193df93afbf96f55221"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/07_2023_TT-NHNN.pdf",
+      "size": 165466,
+      "sha256": "1d01dc9678f1cde423640743ae9f884b0d86e8d8821dfaadf1fc17d39571ce3f"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/08_2023_TT-BCT.pdf",
+      "size": 917502,
+      "sha256": "2c17621b023acc329b35eb37f67fe4604a8fdaba07676d154360ae4d30f772f1"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/09_2026_QH16_703956.pdf",
+      "size": 76344,
+      "sha256": "500ff44536f33b2bb6a26329008b77f1e2fa5a0a9ae6a384efe2584c1d9d1aa1"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/101_2025_TT-BNNMT_693408.pdf",
+      "size": 120262,
+      "sha256": "ee4fbbea90be91769ae686205f82555a67f284ef49d2894823a6f992ce3e22e1"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/11_2018_TT-BTTTT.pdf",
+      "size": 150323,
+      "sha256": "d3eba92c6c781510a715bbcdde56a87aa9971efb357cde5e146a6a4cdc1679cd"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/11_2024_TT-BTTTT.pdf",
+      "size": 157482,
+      "sha256": "11a0aca08b9172ff333dbb919af135b5b143e7f8cc6f5a7ae196ede2089b1c98"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/11_2026_TT-BXD.pdf",
+      "size": 203223,
+      "sha256": "c1d4dbad3299458be14756311b34cc7870bf2189f7f00e8bd3f02e5fa562d619"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/12_2018_TT-BCT.pdf",
+      "size": 141809,
+      "sha256": "a02f38d868cc039848c3f8c6d327e04464c60b861499d7b70e067b7a926e7024"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/12_VBHN-BCT_2026_Thuoc_la.pdf",
+      "size": 221972,
+      "sha256": "a9a8f0989cce93f23b8077d57bb96714d1300407d165b5dec50ec472ceec9990"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/136_2026_TT-BTC_724925.pdf",
+      "size": 71177,
+      "sha256": "77f4f06aca1db929069c9119afd93eec82d4f2c4fd43a85abe23d1b9a68f8e56"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/13_2023_QD-TTg.pdf",
+      "size": 163906,
+      "sha256": "9f14d8a81769dfd2e39904be8e2401522eb913b53ed123ac430b3c92ecbe1908"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/144_2024_ND-CP.pdf",
+      "size": 263971,
+      "sha256": "3e810e5efe05588efb4f1fee4186edf6297ccb751d9220362f4ad8cb5bb6596e"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/144_2026_ND-CP_694808.pdf",
+      "size": 806849,
+      "sha256": "b525dd7fb40f02714f21436bea30285ba1079d61686734b038271017822cf1c5"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/149_2025_QH15_679698.pdf",
+      "size": 63341,
+      "sha256": "a92fd56d0a359b00e573b732a83cedc6a12854efec14bc152d16db52c3896283"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/158_2025_TT-BTC_687593.pdf",
+      "size": 173539,
+      "sha256": "75fa865efc93443ded8f8e8fc61ffcdf7d874c60accdeba4551795b51445c8b9"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/15_2023_QD-TTg.pdf",
+      "size": 87796,
+      "sha256": "90598c1df02af75b2e2799c417192f57c6fa1014e2c35232308b9913d3a1e6ba"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/15_2024_TT-BYT.pdf",
+      "size": 1168901,
+      "sha256": "67fa5d7c6e4336f4a08f7618ccce65933459fc0f411a52d27449fc986869d4e1"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/16_2024_TT-BYT.pdf",
+      "size": 163547,
+      "sha256": "c877650f5dd24858fe59a594ca61a23e67d5c6d1024623539302c7a9cd134682"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/173_2018_TT-BQP.pdf",
+      "size": 147501,
+      "sha256": "3ac520b9616af8fdbd16f8079a2064bbf94c7f0bade9e6051644445bc1ef21c9"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/174_2025_ND-CP_663151.pdf",
+      "size": 2075770,
+      "sha256": "8615262d39bf29491fa775fa78f6ed4d4243de22b368becc7d2f071edd183405"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/17_2023_TT-BNNPTNT.pdf",
+      "size": 92284,
+      "sha256": "5e9b8bc036f304d7f7fb23ba39637018a5ac5676073c07e4ff56c17fe6d22fa1"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/181_2025_ND-CP_646124.pdf",
+      "size": 1112295,
+      "sha256": "a8ffa94fd4f58c0aa031974bc513473b7f7786cf58ee6b193914cd502fba2c6e"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/18_2024_TT-BNNPTNT.pdf",
+      "size": 104215,
+      "sha256": "3b157202697c5e346892b702689c2b0d362f6153d12e106824fe6298d6ff8817"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/199_2025_ND-CP.pdf",
+      "size": 184430,
+      "sha256": "d21881858167d32f191d5c28d47392620cac2f06d8f21262e55808b015b56812"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/204_2025_QH15_662685.pdf",
+      "size": 58290,
+      "sha256": "4e7bf755789e0d65431fd9c5a7c659d79124934a2e5b1bb91cc527380ae4701a"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/211_2025_ND-CP.pdf",
+      "size": 438844,
+      "sha256": "5a05e17e760d654ff7be375ef35ebc48d6d2be405751acf9ae1d7695eb3f0ff4"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/21_2025_ND-CP.pdf",
+      "size": 76623,
+      "sha256": "79e8a2ee0e80f06d0d48a9754dbf52db530e42307525e257286d941a1a280e4b"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/22_2018_TT-BTTTT.pdf",
+      "size": 172752,
+      "sha256": "102988f8d61fd473b3b2324a4f9138b18907aa25fb27c92ff7547087992b49ae"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/23_2019_QD-TTg.pdf",
+      "size": 165371,
+      "sha256": "c668846fb81e9ba973fcb84650ec6819a501ea93bd4781e60bb71609d1f46603"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/26_2023_ND-CP.pdf",
+      "size": 311894,
+      "sha256": "18ce91dcad49e5460b1c3775f30782beeccf5f79bc0c1c1d72d3aa79921bfc61"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/292_2026_ND-CP.pdf",
+      "size": 1024787,
+      "sha256": "30bf657ce1b82215e30fa095e4db3ab6b077bce0178f6bffa5671f853a023e78"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/33_2024_ND-CP.pdf",
+      "size": 1926469,
+      "sha256": "096cc2a11b13a15fa41dbc2af99a4eaa70e100581640d569697251bfe540860c"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/33_2025_TT-BCT.pdf",
+      "size": 146833,
+      "sha256": "e5901aae2fc9dbb157c3e78430074baee2bb24c4f3ebcb07044d4fb068f938c1"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/34_2025_TT-BCT.pdf",
+      "size": 277621,
+      "sha256": "41fde84af926faafbf57f25397d1508b11cca4cae117ec0a6c57c111503e0d0c"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/359_2025_ND-CP_679684.pdf",
+      "size": 73226,
+      "sha256": "a4440b3e672648dd8a3ce94beb84b3ad6299163aa3df1755d1808b2bbe5aa864"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/360_2025_ND-CP_318217.pdf",
+      "size": 151519,
+      "sha256": "f6aa4d2139b6115068d0c013c9401e13b7ecda3abd3401ff6c5274c3055b049a"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/38_2018_TT-NHNN.pdf",
+      "size": 157379,
+      "sha256": "df350fd8e5d3b0534b7a5a7e961de84cf3a0e55caadb58278362af43f4eecadc"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/41_2019_TT-BCT.pdf",
+      "size": 273805,
+      "sha256": "c88f4b1b6a7a6b8902df860fe2885c8795a0b86b00472ba9396e086453c8d981"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/41_2026_TT-BCT.pdf",
+      "size": 317718,
+      "sha256": "bf2db60f2eb0bca9084dece335ba125c1446f1185278cf1392cdfa7d747f9891"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/42_2019_TT-BCT.pdf",
+      "size": 654775,
+      "sha256": "b9724acf9e77263a1a94e2e6379f143706ccf411843b3e17524b3219d01c58ec"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/47_2018_TT-NHNN.pdf",
+      "size": 78946,
+      "sha256": "df0824c6713c37443abd24faa84578b9f850fe083cae9d38a5309f35ac0ce374"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/48_2024_QH15_556390.pdf",
+      "size": 188004,
+      "sha256": "7d2d1972c75f60770deec520866aec7f2231e4cb968eb68f1fe586f718b8970b"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/48_2026_TT-BCT.pdf",
+      "size": 1843430,
+      "sha256": "fe27e5e95e70ef14e85a4e3bae176411edc3e8cdfb5198378bf2512ff3c16fae"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/66_2025_QH15_621225.pdf",
+      "size": 217066,
+      "sha256": "5bb14faa1975b867143ef25d8991658e90ad7c19d9225c216e3310366ef80438"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/69_2025_TT-BTC_663356.pdf",
+      "size": 219947,
+      "sha256": "72044e7ade7e66efe2d7805e8d63f2801df32cbc8d07fe4dea383b2bb6216b32"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/72_2026_ND-CP.pdf",
+      "size": 199411,
+      "sha256": "1383b7332492efa97a8cf60d5d25c4b6f2f77881bcceae755f5003e72cf5c28a"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/73_2025_ND-CP.pdf",
+      "size": 1165702,
+      "sha256": "11ef6d5916fbfc9a1ca88d49fb4da4d9f0186dd153a451dda347e9cff7f40151"
+    },
+    {
+      "path": "assets/static/documents/pdf/generated/90_2025_QH15_662379.pdf",
+      "size": 479698,
+      "sha256": "830e99a79bfc7b428fc88f42db229111d92c4642419fa134069ca17436c12d4e"
+    },
+    {
+      "path": "assets/static/documents/registry.json",
+      "size": 33060,
+      "sha256": "f55ecdeb827c1a8a072ef5b76d5f87f1c3a7773d50140794a25739f977a2290e"
+    },
+    {
+      "path": "assets/static/documents/tax/144_2024_ND-CP.docx",
+      "size": 17072,
+      "sha256": "342f88eb88260656911a4af91fd927a41ba2cbf64a4c26028d205390b6cd4fa5"
+    },
+    {
+      "path": "assets/static/documents/tax/15_2023_QD-TTg.docx",
+      "size": 549644,
+      "sha256": "ca97a31a47ceee8b0532600dfdb67f29203d042d988135903c59e1e76788cbb5"
+    },
+    {
+      "path": "assets/static/documents/tax/199_2025_ND-CP.docx",
+      "size": 13623,
+      "sha256": "57a2355c91cea6995773ff00056ea0d67d6a974e298c9b809593c06d15679e6b"
+    },
+    {
+      "path": "assets/static/documents/tax/21_2025_ND-CP.docx",
+      "size": 8083,
+      "sha256": "977314983c9623d6c78d5a08457fad34045e986c88ed8897d6b5af4b7548c7aa"
+    },
+    {
+      "path": "assets/static/documents/tax/26_2023_ND-CP.docx",
+      "size": 1600550,
+      "sha256": "a76d716f634cd1929fb12f58df018517dd2db20605daabc853644519cd44d3d3"
+    },
+    {
+      "path": "assets/static/documents/tax/72_2026_ND-CP.docx",
+      "size": 13594,
+      "sha256": "6200512c25207ef9ad96ca1e5e9f07149bb0c6ac159905b24ae4b61f31bd1a7f"
+    },
+    {
+      "path": "assets/static/documents/tax/73_2025_ND-CP.docx",
+      "size": 50555,
+      "sha256": "2b9bae62e9eab54e8705c3d5416b90a095981de8cd699e22123df02822fbc337"
+    },
+    {
+      "path": "assets/static/documents/vat/09_2026_QH16_703956.docx",
+      "size": 8218,
+      "sha256": "3f86ac86605054f3d9726f0b2b22d25a8b9fd1bb697ab5e3d92d45372a0de4b2"
+    },
+    {
+      "path": "assets/static/documents/vat/101_2025_TT-BNNMT_693408.docx",
+      "size": 10752,
+      "sha256": "4890cbb6fe39a4895932ca3c92921df310e5a826fb6462eab40115a77e0a8136"
+    },
+    {
+      "path": "assets/static/documents/vat/136_2026_TT-BTC_724925.docx",
+      "size": 7645,
+      "sha256": "fbe92b83a31e4f9d52c18ad8e6e59020599df264bcde23889132d742f020d2d4"
+    },
+    {
+      "path": "assets/static/documents/vat/144_2026_ND-CP_694808.docx",
+      "size": 38243,
+      "sha256": "b08eff403174c42b3025560691ae789c83473f68652760210424a9d9f25f184f"
+    },
+    {
+      "path": "assets/static/documents/vat/149_2025_QH15_679698.docx",
+      "size": 7321,
+      "sha256": "476f9b57dacd46919838ca7fd31d8358a8ed763d8681c6257172cf2cf1ee3fb1"
+    },
+    {
+      "path": "assets/static/documents/vat/158_2025_TT-BTC_687593.docx",
+      "size": 14993,
+      "sha256": "8d996eb9150992dfbde5adb20a184170699adc4bce46a085e8f57d41ef096e98"
+    },
+    {
+      "path": "assets/static/documents/vat/174_2025_ND-CP_663151.docx",
+      "size": 99985,
+      "sha256": "f40ed546a67ceb7a17ff7cb49602710e887539c7172fc5fa24b84bde6cc31bb6"
+    },
+    {
+      "path": "assets/static/documents/vat/181_2025_ND-CP_646124.docx",
+      "size": 83250,
+      "sha256": "7870d24e994f23ab5ab043d886c6d70cdee62e7c628725c10d0ba221d45b501a"
+    },
+    {
+      "path": "assets/static/documents/vat/204_2025_QH15_662685.docx",
+      "size": 6704,
+      "sha256": "f09631f107ca1c283e0ace6ee6297bce93afc44e5365c57e916a08d13555b517"
+    },
+    {
+      "path": "assets/static/documents/vat/359_2025_ND-CP_679684.docx",
+      "size": 7727,
+      "sha256": "b75fb63548bfb46611032df890d6d7cbb3b6ab16a621377a8615f472fb28ccef"
+    },
+    {
+      "path": "assets/static/documents/vat/360_2025_ND-CP_318217.docx",
+      "size": 33204,
+      "sha256": "efce2151c1b7621b15558aed58b4c4d30e82a156433f02b156dfa93ca2799046"
+    },
+    {
+      "path": "assets/static/documents/vat/48_2024_QH15_556390.docx",
+      "size": 24013,
+      "sha256": "4dedbc0b5e2344893e2b3943428a6415fdd5df382ceebda80e40429d438bb539"
+    },
+    {
+      "path": "assets/static/documents/vat/66_2025_QH15_621225.docx",
+      "size": 19057,
+      "sha256": "02c40b37be7a301473127d290d498264e5a0dbf4d0ec750f8494ca65e975454d"
+    },
+    {
+      "path": "assets/static/documents/vat/69_2025_TT-BTC_663356.docx",
+      "size": 23114,
+      "sha256": "d2730219a5abd44f77ddf68a1008739bb88dd8dc119bd8f8401007a3e5494e92"
+    },
+    {
+      "path": "assets/static/documents/vat/90_2025_QH15_662379.docx",
+      "size": 65694,
+      "sha256": "f27a69e107c2b709182e0c0fb5e76c42d6f9a6d6e7758ad7b97b836ae3feef25"
+    },
+    {
+      "path": "assets/static/hs_master_31_2022.json.gz",
+      "size": 356317,
+      "sha256": "0bebae94902363b96818df09704a5922c053237f392f736fd4c876df22a20b7f"
+    },
+    {
+      "path": "assets/static/hspo.ico",
+      "size": 45255,
+      "sha256": "d60e18be900e52a178c430b147c380af6cabe74c9f8792fc5310b6684721e259"
+    },
+    {
+      "path": "assets/static/hspo_192.png",
+      "size": 17450,
+      "sha256": "0bb87c038ec34ee47f393517849b327e25ae7edb339bea0cc348561520e070f0"
+    },
+    {
+      "path": "assets/static/hspo_512.png",
+      "size": 32155,
+      "sha256": "64972fa87bddb06b41187c9074aa548dd424a35331670deb0db59dba7bb436ac"
+    },
+    {
+      "path": "assets/static/index.html",
+      "size": 229228,
+      "sha256": "653f9f7cec6725378af36ec5416c1f04274918a26175480b01b8a56d580e2e11"
+    },
+    {
+      "path": "assets/static/logo.svg",
+      "size": 713,
+      "sha256": "f43f8957a223d994e488ebaebe5391610541edb468c1f0182a2c22b062b882e8"
+    },
+    {
+      "path": "assets/static/manifest.webmanifest",
+      "size": 507,
+      "sha256": "29ad0bf684597d040e3942660a4d139ab04fd414d9c0142c3d1e07357f756970"
+    },
+    {
+      "path": "assets/static/pdf_text_engine.js",
+      "size": 12387,
+      "sha256": "d2abf9ea439ec644711ec4a8d350a15e50b5b8d057c37d02100580e3978a982f"
+    },
+    {
+      "path": "assets/static/policy_engine_v2.json",
+      "size": 15537,
+      "sha256": "b9a047c53b37ea12b6ced7334e4313a1fb3e05c6dc8f404a7255df15a43b0fe0"
+    },
+    {
+      "path": "assets/static/quality_policy_2026.json.gz",
+      "size": 435930,
+      "sha256": "7a526bb73015d0e613a1865e4db4efd1e74aa866e12e6b3276177c3a916ddf71"
+    },
+    {
+      "path": "assets/static/quarantine_policy_2026.json.gz",
+      "size": 62363,
+      "sha256": "af2c9997757ea3105b340af21aacb66faa4df24ac2131f1f92c2eb6dbda57bbf"
+    },
+    {
+      "path": "assets/static/specialized_inspection_01_2024.json.gz",
+      "size": 29668,
+      "sha256": "9238c5b45c40929dc6c6c1a75d87597f0f6f3eba39950c096d56ffaa5da58c4b"
+    },
+    {
+      "path": "assets/static/tariff_2026.json.gz",
+      "size": 833141,
+      "sha256": "83e9ccedc648b0c6dacec6f2b4a5c01473fc14801c07bca2ee9ee9c27ef64188"
+    },
+    {
+      "path": "assets/static/vat_pl_scope_174_2025.json.gz",
+      "size": 16312,
+      "sha256": "6cfa3194740b12bdc5ae0afcc55c9a1f83dd5e1d90f079c75932ea8348fa09aa"
+    },
+    {
+      "path": "docs/ACCEPTANCE_CHECKLIST.md",
+      "size": 4039,
+      "sha256": "93d9bb46e504d8d5e1b53236bd581990b5f1f088a28004321c9ff9fe665dc0ea"
+    },
+    {
+      "path": "docs/API_CONTRACT_DISCOVERED.md",
+      "size": 747,
+      "sha256": "ead22a513e23475a9aba47beabcacba6715023fc6f4061df16040b2cccdd1cbe"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "size": 1534,
+      "sha256": "c38e32d6c56c549fcac24203ea5cf486d9db41b131a97e61ee4ce8ad1c616486"
+    },
+    {
+      "path": "docs/BUILD_AND_TEST.md",
+      "size": 1080,
+      "sha256": "10a5dad7d0dc00bceca5af1fddf4426d5dc807e5338272615d4ae22dc5ad5807"
+    },
+    {
+      "path": "docs/CODEX_START_HERE.md",
+      "size": 1995,
+      "sha256": "0035a245e71bf6ec29e667acb86b7d5f87799a0c89e6da6e2f2a7b12aa102dec"
+    },
+    {
+      "path": "docs/DATA_PATCH_AND_LEGAL_REVIEW.md",
+      "size": 1503,
+      "sha256": "e5c6e5bcd40cfafbb8e014964fd27b7b1938b583ca7552f7179952bf19e413a7"
+    },
+    {
+      "path": "docs/GITHUB_RELEASE_AND_SERVER_MIGRATION.md",
+      "size": 5411,
+      "sha256": "72faef73a7fa75c9db724029bc206ff021b3c360b9c09d80a2911163f3a36911"
+    },
+    {
+      "path": "docs/INTEGRATION_V198.md",
+      "size": 6027,
+      "sha256": "ef6586ae93e461f763841974d587d23e2cb2d9a306ce8c597b6aa887a08d7cb5"
+    },
+    {
+      "path": "docs/RELEASE_BASELINE_AND_PROVENANCE.md",
+      "size": 1142,
+      "sha256": "751372d8a62936f6c0bb6c7845e7bc43b239fb09af7fbafb0ff26bfea8898719"
+    },
+    {
+      "path": "docs/SECURITY_AND_PRIVACY.md",
+      "size": 1085,
+      "sha256": "199d900292eb4b6a984621ab976f640e40ac86dc422e869cedb4b18a5bb37eff"
+    },
+    {
+      "path": "docs/STATUS_AND_GAPS.md",
+      "size": 3173,
+      "sha256": "4b3cbca673151f4fda595f7093739e2cfdf38a1a2cdbd56c4de29a62704cc7fb"
+    },
+    {
+      "path": "docs/TEST_RESULTS_20261120.md",
+      "size": 6824,
+      "sha256": "7612ac29c50aaacf459b781bb28dcdd27032b8403739def5d118822f8434a583"
+    },
+    {
+      "path": "docs/prior-codex-notes/CURRENT_STATE.md",
+      "size": 2784,
+      "sha256": "5cc95fc40ccfebff54b81974ab56a7244c9b0ccf418cc32329c224fbacd49aa4"
+    },
+    {
+      "path": "docs/prior-codex-notes/LEGAL_LOOKUP_SPEC.md",
+      "size": 6206,
+      "sha256": "567b96070856148d7979f4cc71d76747f24cace2c5d97f9042f500d641e1f621"
+    },
+    {
+      "path": "docs/prior-codex-notes/PROJECT_CONTEXT.md",
+      "size": 5483,
+      "sha256": "c9e6ee93fd06101a4e5080e193f07474d6915268d79f7479180db2962aa04322"
+    },
+    {
+      "path": "docs/prior-codex-notes/TEST_MATRIX.md",
+      "size": 2693,
+      "sha256": "8d2259f0179e4c0f4a6393593b3b191d15bd3e1cf2e6b9faa71b0fc9085de053"
+    },
+    {
+      "path": "go.work",
+      "size": 127,
+      "sha256": "91a3f4454176b5539d6b2bf6a9d521fd3f7579932a8c498d3df70d8e6fe469c6"
+    },
+    {
+      "path": "reference/earlier-legal-attempt/build_legal_module.py",
+      "size": 5652,
+      "sha256": "9f9bfd1e0eb46b9c5250704710af58d5fe055baf72de4ef12f55640912446359"
+    },
+    {
+      "path": "reference/earlier-legal-attempt/diffs/main_index_1941_to_201.diff",
+      "size": 43076,
+      "sha256": "4c73e2692054650596e9f05095dfb5a53b3ab779c3d127095e8b59c06c2ab702"
+    },
+    {
+      "path": "reference/earlier-legal-attempt/legal_lookup/index.html",
+      "size": 12938,
+      "sha256": "b0331fc0c364f172e269aa92bfc62e7a4a3163d62ef380f2e64bda5c0ea976b9"
+    },
+    {
+      "path": "reference/earlier-legal-attempt/legal_lookup/legal_index.json",
+      "size": 133567,
+      "sha256": "e55200cae6685caf991076f8d95b6a5f22a2c2524b06efbe233df9d445e761da"
+    },
+    {
+      "path": "reference/earlier-legal-attempt/legal_lookup/legal_overrides.json",
+      "size": 78,
+      "sha256": "051065a8732cba9acb9ecf89b7ea50cd7e1bc4cc0bf25b8c136cb5bf67390652"
+    },
+    {
+      "path": "reference/earlier-legal-attempt/legal_lookup/module.json",
+      "size": 334,
+      "sha256": "91d4292fcb5b945be005f5b58d2660028ad05b7d931c4096b163653f7ad99656"
+    },
+    {
+      "path": "reference/recovery-notes/CODEX_TASK.md",
+      "size": 1178,
+      "sha256": "1242e5ad742e0dceaf58d039619ae20cb2de277b18147a5bc3b6277deabeaced"
+    },
+    {
+      "path": "reference/recovery-notes/RECOVERY_MAP.md",
+      "size": 2932,
+      "sha256": "c8c11458defc6f07c6d83ea9efb79697b6cd95a2c3269652e4d73430c439fc7a"
+    },
+    {
+      "path": "reference/scripts/HQTN_HSPO_OCR_HealthCheck.ps1",
+      "size": 2152,
+      "sha256": "ffe0791246b34212630fdb4a7c04bbd2dceee38a1213c08ab3ec71be5a85cb19"
+    },
+    {
+      "path": "reference/scripts/HQTN_HSPO_OCR_Worker.ps1",
+      "size": 17903,
+      "sha256": "29d96f097242042448ce253a137a982d7ae4429e2a80986c8cd2df61597ac6ed"
+    },
+    {
+      "path": "reference/scripts/HQTN_HSPO_Tesseract_Bootstrap.ps1",
+      "size": 3115,
+      "sha256": "10e2161f7dfebe9003afd3811f9cc9e0c652a0fac02d79dfca766f59127af6e5"
+    },
+    {
+      "path": "reference/scripts/HQTN_HSPO_Tesseract_Check.ps1",
+      "size": 777,
+      "sha256": "f8c1117094ca25ec921c8032ec596a3a3f5cd66f43246138ae1b32571a88016b"
+    },
+    {
+      "path": "reference/scripts/VERSION.txt",
+      "size": 8,
+      "sha256": "bb1e5618e47b1c848db815f4140bec431cbcbf5e60616849f8e191b92e4de433"
+    },
+    {
+      "path": "scripts/build_qa_windows.ps1",
+      "size": 2305,
+      "sha256": "efbcd7f9ab366ac9349317d62809079e53f14772f2d45782e76836a7ddeee8f9"
+    },
+    {
+      "path": "scripts/check_policy_snapshot.py",
+      "size": 820,
+      "sha256": "0f57271949f56f6993404a53c586223cd6453653ba5f02d1627aecd8e0c8b37e"
+    },
+    {
+      "path": "scripts/create_data_patch.py",
+      "size": 1341,
+      "sha256": "a26b373feeb2622b71124a51eca23ba7444421b091aed14291a850fee475442d"
+    },
+    {
+      "path": "scripts/extract_api_contract.py",
+      "size": 725,
+      "sha256": "010d9804669a0b8cec4b65ac87fbd86837b737067245286b91075bdf31ef2b62"
+    },
+    {
+      "path": "scripts/import_release_baseline.py",
+      "size": 1768,
+      "sha256": "b2e7d87a0077564871b75a40d8ac318f01a25c3f4454b0fd2685b87b1235b618"
+    },
+    {
+      "path": "scripts/server_migration.py",
+      "size": 6383,
+      "sha256": "311c1660c29a2d9b062c7d18ae222da5331c03635b6f79fe28f05bdf0726da8e"
+    },
+    {
+      "path": "scripts/smoke_recovered_windows.py",
+      "size": 10937,
+      "sha256": "61849557911fa0b160e5df7e3159e31e9393f7d41372fbb9fad0c142c83cf017"
+    },
+    {
+      "path": "scripts/stage_legacy_userdata.py",
+      "size": 3200,
+      "sha256": "56d7692109f463a9f80f95d25e9c936e55f2ef07df23a74803d0ad7fffd71b32"
+    },
+    {
+      "path": "scripts/test_server_migration.py",
+      "size": 2863,
+      "sha256": "66a5a1757e9cc4153e56a5888fcbe23d633248cbd62b55786b79e2ed4ad1bf29"
+    },
+    {
+      "path": "scripts/test_sources.sh",
+      "size": 492,
+      "sha256": "fe7ac3046b26440261da7eaac9709fdb52b754ee65aa892364c70026bf7218c8"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "size": 779,
+      "sha256": "0a9521fad90454aaa47f6da803da68531ad699ded7a2cfcf5c9558e89c311967"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "legal_lookup",
+  "name": "Tra cứu văn bản",
+  "version": "2.0.1",
+  "min_host_version": "1.9.4.1",
+  "api_contract": "1.0",
+  "entry_ui": "web/index.html",
+  "entry_backend": "backend.py",
+  "upgrade_mode": "replace_folder",
+  "data_compatible": true,
+  "description": "Tra cứu văn bản, chuỗi sửa đổi/bổ sung/thay thế/hợp nhất và trạng thái phụ lục, mẫu biểu."
+}

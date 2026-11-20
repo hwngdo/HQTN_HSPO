@@ -1,0 +1,43 @@
+name: Windows QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.2'
+          cache: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify tracked source snapshot
+        run: |
+          python -B scripts/verify_package.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -B scripts/test_server_migration.py
+      - name: Go regression and static analysis
+        run: |
+          go test ./apps/core-recovered/... ./apps/qa-gateway/... ./apps/uat-preview-8970/... ./apps/release-v198/...
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          go vet ./apps/core-recovered/... ./apps/qa-gateway/... ./apps/uat-preview-8970/... ./apps/release-v198/...
+      - name: Check search scripts
+        run: |
+          foreach ($file in Get-ChildItem apps/release-v198/web/static -Filter '*.js' -File) {
+            node --check $file.FullName
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }

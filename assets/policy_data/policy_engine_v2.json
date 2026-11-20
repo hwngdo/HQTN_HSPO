@@ -1,0 +1,392 @@
+{
+  "schema_version": "2.1",
+  "app_version": "1.9.6",
+  "as_of": "2026-10-19",
+  "principles": [
+    "Công cụ hỗ trợ quyết định; mã HS không tự tạo kết luận pháp lý nếu văn bản còn phụ thuộc mô tả, mục đích, thành phần, nguồn gốc, tình trạng hoặc thông số kỹ thuật.",
+    "Rule hết hạn không được hiển thị như quy định đang áp dụng; rule chuyển tiếp phải hiển thị mốc kết thúc.",
+    "Bộ quy tắc hỗ trợ kiểm tra chỉ dùng để tổng hợp và cảnh báo; khi có khác biệt phải đối chiếu văn bản pháp luật và dữ liệu nguồn hiện hành.",
+    "Mỗi rule có thuộc tính chiều giao dịch để phân biệt Nhập khẩu, Xuất khẩu, Cả hai hoặc loại hình khác."
+  ],
+  "rules": [
+    {
+      "rule_id": "USED_MED_DEVICE_TRANSITION_2026",
+      "title": "Thiết bị y tế đã qua sử dụng - chuyển tiếp",
+      "category": "transition",
+      "priority": 1,
+      "match": {
+        "policy_contains": [
+          "Thiết bị y tế đã qua sử dụng cấm nhập khẩu"
+        ]
+      },
+      "decision": "ACTIVE_UNTIL",
+      "valid_from": "2026-09-05",
+      "valid_to": "2026-12-31",
+      "basis": "Điều 21 khoản 3 TT 48/2026/TT-BCT",
+      "summary": "Danh mục thiết bị y tế đã qua sử dụng cấm nhập khẩu theo TT12/2018, sửa bởi PL I TT08/2023, tiếp tục áp dụng đến hết 31/12/2026.",
+      "checks": [
+        "Hàng thực tế là thiết bị y tế đã qua sử dụng",
+        "Đối chiếu đúng danh mục chuyển tiếp",
+        "Ngày đăng ký tờ khai"
+      ],
+      "trade_direction": "IMPORT"
+    },
+    {
+      "rule_id": "MINERAL_GRAPHITE_TRANSITION_2026",
+      "title": "Quặng tinh graphit - mốc xuất khẩu đến hết 2026",
+      "category": "transition",
+      "priority": 2,
+      "match": {
+        "hs_prefix": [
+          "25041000",
+          "25049000"
+        ]
+      },
+      "decision": "ACTIVE_UNTIL",
+      "valid_from": "2024-02-15",
+      "valid_to": "2026-12-31",
+      "basis": "Phụ lục 1, 02/VBHN-BCT ngày 29/01/2024",
+      "summary": "Quặng tinh graphit trong danh mục được ghi chú xuất khẩu đến hết năm 2026 và Bộ Công Thương xem xét theo chính sách từng thời kỳ.",
+      "checks": [
+        "Hàng thực tế là quặng tinh graphit",
+        "Hàm lượng C ≥ 90%",
+        "Ngày đăng ký tờ khai không sau 31/12/2026",
+        "Chính sách xuất khẩu khoáng sản tại thời điểm thực hiện"
+      ],
+      "trade_direction": "EXPORT"
+    },
+    {
+      "rule_id": "CHEM_DECLARE_CH28_29",
+      "title": "Khai báo hóa chất nhập khẩu",
+      "category": "declaration",
+      "priority": 5,
+      "match": {
+        "hs_prefix": [
+          "28",
+          "29"
+        ]
+      },
+      "decision": "APPLIES_UNLESS_EXEMPT",
+      "valid_from": "2026-01-17",
+      "valid_to": null,
+      "basis": "Điều 6 khoản 1 và khoản 7 NĐ 26/2026/NĐ-CP",
+      "summary": "Khai báo hóa chất nhập khẩu trước thông quan; phải kiểm tra hàng hóa thực tế và trường hợp miễn tại khoản 7.",
+      "checks": [
+        "Hàng hóa thực tế có thuộc Chương 28 hoặc 29 hay không",
+        "Có thuộc một trong các trường hợp miễn tại khoản 7 Điều 6 hay không"
+      ],
+      "exemptions": [
+        "Hóa chất cần kiểm soát đặc biệt đã có Giấy phép nhập khẩu",
+        "Hóa chất cấm đã có Giấy phép nhập khẩu",
+        "Dưới 10 kg hóa chất thuộc khoản 1 Điều 6",
+        "Dưới 01 kg hóa chất mới để thử nghiệm, đánh giá đặc tính hóa lý",
+        "Hỗn hợp không thuộc Chương 28/29 nhưng có chứa hóa chất thuộc Chương 28/29"
+      ],
+      "trade_direction": "IMPORT"
+    },
+    {
+      "rule_id": "BCT_TT48_2026_USED_CONSUMER",
+      "title": "Hàng tiêu dùng đã qua sử dụng cấm nhập khẩu",
+      "category": "import_prohibition",
+      "priority": 10,
+      "match": {
+        "policy_contains": [
+          "48/2026/TT-BCT"
+        ],
+        "policy_contains_any": [
+          "Đối chiếu chính sách hàng tiêu dùng đã qua sử dụng",
+          "Thiết bị y tế đã qua sử dụng cấm nhập khẩu"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2026-09-05",
+      "valid_to": null,
+      "basis": "48/2026/TT-BCT",
+      "summary": "Phải xác định tình trạng đã qua sử dụng và đối chiếu đúng mô tả/phạm vi mã tại Phụ lục I; thiết bị y tế cũ có quy định chuyển tiếp riêng đến 31/12/2026.",
+      "checks": [
+        "Tình trạng mới/đã qua sử dụng",
+        "Mô tả hàng hóa thực tế",
+        "Phạm vi mã 2/4/6/8 số",
+        "Nếu là thiết bị y tế cũ: kiểm tra quy định chuyển tiếp đến 31/12/2026"
+      ],
+      "trade_direction": "IMPORT"
+    },
+    {
+      "rule_id": "CITES_17_2023",
+      "title": "Loài nguy cấp, quý, hiếm/CITES",
+      "category": "cites",
+      "priority": 10,
+      "match": {
+        "policy_contains": [
+          "17/2023/TT-BNNPTNT"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2024-01-30",
+      "valid_to": null,
+      "basis": "17/2023/TT-BNNPTNT",
+      "summary": "HS chỉ là đầu mối; phải xác định loài, tên khoa học và dạng sản phẩm thực tế để áp dụng quy định CITES.",
+      "checks": [
+        "Tên loài/tên khoa học",
+        "Dạng mẫu vật/sản phẩm",
+        "Phụ lục/danh mục CITES tương ứng"
+      ],
+      "trade_direction": "BOTH"
+    },
+    {
+      "rule_id": "BCT_TT41_2026_USED_SCRAP",
+      "title": "Phế liệu/hàng đã qua sử dụng tạm ngừng TNTX, chuyển khẩu",
+      "category": "temporary_suspension",
+      "priority": 15,
+      "match": {
+        "policy_contains": [
+          "41/2026/TT-BCT"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2026-09-05",
+      "valid_to": "2029-12-31",
+      "basis": "41/2026/TT-BCT",
+      "summary": "Chỉ áp dụng trong đúng phạm vi phế liệu hoặc hàng đã qua sử dụng và đúng loại hình tạm nhập tái xuất/chuyển khẩu.",
+      "checks": [
+        "Tình trạng hàng: phế liệu hoặc đã qua sử dụng",
+        "Loại hình kinh doanh: TNTX/chuyển khẩu",
+        "Mã HS theo nguyên tắc mở rộng 2/4/6/8 số của phụ lục",
+        "Trường hợp chuyển tải trực tiếp không qua Việt Nam"
+      ],
+      "trade_direction": "OTHER"
+    },
+    {
+      "rule_id": "TOBACCO_VBHN12_2026",
+      "title": "Nhập khẩu thuốc lá điếu, xì gà",
+      "category": "state_trade",
+      "priority": 15,
+      "match": {
+        "policy_contains": [
+          "12/VBHN-BCT ngày 10/03/2026"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2026-04-10",
+      "valid_to": null,
+      "basis": "12/VBHN-BCT ngày 10/03/2026",
+      "summary": "Phải kiểm tra phạm vi hàng, trường hợp loại trừ, thương nhân được chỉ định và hồ sơ đăng ký nhập khẩu tự động.",
+      "checks": [
+        "Có thuộc thuốc lá điếu/xì gà theo danh mục hay không",
+        "Có thuộc trường hợp không áp dụng tại Điều 1 khoản 2 hay không",
+        "Thương nhân nhập khẩu theo cơ chế thương mại nhà nước",
+        "Đơn đăng ký nhập khẩu tự động và cửa khẩu quốc tế"
+      ],
+      "trade_direction": "IMPORT"
+    },
+    {
+      "rule_id": "BYT_BIOCIDE_16_2024",
+      "title": "Chế phẩm diệt côn trùng, diệt khuẩn dùng trong gia dụng và y tế",
+      "category": "health_management",
+      "priority": 20,
+      "match": {
+        "policy_contains": [
+          "16/2024/TT-BYT"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2024-11-15",
+      "valid_to": null,
+      "basis": "16/2024/TT-BYT",
+      "summary": "Mã HS phải được đối chiếu cùng loại chế phẩm, dạng sản phẩm, thành phần và các loại trừ trong danh mục.",
+      "checks": [
+        "Loại chế phẩm và công dụng",
+        "Dạng sản phẩm/đóng gói",
+        "Thành phần hoạt chất khi danh mục có yêu cầu",
+        "Các trường hợp loại trừ ghi tại cột Ghi chú"
+      ],
+      "trade_direction": "IMPORT"
+    },
+    {
+      "rule_id": "CIVIL_CRYPTO_211",
+      "title": "Sản phẩm mật mã dân sự",
+      "category": "license",
+      "priority": 20,
+      "match": {
+        "policy_contains": [
+          "211/2025/NĐ-CP"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2025-09-09",
+      "valid_to": null,
+      "basis": "NĐ 211/2025/NĐ-CP, danh mục sản phẩm mật mã dân sự xuất khẩu, nhập khẩu theo giấy phép",
+      "summary": "Không kết luận từ mã HS đơn lẻ; phải đồng thời đối chiếu mô tả hàng hóa và đặc tính kỹ thuật mật mã.",
+      "checks": [
+        "Mã HS thực tế",
+        "Mô tả hàng hóa",
+        "Đặc tính/chức năng mật mã theo danh mục"
+      ],
+      "trade_direction": "BOTH"
+    },
+    {
+      "rule_id": "MINERAL_BCT_VBHN2_2024",
+      "title": "Khoáng sản xuất khẩu do Bộ Công Thương quản lý",
+      "category": "export_condition",
+      "priority": 20,
+      "match": {
+        "policy_contains": [
+          "02/VBHN-BCT ngày 29/01/2024"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2024-02-15",
+      "valid_to": null,
+      "basis": "02/VBHN-BCT ngày 29/01/2024 (23/2021/TT-BCT + 45/2023/TT-BCT)",
+      "summary": "Phải phân biệt nguồn gốc trong nước/nhập khẩu và đối chiếu tiêu chuẩn chất lượng tương ứng.",
+      "checks": [
+        "Nguồn gốc khoáng sản",
+        "Chủng loại",
+        "Tiêu chuẩn chất lượng",
+        "Trường hợp có ghi chú chỉ được xuất khẩu đến hết năm 2026"
+      ],
+      "trade_direction": "EXPORT"
+    },
+    {
+      "rule_id": "MINERAL_BXD_11_2026",
+      "title": "Khoáng sản làm vật liệu xây dựng xuất khẩu",
+      "category": "export_condition",
+      "priority": 20,
+      "match": {
+        "policy_contains": [
+          "11/2026/TT-BXD"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2026-06-01",
+      "valid_to": null,
+      "basis": "11/2026/TT-BXD",
+      "summary": "Chỉ áp dụng khi đúng loại khoáng sản, nguồn gốc hợp pháp và đáp ứng quy cách/chỉ tiêu kỹ thuật tại Phụ lục I.",
+      "checks": [
+        "Chủng loại khoáng sản",
+        "Nguồn gốc hợp pháp",
+        "Quy cách và chỉ tiêu kỹ thuật",
+        "Mã HS và mô tả thực tế"
+      ],
+      "trade_direction": "EXPORT"
+    },
+    {
+      "rule_id": "FOOD_SAFETY_15_2024_BYT",
+      "title": "Kiểm tra nhà nước về an toàn thực phẩm nhập khẩu",
+      "category": "food_safety",
+      "priority": 25,
+      "match": {
+        "policy_contains": [
+          "15/2024/TT-BYT"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2024-11-02",
+      "valid_to": null,
+      "basis": "15/2024/TT-BYT",
+      "summary": "Danh mục theo HS phải được đối chiếu với tên hàng, công dụng/phạm vi sử dụng và các trường hợp không thuộc/được miễn kiểm tra.",
+      "checks": [
+        "Tên và công dụng hàng thực tế",
+        "Đúng phạm vi danh mục",
+        "Trường hợp không thuộc hoặc được miễn kiểm tra ATTP"
+      ],
+      "trade_direction": "IMPORT"
+    },
+    {
+      "rule_id": "NHNN_GOLD_47",
+      "title": "Vàng nguyên liệu thuộc phạm vi quản lý NHNN",
+      "category": "specialized_import_export",
+      "priority": 25,
+      "match": {
+        "policy_contains": [
+          "47/2018/TT-NHNN"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2019-02-12",
+      "valid_to": null,
+      "basis": "47/2018/TT-NHNN",
+      "summary": "Phải đối chiếu mô tả thực tế để xác định đúng vàng nguyên liệu thuộc danh mục.",
+      "checks": [
+        "Dạng hàng thực tế: khối, thỏi, hạt, miếng hoặc dạng khác thuộc phạm vi",
+        "Loại trừ các dạng được văn bản nêu ngoại trừ"
+      ],
+      "trade_direction": "BOTH"
+    },
+    {
+      "rule_id": "NHNN_PRINT_MINT",
+      "title": "Hàng hóa phục vụ hoạt động in, đúc tiền",
+      "category": "specialized_import",
+      "priority": 25,
+      "match": {
+        "policy_contains": [
+          "38/2018/TT-NHNN",
+          "07/2023/TT-NHNN"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2023-08-14",
+      "valid_to": null,
+      "basis": "38/2018/TT-NHNN, sửa đổi bởi 07/2023/TT-NHNN",
+      "summary": "Danh mục HS hiện hành lấy theo Phụ lục 07/2023; chỉ áp dụng trong phạm vi hàng phục vụ hoạt động in, đúc tiền của NHNN.",
+      "checks": [
+        "Mục đích nhập khẩu phục vụ in, đúc tiền",
+        "Đúng mô tả tại Phụ lục 07/2023",
+        "Văn bản xác nhận/chỉ định của NHNN theo quy định"
+      ],
+      "trade_direction": "IMPORT"
+    },
+    {
+      "rule_id": "PORT_OF_ENTRY_QD23_2019",
+      "title": "Hàng nhập khẩu phải làm thủ tục tại cửa khẩu nhập",
+      "category": "customs_location",
+      "priority": 30,
+      "match": {
+        "policy_contains": [
+          "23/2019/QĐ-TTg"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2019-09-01",
+      "valid_to": null,
+      "basis": "23/2019/QĐ-TTg",
+      "summary": "Không áp dụng máy móc theo HS; phải kiểm tra các trường hợp ngoại lệ tại Điều 5.",
+      "checks": [
+        "Đúng hàng thuộc danh mục",
+        "Có thuộc một trong các trường hợp ngoại lệ tại Điều 5 hay không",
+        "Loại hình và địa điểm thực tế làm thủ tục"
+      ],
+      "trade_direction": "IMPORT"
+    },
+    {
+      "rule_id": "PRINTING_22_2018_11_2024",
+      "title": "Hàng hóa lĩnh vực in",
+      "category": "specialized_import",
+      "priority": 30,
+      "match": {
+        "policy_contains": [
+          "22/2018/TT-BTTTT",
+          "11/2024/TT-BTTTT"
+        ]
+      },
+      "decision": "CONDITIONAL",
+      "valid_from": "2024-11-07",
+      "valid_to": null,
+      "basis": "22/2018/TT-BTTTT, sửa đổi bởi 11/2024/TT-BTTTT",
+      "summary": "Phải đối chiếu đúng mô tả thiết bị in 8 số; thủ tục hiện hành không được suy diễn thành giấy phép chung nếu văn bản chỉ yêu cầu khai báo.",
+      "checks": [
+        "Đúng mã HS 8 số và đúng mô tả thiết bị in",
+        "Loại thủ tục tương ứng với hàng thực tế",
+        "Mục đích và tình trạng hàng"
+      ],
+      "trade_direction": "OTHER"
+    }
+  ],
+  "legal_audit_file": "policy_data/legal_audit_33_v1.9.3.6.json",
+  "direction_summary": {
+    "IMPORT": 8,
+    "EXPORT": 3,
+    "BOTH": 3,
+    "OTHER": 2
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pdf": "/static/documents/pdf/24_2026_ND-CP.pdf",
+  "highlight_pdf": "/static/documents/pdf/24_2026_ND-CP_ngoai-tru_QA.pdf",
+  "references": [
+    "ND24_2026|III|26|944-22-9",
+    "ND24_2026|III|33|100-37-8",
+    "ND24_2026|III|33|108-01-0"
+  ],
+  "reference_pages": {
+    "ND24_2026|III|26|944-22-9": 48,
+    "ND24_2026|III|33|100-37-8": 49,
+    "ND24_2026|III|33|108-01-0": 49
+  }
+}

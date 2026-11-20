@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.1",
+  "dataset": "BIEU THUE XNK 2026.10.12 - PATCH NKTT/NKUD + LEGAL CLEANUP 33",
+  "as_of": "2026-10-12",
+  "source_file": "BIEU THUE XNK 2026.04.05.xlsx + legal patch 2026.10.05 + Legal Cleanup 33 refs 2026.10.12",
+  "runtime_file": "static/tariff_2026.json.gz",
+  "structure": {
+    "records": "hs, level, vi, en, unit, rates, policy, policy_current, policy_legacy, vat_note",
+    "rate_tuple": "[rate, document, effective_date]",
+    "rcep": "RCEP rate is an object keyed ASEAN/AUS/CHN/JPN/KOR/NZL",
+    "sources": "source registry normalized from sheet HT",
+    "rate_history": "optional object by tax code: [{rate, source, from, to, note}]",
+    "chapter98_ref": "optional corresponding HS code at Mục I Phụ lục II"
+  },
+  "update_rule": "rates stores the rate in force at dataset as_of; timed amendments are preserved in rate_history. NKTT direct QĐ15 appendix rates must not be recomputed from later MFN amendments.",
+  "legal_patch": {
+    "version": "1.9.2",
+    "as_of": "2026-10-05",
+    "scope": [
+      "NKTT",
+      "NKUD",
+      "Chương 98 - mã tương ứng"
+    ],
+    "sources": [
+      {
+        "document": "15/2023/QĐ-TTg",
+        "effective": "15/07/2023",
+        "role": "NKTT"
+      },
+      {
+        "document": "26/2023/NĐ-CP",
+        "effective": "15/07/2023",
+        "role": "NKUD baseline"
+      },
+      {
+        "document": "144/2024/NĐ-CP",
+        "effective": "16/12/2024",
+        "role": "NKUD amendment"
+      },
+      {
+        "document": "21/2025/NĐ-CP",
+        "effective": "10/02/2025",
+        "role": "policy/condition - automotive support program"
+      },
+      {
+        "document": "73/2025/NĐ-CP",
+        "effective": "31/03/2025",
+        "role": "NKUD amendment + Chapter 98"
+      },
+      {
+        "document": "199/2025/NĐ-CP",
+        "effective": "08/07/2025",
+        "role": "NKUD amendment"
+      },
+      {
+        "document": "72/2026/NĐ-CP",
+        "effective": "09/03/2026",
+        "role": "temporary NKUD - fuel"
+      },
+      {
+        "document": "25/2026/NQ-CP",
+        "effective": "01/05/2026",
+        "role": "extend NĐ72 + 3 additional fuel inputs at 0%"
+      },
+      {
+        "document": "34/2026/NQ-CP",
+        "effective": "01/07/2026",
+        "role": "extend through 30/09/2026"
+      },
+      {
+        "document": "43/2026/NQ-CP",
+        "effective": "01/10/2026",
+        "role": "extend through 31/12/2026"
+      }
+    ],
+    "rules": [
+      "NKTT: mã có trực tiếp trong Phụ lục QĐ15 dùng mức ghi trực tiếp; chỉ mã không có trong Phụ lục mới áp nguyên tắc 150% NKƯĐ tương ứng.",
+      "NKƯĐ: văn bản sửa đổi chỉ thay các mã/phạm vi được quy định; không tự động sửa NKTT.",
+      "Thuế suất có thời hạn được lưu bằng rate_history; rates là mức đang có hiệu lực tại ngày as_of."
+    ]
+  },
+  "legal_cleanup": {
+    "version": "1.9.3.6",
+    "as_of": "2026-10-12",
+    "audit_file": "policy_data/legal_audit_33_v1.9.3.6.json",
+    "principles": [
+      "Bộ quy tắc hỗ trợ kiểm tra không thay thế căn cứ pháp lý; khi có khác biệt phải đối chiếu văn bản pháp luật và dữ liệu nguồn hiện hành.",
+      "policy_current là chuỗi hiển thị sau làm sạch; policy giữ dữ liệu gốc; policy_legacy lưu bản cũ cho các dòng bị thay đổi.",
+      "Không tự kết luận nghĩa vụ chuyên ngành chỉ từ mã HS khi văn bản yêu cầu đối chiếu mô tả, công dụng, thành phần hoặc điều kiện khác."
+    ]
+  }
+}

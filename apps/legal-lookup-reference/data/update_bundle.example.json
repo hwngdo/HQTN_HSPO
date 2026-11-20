@@ -1,0 +1,22 @@
+{
+  "documents": [
+    {
+      "id": "31-2022-tt-btc",
+      "number": "31",
+      "year": 2022,
+      "doc_type": "Thông tư",
+      "issuer": "Bộ Tài chính",
+      "title": "",
+      "category": "HS",
+      "filename": "31_2022_TT-BTC_343978.docx",
+      "relative_path": "HS/31_2022_TT-BTC_343978.docx",
+      "status": "EFFECTIVE",
+      "source_verified": true,
+      "has_forms": null,
+      "forms_review_status": "NEEDS_REVIEW",
+      "notes": "Ví dụ cấu trúc; phải thay bằng dữ liệu đã rà soát trước khi nạp."
+    }
+  ],
+  "relations": [],
+  "forms": []
+}

@@ -1,0 +1,21 @@
+{
+  "version": "1.9.5",
+  "positive": [
+    {"hs":"02023000","expect":["ANIMAL_QUARANTINE"],"note":"Thịt trâu/bò đông lạnh"},
+    {"hs":"04090000","expect":["ANIMAL_QUARANTINE"],"note":"Mật ong tự nhiên"},
+    {"hs":"03011110","expect":["AQUATIC_QUARANTINE"],"note":"Cá sống/cá bột"},
+    {"hs":"03074310","expect":["AQUATIC_QUARANTINE"],"note":"Mực đông lạnh"},
+    {"hs":"06029020","expect":["PLANT_QUARANTINE"],"note":"Cây phong lan giống"},
+    {"hs":"07019010","expect":["PLANT_QUARANTINE"],"note":"Khoai tây Chương 07"},
+    {"hs":"44031110","expect":["PLANT_QUARANTINE"],"note":"Gỗ tròn/gỗ xẻ"},
+    {"hs":"44152000","expect":["PLANT_QUARANTINE"],"note":"Pallet gỗ"},
+    {"hs":"44014100","expect":["PLANT_QUARANTINE"],"note":"Mùn cưa"},
+    {"hs":"52010000","expect":["PLANT_QUARANTINE"],"note":"Bông thô"}
+  ],
+  "negative": [
+    {"hs":"03074921","not_expect":["AQUATIC_QUARANTINE"],"note":"Mực thuộc phân nhóm dạng khác, không tự cảnh báo theo trạng thái tươi/đông lạnh"},
+    {"hs":"20041000","not_expect":["PLANT_QUARANTINE"],"note":"Khoai tây chế biến Chương 20"},
+    {"hs":"85086000","not_expect":["ANIMAL_QUARANTINE","AQUATIC_QUARANTINE","PLANT_QUARANTINE"],"note":"Máy hút bụi"},
+    {"hs":"17029020","not_expect":["ANIMAL_QUARANTINE"],"note":"Mật ong nhân tạo không cảnh báo chỉ vì chứa từ khóa"}
+  ]
+}

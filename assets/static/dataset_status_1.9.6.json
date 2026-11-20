@@ -1,0 +1,41 @@
+{
+  "version": "1.9.6",
+  "datasets": [
+    {
+      "name": "Biểu thuế / VAT",
+      "version": "1.9.3.6",
+      "as_of": "2026-10-12",
+      "source": "BIEU THUE XNK 2026.10.05 - v1.9.2 TEST-R2 + VAT ENGINE"
+    },
+    {
+      "name": "Chính sách chất lượng",
+      "version": "1.9.0",
+      "as_of": "Chưa ghi trong dataset",
+      "source": "quality_policy_2026"
+    },
+    {
+      "name": "Kiểm dịch",
+      "version": "1.9.5.2",
+      "as_of": "2026-10-15",
+      "source": "01/2024/TT-BNNPTNT · Phụ lục I · Mục 1, Mục 5, Mục 9"
+    },
+    {
+      "name": "KTCN KD/ATTP",
+      "version": "1.9.5.2",
+      "as_of": "2026-10-15",
+      "source": "01/2024/TT-BNNPTNT"
+    },
+    {
+      "name": "VAT scope",
+      "version": "r2.2-vat-index-1",
+      "as_of": "Chưa ghi trong dataset",
+      "source": "174/2025/NĐ-CP"
+    },
+    {
+      "name": "Quy tắc hỗ trợ kiểm tra",
+      "version": "2.1",
+      "as_of": "2026-10-19",
+      "source": "Policy Engine v2 · phân loại chiều giao dịch Nhập khẩu/Xuất khẩu/Cả hai/khác"
+    }
+  ]
+}

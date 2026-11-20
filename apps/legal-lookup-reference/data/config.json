@@ -1,0 +1,9 @@
+{
+  "module_version": "2.0.1",
+  "documents_root": "../../VAN_BAN_PHAP_LUAT",
+  "db_file": "legal_lookup.db",
+  "api_prefix": "/api/modules/legal_lookup",
+  "ui_path": "/modules/legal_lookup/",
+  "candidate_detection": true,
+  "rule": "Không suy diễn hiệu lực của mẫu biểu từ hiệu lực văn bản chính. Mẫu biểu phải được rà soát riêng."
+}

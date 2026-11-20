@@ -1,0 +1,47 @@
+[
+  {
+    "destination": "apps/release-v198/cmd/update-gateway/main.go",
+    "origin": "v1.9.8 directory/tools/source/HSPO_UpdateGateway.go",
+    "sha256": "edcc05e6235e6c01472bf5664cbd37e5dc8ba0d335a535a81384badae9d54e35"
+  },
+  {
+    "destination": "apps/release-v198/cmd/update-gateway/main_test.go",
+    "origin": "v1.9.8 directory/tools/source/HSPO_UpdateGateway_test.go",
+    "sha256": "81679d463cdadee5596899171a64cad2ba3c849c28a733f9cf1424dce04c9033"
+  },
+  {
+    "destination": "apps/release-v198/cmd/launcher/main.go",
+    "origin": "v1.9.8 directory/tai_lieu/VERSION_DYNAMIC_SOURCE/main_launcher_198_data.go",
+    "sha256": "1747e048b5afee6c8a3a16dfe336424eb6f8a1587b412a98f5b25a151637b482"
+  },
+  {
+    "destination": "apps/release-v198/cmd/tray/main.go",
+    "origin": "v1.9.8 directory/tai_lieu/VERSION_DYNAMIC_SOURCE/tray_dynamic_198_data.go",
+    "sha256": "296b398bb077d60900e18319590ff7fbebe90f842cbf04c190ac1af24d004017"
+  },
+  {
+    "destination": "apps/release-v198/tools/TAO_GOI_DU_LIEU.py",
+    "origin": "v1.9.8 directory/tools/TAO_GOI_DU_LIEU.py",
+    "sha256": "2896dc133e0c84535d3beae19878a7fdfddae3ca0d51627f99821af0569fc363"
+  },
+  {
+    "destination": "apps/release-v198/web/static/index.html",
+    "origin": "HS6 verified trial/static/index.html",
+    "sha256": "ab5d8f26b3083abbaf1ad498229e32658df39e244885d0fa6466fe6f2ad5fdec"
+  },
+  {
+    "destination": "apps/release-v198/web/static/tariff-data.js",
+    "origin": "HS6 verified trial/static/tariff-data.js",
+    "sha256": "17252eb14509f32790d432c649b27ff49f8301f1f378e73d1a8059af40bc9fb6"
+  },
+  {
+    "destination": "apps/release-v198/web/static/tariff-view.js",
+    "origin": "HS6 verified trial/static/tariff-view.js",
+    "sha256": "5fd61aaae42658745baec26410e870077a5734ac10ca9e5a745d89aebce93a0d"
+  },
+  {
+    "destination": "apps/release-v198/web/static/tariff-warnings.js",
+    "origin": "HS6 verified trial/static/tariff-warnings.js",
+    "sha256": "3056c7194c30821586f455e1b58b0a74e320c4ca3ef7a9c3376e6ac1dbe55730"
+  }
+]

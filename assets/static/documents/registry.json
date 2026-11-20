@@ -1,0 +1,762 @@
+{
+  "version": "1.9.5.2",
+  "documents": [
+    {
+      "category": "hs_master",
+      "document_no": "31/2022/TT-BTC",
+      "title": "Danh mục hàng hóa xuất khẩu, nhập khẩu Việt Nam - nguồn HS và mô tả hàng hóa gốc",
+      "issuing_body": "Bộ Tài chính",
+      "file": "31_2022_TT-BTC.docx",
+      "pdf_file": "pdf/31_2022_TT-BTC.pdf",
+      "appendix_file": "31_2022_TT-BTC_Phu_luc_I.doc",
+      "note": "Phụ lục I là danh mục HS gốc; Phụ lục II gồm 6 quy tắc tổng quát giải thích phân loại.",
+      "effective": "01/12/2022"
+    },
+    {
+      "category": "quality",
+      "document_no": "37/2026/NĐ-CP",
+      "title": "Quy định chi tiết thi hành Luật Chất lượng sản phẩm, hàng hóa",
+      "issuing_body": "Chính phủ",
+      "file": "37_2026_ND-CP.doc",
+      "pdf_file": "pdf/37_2026_ND-CP.pdf",
+      "effective": "23/01/2026",
+      "effective_note": "Một số quy định chuyển tiếp đến 30/06/2026; xem Điều 97."
+    },
+    {
+      "category": "quality",
+      "document_no": "09/2024/TT-BYT",
+      "title": "Danh mục thuốc, nguyên liệu làm thuốc và mỹ phẩm đã xác định mã số hàng hóa",
+      "issuing_body": "Bộ Y tế",
+      "file": "09_2024_TT-BYT.docx",
+      "pdf_file": "pdf/09_2024_TT-BYT.pdf",
+      "effective": "26/07/2024"
+    },
+    {
+      "category": "quality",
+      "document_no": "16/2026/TT-BNV",
+      "title": "Danh mục sản phẩm, hàng hóa rủi ro thuộc trách nhiệm quản lý nhà nước của Bộ Nội vụ",
+      "issuing_body": "Bộ Nội vụ",
+      "file": "16_2026_TT-BNV.docx",
+      "pdf_file": "pdf/16_2026_TT-BNV.pdf",
+      "effective": "28/07/2026"
+    },
+    {
+      "category": "quality",
+      "document_no": "27/2026/TT-BNNMT",
+      "title": "Danh mục sản phẩm, hàng hóa rủi ro thuộc quản lý Bộ Nông nghiệp và Môi trường",
+      "issuing_body": "Bộ Nông nghiệp và Môi trường",
+      "file": "27_2026_TT-BNNMT.docx",
+      "pdf_file": "pdf/27_2026_TT-BNNMT.pdf",
+      "effective": "01/07/2026"
+    },
+    {
+      "category": "quality",
+      "document_no": "27/2026/TT-BYT",
+      "title": "Danh mục sản phẩm, hàng hóa rủi ro thuộc quản lý Bộ Y tế",
+      "issuing_body": "Bộ Y tế",
+      "file": "27_2026_TT-BYT.docx",
+      "pdf_file": "pdf/27_2026_TT-BYT.pdf",
+      "effective": "01/07/2026"
+    },
+    {
+      "category": "quality",
+      "document_no": "28/2026/TT-BYT",
+      "title": "Danh mục thuốc, nguyên liệu làm thuốc có mức độ rủi ro cao/trung bình",
+      "issuing_body": "Bộ Y tế",
+      "file": "28_2026_TT-BYT.docx",
+      "pdf_file": "pdf/28_2026_TT-BYT.pdf",
+      "effective": "01/07/2026"
+    },
+    {
+      "category": "quality",
+      "document_no": "33/2026/TT-BCT",
+      "title": "Danh mục sản phẩm, hàng hóa rủi ro thuộc quản lý Bộ Công Thương",
+      "issuing_body": "Bộ Công Thương",
+      "file": "33_2026_TT-BCT.docx",
+      "pdf_file": "pdf/33_2026_TT-BCT.pdf",
+      "effective": "01/07/2026"
+    },
+    {
+      "category": "quality",
+      "document_no": "36/2026/TT-BKHCN",
+      "title": "Danh mục sản phẩm, hàng hóa rủi ro thuộc quản lý Bộ Khoa học và Công nghệ",
+      "issuing_body": "Bộ Khoa học và Công nghệ",
+      "file": "36_2026_TT-BKHCN.docx",
+      "pdf_file": "pdf/36_2026_TT-BKHCN.pdf",
+      "effective": "01/07/2026"
+    },
+    {
+      "category": "quality",
+      "document_no": "41/2026/TT-BXD",
+      "title": "Danh mục sản phẩm, hàng hóa rủi ro lĩnh vực vật liệu/xây dựng",
+      "issuing_body": "Bộ Xây dựng",
+      "file": "41_2026_TT-BXD.docx",
+      "pdf_file": "pdf/41_2026_TT-BXD.pdf",
+      "effective": "01/07/2026"
+    },
+    {
+      "category": "quality",
+      "document_no": "49/2026/TT-BXD",
+      "title": "Danh mục sản phẩm, hàng hóa rủi ro lĩnh vực giao thông vận tải",
+      "issuing_body": "Bộ Xây dựng",
+      "file": "49_2026_TT-BXD.docx",
+      "pdf_file": "pdf/49_2026_TT-BXD.pdf",
+      "effective": "01/07/2026",
+      "effective_note": "Khoản 1–3 Điều 5 có hiệu lực từ 01/07/2029."
+    },
+    {
+      "category": "quality",
+      "document_no": "125/2026/TT-BCA",
+      "title": "Danh mục sản phẩm, hàng hóa rủi ro thuộc quản lý Bộ Công an",
+      "issuing_body": "Bộ Công an",
+      "file": "125_2026_TT-BCA.docx",
+      "pdf_file": "pdf/125_2026_TT-BCA.pdf",
+      "effective": "01/07/2026"
+    },
+    {
+      "category": "quality",
+      "document_no": "126/2026/TT-BQP",
+      "title": "Danh mục sản phẩm mật mã dân sự có mức độ rủi ro cao",
+      "issuing_body": "Bộ Quốc phòng",
+      "file": "126_2026_TT-BQP.docx",
+      "pdf_file": "pdf/126_2026_TT-BQP.pdf",
+      "effective": "02/09/2026"
+    },
+    {
+      "category": "quarantine",
+      "document_no": "01/2026/TT-BNNMT",
+      "title": "Quy định về kiểm dịch động vật, sản phẩm động vật trên cạn",
+      "issuing_body": "Bộ Nông nghiệp và Môi trường",
+      "file": "01_2026_TT-BNNMT.docx",
+      "effective": "01/01/2026",
+      "note": "Danh mục theo tên/tính chất hàng hóa, không lập theo mã HS; ứng dụng chỉ cảnh báo theo mô tả để công chức đối chiếu.",
+      "pdf_file": "pdf/generated/01_2026_TT-BNNMT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "chemical",
+      "document_no": "24/2026/NĐ-CP",
+      "title": "Quy định chi tiết Luật Hóa chất",
+      "issuing_body": "Chính phủ",
+      "file": "24_2026_ND-CP.docx",
+      "pdf_file": "pdf/24_2026_ND-CP.pdf",
+      "effective": "17/01/2026"
+    },
+    {
+      "category": "chemical",
+      "document_no": "26/2026/NĐ-CP",
+      "title": "Quy định liên quan quản lý hóa chất xuất khẩu, nhập khẩu",
+      "issuing_body": "Chính phủ",
+      "file": "26_2026_ND-CP.docx",
+      "pdf_file": "pdf/26_2026_ND-CP.pdf",
+      "effective": "17/01/2026",
+      "effective_note": "Một số quy định về dịch vụ tồn trữ hóa chất có hiệu lực từ 01/07/2026."
+    },
+    {
+      "category": "tax",
+      "document_no": "15/2023/QĐ-TTg",
+      "title": "Quy định áp dụng thuế suất thông thường đối với hàng hóa nhập khẩu",
+      "issuing_body": "Thủ tướng Chính phủ",
+      "file": "tax/15_2023_QD-TTg.docx",
+      "note": "NKTT baseline; Phụ lục quy định trực tiếp một số mã.",
+      "pdf_file": "pdf/generated/15_2023_QD-TTg.pdf",
+      "pdf_from_word": true,
+      "effective": "15/07/2023"
+    },
+    {
+      "category": "tax",
+      "document_no": "26/2023/NĐ-CP",
+      "title": "Biểu thuế xuất khẩu, Biểu thuế nhập khẩu ưu đãi",
+      "issuing_body": "Chính phủ",
+      "file": "tax/26_2023_ND-CP.docx",
+      "note": "NKƯĐ baseline.",
+      "pdf_file": "pdf/generated/26_2023_ND-CP.pdf",
+      "pdf_from_word": true,
+      "effective": "15/07/2023"
+    },
+    {
+      "category": "tax",
+      "document_no": "144/2024/NĐ-CP",
+      "title": "Sửa đổi một số mức thuế của NĐ26/2023",
+      "issuing_body": "Chính phủ",
+      "file": "tax/144_2024_ND-CP.docx",
+      "note": "Hiệu lực 16/12/2024.",
+      "pdf_file": "pdf/generated/144_2024_ND-CP.pdf",
+      "pdf_from_word": true,
+      "effective": "16/12/2024"
+    },
+    {
+      "category": "tax",
+      "document_no": "21/2025/NĐ-CP",
+      "title": "Sửa Điều 9 NĐ26/2023 - chương trình CNHT ô tô",
+      "issuing_body": "Chính phủ",
+      "file": "tax/21_2025_ND-CP.docx",
+      "note": "Lớp điều kiện/chương trình, không phải delta MFN hàng loạt.",
+      "pdf_file": "pdf/generated/21_2025_ND-CP.pdf",
+      "pdf_from_word": true,
+      "effective": "10/02/2025"
+    },
+    {
+      "category": "tax",
+      "document_no": "73/2025/NĐ-CP",
+      "title": "Sửa đổi mức thuế NKƯĐ và bổ sung Chương 98",
+      "issuing_body": "Chính phủ",
+      "file": "tax/73_2025_ND-CP.docx",
+      "note": "Bổ sung 9853.00.00 Ethane, mã tương ứng 2711.19.00.",
+      "pdf_file": "pdf/generated/73_2025_ND-CP.pdf",
+      "pdf_from_word": true,
+      "effective": "31/03/2025"
+    },
+    {
+      "category": "tax",
+      "document_no": "199/2025/NĐ-CP",
+      "title": "Sửa đổi NĐ26/2023 và một số mức thuế",
+      "issuing_body": "Chính phủ",
+      "file": "tax/199_2025_ND-CP.docx",
+      "note": "HS 7209.18.10: 0% 08/07-31/08/2025; 7% từ 01/09/2025.",
+      "pdf_file": "pdf/generated/199_2025_ND-CP.pdf",
+      "pdf_from_word": true,
+      "effective": "08/07/2025"
+    },
+    {
+      "category": "tax",
+      "document_no": "72/2026/NĐ-CP",
+      "title": "Tạm thời sửa NKƯĐ xăng dầu/nguyên liệu",
+      "issuing_body": "Chính phủ",
+      "file": "tax/72_2026_ND-CP.docx",
+      "note": "Được NQ25/34/43 kéo dài đến hết 31/12/2026.",
+      "pdf_file": "pdf/generated/72_2026_ND-CP.pdf",
+      "pdf_from_word": true,
+      "effective": "09/03/2026"
+    },
+    {
+      "category": "tax",
+      "document_no": "25/2026/NQ-CP",
+      "title": "Kéo dài NĐ72 và quy định 0% cho 3 mã nguyên liệu xăng dầu",
+      "issuing_body": "Chính phủ",
+      "effective": "01/05/2026",
+      "note": "Áp dụng đến 30/06/2026; sau đó được NQ34 kéo dài."
+    },
+    {
+      "category": "tax",
+      "document_no": "34/2026/NQ-CP",
+      "title": "Kéo dài ưu đãi xăng dầu",
+      "issuing_body": "Chính phủ",
+      "effective": "01/07/2026",
+      "note": "Kéo dài NQ25/NĐ72 đến 30/09/2026."
+    },
+    {
+      "category": "tax",
+      "document_no": "43/2026/NQ-CP",
+      "title": "Kéo dài ưu đãi xăng dầu đến hết năm 2026",
+      "issuing_body": "Chính phủ",
+      "effective": "01/10/2026",
+      "note": "Kéo dài NQ25/NĐ72 đến hết 31/12/2026."
+    },
+    {
+      "category": "vat",
+      "document_no": "48/2024/QH15",
+      "title": "Luật Thuế giá trị gia tăng",
+      "issuing_body": "Quốc hội",
+      "file": "vat/48_2024_QH15_556390.docx",
+      "pdf_file": "pdf/generated/48_2024_QH15_556390.pdf",
+      "pdf_from_word": true,
+      "effective": "01/07/2025",
+      "effective_note": "Một số quy định có hiệu lực từ 01/01/2026; xem Điều 18."
+    },
+    {
+      "category": "vat",
+      "document_no": "90/2025/QH15",
+      "title": "Luật sửa đổi, bổ sung một số luật, trong đó có Luật Thuế GTGT",
+      "issuing_body": "Quốc hội",
+      "file": "vat/90_2025_QH15_662379.docx",
+      "pdf_file": "pdf/generated/90_2025_QH15_662379.pdf",
+      "pdf_from_word": true,
+      "effective": "01/07/2025"
+    },
+    {
+      "category": "vat",
+      "document_no": "149/2025/QH15",
+      "title": "Luật sửa đổi, bổ sung Luật Thuế GTGT và một số luật về thuế",
+      "issuing_body": "Quốc hội",
+      "file": "vat/149_2025_QH15_679698.docx",
+      "pdf_file": "pdf/generated/149_2025_QH15_679698.pdf",
+      "pdf_from_word": true,
+      "effective": "01/01/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "181/2025/NĐ-CP",
+      "title": "Quy định chi tiết thi hành một số điều của Luật Thuế GTGT",
+      "issuing_body": "Chính phủ",
+      "file": "vat/181_2025_ND-CP_646124.docx",
+      "pdf_file": "pdf/generated/181_2025_ND-CP_646124.pdf",
+      "pdf_from_word": true,
+      "effective": "01/07/2025"
+    },
+    {
+      "category": "vat",
+      "document_no": "204/2025/QH15",
+      "title": "Nghị quyết giảm thuế GTGT",
+      "issuing_body": "Quốc hội",
+      "file": "vat/204_2025_QH15_662685.docx",
+      "pdf_file": "pdf/generated/204_2025_QH15_662685.pdf",
+      "pdf_from_word": true,
+      "effective": "01/07/2025–31/12/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "174/2025/NĐ-CP",
+      "title": "Quy định chính sách giảm thuế GTGT theo Nghị quyết 204/2025/QH15",
+      "issuing_body": "Chính phủ",
+      "file": "vat/174_2025_ND-CP_663151.docx",
+      "pdf_file": "pdf/generated/174_2025_ND-CP_663151.pdf",
+      "pdf_from_word": true,
+      "effective": "01/07/2025–31/12/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "69/2025/TT-BTC",
+      "title": "Hướng dẫn Luật Thuế GTGT và NĐ181/2025/NĐ-CP",
+      "issuing_body": "Bộ Tài chính",
+      "file": "vat/69_2025_TT-BTC_663356.docx",
+      "pdf_file": "pdf/generated/69_2025_TT-BTC_663356.pdf",
+      "pdf_from_word": true,
+      "effective": "01/07/2025"
+    },
+    {
+      "category": "vat",
+      "document_no": "09/2026/QH16",
+      "title": "Luật sửa đổi, bổ sung một số luật về thuế",
+      "issuing_body": "Quốc hội",
+      "file": "vat/09_2026_QH16_703956.docx",
+      "pdf_file": "pdf/generated/09_2026_QH16_703956.pdf",
+      "pdf_from_word": true,
+      "effective": "24/04/2026",
+      "effective_note": "Riêng các Điều 1–3 có hiệu lực từ 01/01/2026; xem Điều 5."
+    },
+    {
+      "category": "vat",
+      "document_no": "359/2025/NĐ-CP",
+      "title": "Quy định liên quan thuế GTGT đối với giao dịch nông sản trong nước",
+      "issuing_body": "Chính phủ",
+      "file": "vat/359_2025_ND-CP_679684.docx",
+      "pdf_file": "pdf/generated/359_2025_ND-CP_679684.pdf",
+      "pdf_from_word": true,
+      "effective": "01/01/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "144/2026/NĐ-CP",
+      "title": "Sửa đổi NĐ181/NĐ359; thay Phụ lục tài nguyên, khoáng sản xuất khẩu",
+      "issuing_body": "Chính phủ",
+      "file": "vat/144_2026_ND-CP_694808.docx",
+      "pdf_file": "pdf/generated/144_2026_ND-CP_694808.pdf",
+      "pdf_from_word": true,
+      "effective": "20/06/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "66/2025/QH15",
+      "title": "Luật Thuế tiêu thụ đặc biệt",
+      "issuing_body": "Quốc hội",
+      "file": "vat/66_2025_QH15_621225.docx",
+      "pdf_file": "pdf/generated/66_2025_QH15_621225.pdf",
+      "pdf_from_word": true,
+      "effective": "01/01/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "360/2025/NĐ-CP",
+      "title": "Quy định chi tiết Luật Thuế tiêu thụ đặc biệt",
+      "issuing_body": "Chính phủ",
+      "file": "vat/360_2025_ND-CP_318217.docx",
+      "pdf_file": "pdf/generated/360_2025_ND-CP_318217.pdf",
+      "pdf_from_word": true,
+      "effective": "01/01/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "158/2025/TT-BTC",
+      "title": "Hướng dẫn NĐ360/2025/NĐ-CP về thuế tiêu thụ đặc biệt",
+      "issuing_body": "Bộ Tài chính",
+      "file": "vat/158_2025_TT-BTC_687593.docx",
+      "pdf_file": "pdf/generated/158_2025_TT-BTC_687593.pdf",
+      "pdf_from_word": true,
+      "effective": "01/01/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "136/2026/TT-BTC",
+      "title": "Sửa đổi khoản 2 Điều 3 TT158/2025/TT-BTC",
+      "issuing_body": "Bộ Tài chính",
+      "file": "vat/136_2026_TT-BTC_724925.docx",
+      "pdf_file": "pdf/generated/136_2026_TT-BTC_724925.pdf",
+      "pdf_from_word": true,
+      "effective": "15/09/2026"
+    },
+    {
+      "category": "vat",
+      "document_no": "101/2025/TT-BNNMT",
+      "title": "Danh mục máy chuyên dùng khác phục vụ sản xuất nông nghiệp áp dụng VAT 5%",
+      "issuing_body": "Bộ Nông nghiệp và Môi trường",
+      "file": "vat/101_2025_TT-BNNMT_693408.docx",
+      "pdf_file": "pdf/generated/101_2025_TT-BNNMT_693408.pdf",
+      "pdf_from_word": true,
+      "effective": "31/12/2025"
+    },
+    {
+      "category": "quality",
+      "document_no": "01/2018/TT-BCT",
+      "title": "Quy định chi tiết hàng hóa mua bán, trao đổi qua cửa khẩu phụ, lối mở biên giới của thương nhân",
+      "issuing_body": "Bộ Công Thương",
+      "file": "01_2018_TT-BCT.docx",
+      "note": "Văn bản nền; danh mục hiện hành đã được 33/2025/TT-BCT sửa đổi.",
+      "pdf_file": "pdf/generated/01_2018_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "02/2018/TT-BCT",
+      "title": "Quy định chi tiết danh mục hàng hóa mua bán, trao đổi của cư dân biên giới",
+      "issuing_body": "Bộ Công Thương",
+      "file": "02_2018_TT-BCT.docx",
+      "note": "Văn bản nền; danh mục hiện hành đã được 34/2025/TT-BCT sửa đổi.",
+      "pdf_file": "pdf/generated/02_2018_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "08/2023/TT-BCT",
+      "title": "Sửa đổi, bổ sung các danh mục chi tiết theo mã HS thuộc phạm vi quản lý của Bộ Công Thương",
+      "issuing_body": "Bộ Công Thương",
+      "file": "08_2023_TT-BCT.docx",
+      "effective": "16/05/2023",
+      "note": "Hết hiệu lực một phần: Phụ lục I bị 48/2026/TT-BCT bãi bỏ; Phụ lục II bị 41/2026/TT-BCT bãi bỏ.",
+      "pdf_file": "pdf/generated/08_2023_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "42/2019/TT-BCT",
+      "title": "Sửa đổi, bổ sung một số quy định về chế độ báo cáo định kỳ tại các Thông tư của Bộ Công Thương",
+      "issuing_body": "Bộ Công Thương",
+      "file": "42_2019_TT-BCT.docx",
+      "note": "Hết hiệu lực một phần; không dùng làm căn cứ chính cho danh mục HS biên giới.",
+      "pdf_file": "pdf/generated/42_2019_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quarantine",
+      "document_no": "01/2024/TT-BNNPTNT",
+      "title": "Bảng mã HS đối với danh mục hàng hóa thuộc thẩm quyền quản lý nhà nước của Bộ Nông nghiệp và Phát triển nông thôn",
+      "issuing_body": "Bộ Nông nghiệp và PTNT",
+      "file": "01_2024_TT-BNNPTNT.docx",
+      "note": "Nguồn mapping HS chính thức cho Mục 1 (KD ĐV), Mục 5 (KD TS), Mục 9 (KD TV). Hết hiệu lực một phần: phần KTCL tại Phụ lục II, III đã bị TT 27/2026/TT-BNNMT bãi bỏ từ 01/07/2026; KD/KTATTP được dùng làm chỉ dấu và phải đối chiếu quy định hiện hành.",
+      "pdf_file": "pdf/generated/01_2024_TT-BNNPTNT.pdf",
+      "pdf_from_word": true,
+      "appendix_file": "01_2024_TT-BNNPTNT_Phu_luc.doc"
+    },
+    {
+      "category": "quality",
+      "document_no": "33/2025/TT-BCT",
+      "title": "Sửa đổi Thông tư 01/2018/TT-BCT về hàng hóa qua cửa khẩu phụ, lối mở biên giới",
+      "issuing_body": "Bộ Công Thương",
+      "file": "33_2025_TT-BCT.docx",
+      "effective": "21/07/2025",
+      "note": "Nguồn hiện hành của danh mục sửa đổi.",
+      "pdf_file": "pdf/generated/33_2025_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "34/2025/TT-BCT",
+      "title": "Sửa đổi Thông tư 02/2018/TT-BCT về hàng hóa mua bán, trao đổi của cư dân biên giới",
+      "issuing_body": "Bộ Công Thương",
+      "file": "34_2025_TT-BCT.docx",
+      "effective": "21/07/2025",
+      "note": "Nguồn hiện hành của danh mục sửa đổi.",
+      "pdf_file": "pdf/generated/34_2025_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quarantine",
+      "document_no": "18/2024/TT-BNNPTNT",
+      "title": "Sửa đổi một số nội dung của Thông tư 01/2024/TT-BNNPTNT",
+      "issuing_body": "Bộ Nông nghiệp và PTNT",
+      "file": "18_2024_TT-BNNPTNT.docx",
+      "effective": "13/01/2025",
+      "note": "Sửa phần liên quan thuốc thú y/nguyên liệu thuốc thú y.",
+      "pdf_file": "pdf/generated/18_2024_TT-BNNPTNT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "292/2026/NĐ-CP",
+      "title": "Quy định chi tiết một số điều và biện pháp tổ chức, hướng dẫn thi hành Luật Quản lý ngoại thương",
+      "issuing_body": "Chính phủ",
+      "file": "292_2026_ND-CP.docx",
+      "effective": "05/09/2026",
+      "note": "Thay thế toàn bộ Nghị định 69/2018/NĐ-CP.",
+      "pdf_file": "pdf/generated/292_2026_ND-CP.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "48/2026/TT-BCT",
+      "title": "Quy định chi tiết một số điều của Luật Quản lý ngoại thương và Nghị định 292/2026/NĐ-CP",
+      "issuing_body": "Bộ Công Thương",
+      "file": "48_2026_TT-BCT.docx",
+      "effective": "05/09/2026",
+      "note": "Bãi bỏ toàn bộ 12/2018/TT-BCT và bãi bỏ một phần 41/2019, 42/2019, 08/2023.",
+      "pdf_file": "pdf/generated/48_2026_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "41/2026/TT-BCT",
+      "title": "Danh mục phế liệu và hàng hóa đã qua sử dụng tạm ngừng kinh doanh tạm nhập, tái xuất, chuyển khẩu",
+      "issuing_body": "Bộ Công Thương",
+      "file": "41_2026_TT-BCT.docx",
+      "effective": "05/09/2026",
+      "note": "Có hiệu lực đến hết 31/12/2029; bãi bỏ TT 18/2024/TT-BCT, Điều 4 TT12/2018 và PL II của TT08/2023.",
+      "pdf_file": "pdf/generated/41_2026_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "23/2019/QĐ-TTg",
+      "title": "Danh mục hàng hóa nhập khẩu phải làm thủ tục hải quan tại cửa khẩu nhập",
+      "issuing_body": "Thủ tướng Chính phủ",
+      "file": "23_2019_QD-TTg.docx",
+      "note": "Nguồn cảnh báo địa điểm làm thủ tục hải quan.",
+      "pdf_file": "pdf/generated/23_2019_QD-TTg.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "41/2019/TT-BCT",
+      "title": "Bổ sung Danh mục chi tiết theo mã HS của hàng hóa xuất khẩu, nhập khẩu tại một số Thông tư của Bộ Công Thương",
+      "issuing_body": "Bộ Công Thương",
+      "file": "41_2019_TT-BCT.docx",
+      "note": "Hết hiệu lực một phần; Điều 3 và Phụ lục III bị 48/2026/TT-BCT bãi bỏ.",
+      "pdf_file": "pdf/generated/41_2019_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "12/2018/TT-BCT",
+      "title": "Quy định chi tiết một số điều của Luật Quản lý ngoại thương và Nghị định 69/2018/NĐ-CP",
+      "issuing_body": "Bộ Công Thương",
+      "file": "12_2018_TT-BCT.docx",
+      "note": "Đã bị 48/2026/TT-BCT bãi bỏ toàn bộ từ 05/09/2026.",
+      "pdf_file": "pdf/generated/12_2018_TT-BCT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quarantine",
+      "document_no": "17/2023/TT-BNNPTNT",
+      "title": "Quản lý, truy xuất nguồn gốc lâm sản và quản lý động vật, thực vật rừng nguy cấp, quý, hiếm; CITES",
+      "issuing_body": "Bộ Nông nghiệp và PTNT",
+      "file": "17_2023_TT-BNNPTNT.docx",
+      "note": "Nguồn CITES/chính sách động thực vật hoang dã.",
+      "pdf_file": "pdf/generated/17_2023_TT-BNNPTNT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "173/2018/TT-BQP",
+      "title": "Danh mục sản phẩm, hàng hóa cấm xuất khẩu, cấm nhập khẩu thuộc phạm vi quản lý của Bộ Quốc phòng",
+      "issuing_body": "Bộ Quốc phòng",
+      "file": "173_2018_TT-BQP.docx",
+      "note": "Nguồn chính sách chuyên ngành Bộ Quốc phòng.",
+      "pdf_file": "pdf/generated/173_2018_TT-BQP.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "chemical",
+      "document_no": "33/2024/NĐ-CP",
+      "title": "Quy định việc thực hiện Công ước Cấm vũ khí hóa học",
+      "issuing_body": "Chính phủ",
+      "file": "33_2024_ND-CP.docx",
+      "effective": "19/05/2024",
+      "note": "Hết hiệu lực một phần; xem bản hợp nhất 02/VBHN-BCT ngày 23/01/2026.",
+      "pdf_file": "pdf/generated/33_2024_ND-CP.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "11/2018/TT-BTTTT",
+      "title": "Danh mục sản phẩm công nghệ thông tin đã qua sử dụng cấm nhập khẩu kèm mã HS",
+      "issuing_body": "Bộ Thông tin và Truyền thông",
+      "file": "11_2018_TT-BTTTT.docx",
+      "note": "Nguồn chính sách CNTT đã qua sử dụng.",
+      "pdf_file": "pdf/generated/11_2018_TT-BTTTT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "15/2024/TT-BYT",
+      "title": "Danh mục thực phẩm, phụ gia, dụng cụ/bao gói thuộc phạm vi quản lý của Bộ Y tế và kiểm tra ATTP nhập khẩu",
+      "issuing_body": "Bộ Y tế",
+      "file": "15_2024_TT-BYT.docx",
+      "note": "Nguồn chính sách an toàn thực phẩm.",
+      "pdf_file": "pdf/generated/15_2024_TT-BYT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "211/2025/NĐ-CP",
+      "title": "Quy định về hoạt động mật mã dân sự và danh mục sản phẩm mật mã dân sự xuất khẩu, nhập khẩu theo giấy phép",
+      "issuing_body": "Chính phủ",
+      "file": "211_2025_ND-CP.docx",
+      "note": "Đối chiếu đồng thời mã HS, mô tả và đặc tính kỹ thuật.",
+      "pdf_file": "pdf/generated/211_2025_ND-CP.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "22/2018/TT-BTTTT",
+      "title": "Danh mục hàng hóa xuất khẩu, nhập khẩu trong lĩnh vực in, phát hành xuất bản phẩm",
+      "issuing_body": "Bộ Thông tin và Truyền thông",
+      "file": "22_2018_TT-BTTTT.docx",
+      "note": "Được sửa đổi, bổ sung bởi 11/2024/TT-BTTTT.",
+      "pdf_file": "pdf/generated/22_2018_TT-BTTTT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "11/2024/TT-BTTTT",
+      "title": "Sửa đổi, bổ sung quy định và danh mục mã HS trong lĩnh vực in, phát hành xuất bản phẩm",
+      "issuing_body": "Bộ Thông tin và Truyền thông",
+      "file": "11_2024_TT-BTTTT.docx",
+      "effective": "07/11/2024",
+      "note": "Áp dụng cùng 22/2018/TT-BTTTT.",
+      "pdf_file": "pdf/generated/11_2024_TT-BTTTT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "13/2023/QĐ-TTg",
+      "title": "Danh mục phế liệu được phép nhập khẩu từ nước ngoài làm nguyên liệu sản xuất",
+      "issuing_body": "Thủ tướng Chính phủ",
+      "file": "13_2023_QD-TTg.docx",
+      "effective": "01/06/2023",
+      "note": "Thay thế Quyết định 28/2020/QĐ-TTg.",
+      "pdf_file": "pdf/generated/13_2023_QD-TTg.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "11/2026/TT-BXD",
+      "title": "Danh mục, quy cách và chỉ tiêu kỹ thuật khoáng sản làm vật liệu xây dựng được phép xuất khẩu",
+      "issuing_body": "Bộ Xây dựng",
+      "file": "11_2026_TT-BXD.docx",
+      "effective": "01/06/2026",
+      "note": "Thay thế toàn bộ 04/2021/TT-BXD.",
+      "pdf_file": "pdf/generated/11_2026_TT-BXD.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "38/2018/TT-NHNN",
+      "title": "Nhập khẩu hàng hóa phục vụ hoạt động in, đúc tiền của Ngân hàng Nhà nước Việt Nam",
+      "issuing_body": "Ngân hàng Nhà nước Việt Nam",
+      "file": "38_2018_TT-NHNN.docx",
+      "effective": "08/02/2019",
+      "note": "Văn bản nền; Điều 4 và Phụ lục đã được 07/2023/TT-NHNN sửa/thay thế.",
+      "pdf_file": "pdf/generated/38_2018_TT-NHNN.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "07/2023/TT-NHNN",
+      "title": "Sửa đổi Thông tư 38/2018/TT-NHNN về nhập khẩu hàng hóa phục vụ in, đúc tiền",
+      "issuing_body": "Ngân hàng Nhà nước Việt Nam",
+      "file": "07_2023_TT-NHNN.docx",
+      "effective": "14/08/2023",
+      "note": "Thay toàn bộ Phụ lục danh mục hàng hóa của 38/2018/TT-NHNN.",
+      "pdf_file": "pdf/generated/07_2023_TT-NHNN.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "16/2024/TT-BYT",
+      "title": "Danh mục chế phẩm diệt côn trùng, diệt khuẩn dùng trong gia dụng và y tế đã xác định mã HS",
+      "issuing_body": "Bộ Y tế",
+      "file": "16_2024_TT-BYT.docx",
+      "effective": "15/11/2024",
+      "note": "Làm 09/2018/TT-BYT hết hiệu lực.",
+      "pdf_file": "pdf/generated/16_2024_TT-BYT.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "47/2018/TT-NHNN",
+      "title": "Danh mục hàng hóa xuất khẩu, nhập khẩu kèm mã HS thuộc phạm vi quản lý của NHNN trong lĩnh vực vàng",
+      "issuing_body": "Ngân hàng Nhà nước Việt Nam",
+      "file": "47_2018_TT-NHNN.docx",
+      "effective": "12/02/2019",
+      "note": "Đang dùng; gắn mốc rà soát lại sau thời kỳ chuyển tiếp NĐ292/2026.",
+      "pdf_file": "pdf/generated/47_2018_TT-NHNN.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "12/VBHN-BCT ngày 10/03/2026",
+      "title": "Hợp nhất quy định nhập khẩu thuốc lá điếu, xì gà",
+      "issuing_body": "Bộ Công Thương",
+      "file": "12_VBHN-BCT_2026_Thuoc_la.docx",
+      "note": "Hợp nhất 37/2013/TT-BCT và các văn bản sửa đổi, gồm 07/2026/TT-BCT.",
+      "pdf_file": "pdf/generated/12_VBHN-BCT_2026_Thuoc_la.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quality",
+      "document_no": "02/VBHN-BCT ngày 29/01/2024",
+      "title": "Hợp nhất quy định danh mục chủng loại, tiêu chuẩn chất lượng khoáng sản xuất khẩu do Bộ Công Thương quản lý",
+      "issuing_body": "Bộ Công Thương",
+      "file": "02_VBHN-BCT_2024_Khoang_san.docx",
+      "note": "Hợp nhất 23/2021/TT-BCT và 45/2023/TT-BCT.",
+      "pdf_file": "pdf/generated/02_VBHN-BCT_2024_Khoang_san.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "chemical",
+      "document_no": "02/VBHN-BCT ngày 23/01/2026",
+      "title": "Hợp nhất Nghị định về thực hiện Công ước Cấm vũ khí hóa học sau sửa đổi của Nghị định 26/2026/NĐ-CP",
+      "issuing_body": "Bộ Công Thương",
+      "file": "02_VBHN-BCT_2026_Hoa_chat.docx",
+      "note": "Nguồn hợp nhất để tra cứu hóa chất Bảng, HS/CAS và các điều khoản đã bị bãi bỏ.",
+      "pdf_file": "pdf/generated/02_VBHN-BCT_2026_Hoa_chat.pdf",
+      "pdf_from_word": true
+    },
+    {
+      "category": "quarantine",
+      "document_no": "67/VBHN-BNNMT",
+      "title": "Văn bản hợp nhất quy định về kiểm dịch động vật, sản phẩm động vật trên cạn",
+      "issuing_body": "Bộ Nông nghiệp và Môi trường",
+      "effective": "12/06/2026",
+      "note": "Đã nhúng bản hợp nhất. Dùng làm căn cứ nội dung kiểm dịch động vật, sản phẩm động vật trên cạn sau sửa đổi của TT 22/2026/TT-BNNMT.",
+      "file": "67_VBHN-BNNMT.docx"
+    },
+    {
+      "category": "quarantine",
+      "document_no": "03/2026/TT-BNNMT",
+      "title": "Quy định về kiểm dịch động vật, sản phẩm động vật thủy sản",
+      "issuing_body": "Bộ Nông nghiệp và Môi trường",
+      "effective": "13/01/2026",
+      "note": "Đã nhúng bản gốc. Phụ lục I: phải kiểm dịch/miễn kiểm dịch; Phụ lục II: phân tích nguy cơ; Phụ lục III: đối tượng kiểm dịch thủy sản.",
+      "file": "03_2026_TT-BNNMT.docx"
+    },
+    {
+      "category": "quarantine",
+      "document_no": "14/2024/TT-BNNPTNT",
+      "title": "Danh mục vật thể thuộc diện kiểm dịch thực vật và vật thể phải phân tích nguy cơ dịch hại trước khi nhập khẩu",
+      "issuing_body": "Bộ Nông nghiệp và Phát triển nông thôn",
+      "effective": "15/12/2024",
+      "note": "Đã nhúng bản gốc. Dùng đối chiếu phạm vi kiểm dịch thực vật, phân tích nguy cơ dịch hại và trường hợp miễn phân tích nguy cơ.",
+      "file": "14_2024_TT-BNNPTNT.docx"
+    }
+  ]
+}

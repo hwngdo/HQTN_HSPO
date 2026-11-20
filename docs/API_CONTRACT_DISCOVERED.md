@@ -1,0 +1,31 @@
+# Frontend paths discovered (not a validated request/response contract)
+UI file: assets/static/index.html. Paths found: 29
+- `/api/account/password`
+- `/api/admin/backup`
+- `/api/admin/backups`
+- `/api/admin/rollback?file=`
+- `/api/admin/update-apply?id=`
+- `/api/admin/update-preview`
+- `/api/admin/users`
+- `/api/announcements`
+- `/api/announcements?id=`
+- `/api/chem/analyze`
+- `/api/history.xlsx`
+- `/api/login`
+- `/api/logout`
+- `/api/me`
+- `/api/ocr`
+- `/api/presence`
+- `/api/search-history`
+- `/api/search-history/export.csv`
+- `/api/search-history?limit=10000`
+- `/api/shutdown`
+- `/api/sources`
+- `/api/system`
+- `/api/users`
+- `/api/verify`
+- `/api/verify?kind=`
+- `/ocr/progress?id=`
+- `/ocr/result?id=`
+- `/ocr/start`
+- `/ocr/start:`

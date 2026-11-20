@@ -1,0 +1,8 @@
+{
+  "id": "legal_lookup",
+  "name": "Tra cứu văn bản pháp lý",
+  "version": "2.0.1",
+  "entry": "/static/modules/legal_lookup/index.html",
+  "persistent_data": "/static/legal_data/legal_overrides.json",
+  "upgrade_rule": "Các bản sau chỉ thay thư mục /static/modules/legal_lookup; không ghi đè /static/legal_data."
+}
