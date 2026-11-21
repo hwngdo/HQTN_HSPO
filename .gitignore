@@ -15,6 +15,7 @@ imports/
 *.tmp
 userdata/
 data_updates/
+program_updates/
 backup/
 migration_manifest.json
 search_history.json
@@ -24,3 +25,4 @@ Lich_su_tra_cuu_CAS.xlsx
 *.key
 *.pfx
 *.p12
+*.ed25519

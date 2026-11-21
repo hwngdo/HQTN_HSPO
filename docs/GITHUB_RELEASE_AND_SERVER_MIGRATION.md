@@ -6,7 +6,7 @@ Repo riêng tư `hwngdo/HQTN_HSPO` lưu mã nguồn, tài liệu thiết kế, c
 
 Gói `FULL_RELEASE.zip` dùng cho thay đổi giao diện, thuật toán biên dịch, API và bộ chạy Windows. Mỗi bản cần đủ Core, Launcher, Tray, OCR, tài nguyên web, ma trận tương thích dữ liệu và manifest SHA-256. Máy chủ chỉ đọc kênh đã cấu hình, tải vào thư mục staging, xác thực nguồn phát hành và chữ ký trên manifest, rồi chạy kiểm tra trước khi Admin duyệt. Sử dụng một tiến trình cập nhật riêng để dừng và khởi động đúng các thành phần của bản được cài. Sau khi chuyển sang thư mục phiên bản mới, chạy health check. Nếu khởi động lỗi, quay lại phiên bản trước cùng snapshot dữ liệu tương thích.
 
-Hiện chưa có Core gốc đầy đủ. Quy trình vừa nêu là thiết kế cho bản sản xuất sau khi kiểm thử tương thích. Workflow trong repo chỉ kiểm tra mã và QA, hiện chưa tự phát hành hoặc cài bản Windows.
+Core gốc vẫn cần nghiệm thu tương thích trước khi phát hành sản xuất. Bộ cài QA có luồng kiểm tra phiên bản trong Tray và trang cập nhật trên web, xác minh manifest Ed25519 và cài lại từ gói đã duyệt. Xem [hướng dẫn đóng gói và công bố Release của kênh QA](../installer/README_QA.md).
 
 ## Cập nhật dữ liệu qua GitHub
 

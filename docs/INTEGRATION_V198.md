@@ -10,7 +10,7 @@
 | --- | --- |
 | `HQTN_HSPO.exe` | Mã trình khởi động bên ngoài trong `apps/release-v198/cmd/launcher` |
 | `HQTN_HSPO_Tray.exe` | Mã Tray v1.9.8 trong `apps/release-v198/cmd/tray` |
-| `HQTN_HSPO_UpdateGateway.exe` | Mã Gateway v1.9.8 và các bài kiểm thử trong `apps/release-v198/cmd/update-gateway` |
+| `HQTN_HSPO_UpdateGateway.exe` | Điểm khởi động tại `apps/release-v198/cmd/update-gateway`. Luồng và kiểm thử cập nhật nằm trong `apps/release-v198/dataupdate`. |
 | `HQTN_HSPO_Core.exe` | Mã tái dựng tham chiếu. Một số endpoint còn trả 501 |
 | `HQTN_HSPO_Launcher.exe` | Launcher máy chủ gốc của v1.9.8 chưa được đối chiếu với nguồn build tương ứng |
 | `HQTN_HSPO_OCR_Bridge.exe` | Có OCR worker PowerShell và mã kiểm tra trạng thái trong bộ phát hành. Chưa có mã đầy đủ của Bridge |
@@ -25,6 +25,16 @@ node apps/release-v198/web/check-tariff.cjs imports/v1.9.8-full-qa/static/tariff
 Đặt `HSPO_QA_LEGACY_TARIFF` thành đường dẫn tuyệt đối tới biểu thuế đã nhập để chạy thêm kiểm thử tương thích ở Gateway. Core tham chiếu chỉ lắng nghe localhost, yêu cầu mật khẩu QA riêng khi khởi tạo và dừng nếu gặp tệp dữ liệu cũ không đọc được. Việc này ngăn ghi đè dữ liệu khi định dạng chưa hỗ trợ.
 
 Sau khi build, chạy `python scripts/smoke_recovered_windows.py` để kiểm tra EXE Core tham chiếu trên localhost bằng tài khoản thử và thư mục tạm. Bài kiểm tra đăng nhập lại sau khi khởi động lại, rồi dùng `stage_legacy_userdata.py` để nhập dữ liệu mô phỏng cấu trúc v1.9.8 sang thư mục QA mới. Trình nhập giữ nguyên tệp nguồn, chuyển lịch sử JSONL thành mảng JSON và lưu bản sao nhật ký quản trị cùng lịch sử CAS dạng Excel trong `legacy_archive/`.
+
+## Tray cho bản QA Windows
+
+Bộ cài Windows chạy QA ở cổng 18972. Core QA dùng chung luồng cập nhật dữ liệu với Gateway và xác thực qua tài khoản Admin của chính Core. Xem [cách cài và thử cập nhật offline và online](../installer/README_QA.md).
+
+`dist/qa/tray_runtime/` chứa bộ ba tệp `HQTN_HSPO_Tray_QA.exe`, `HQTN_HSPO_Core_QA.exe` và `MO_BAN_QA.cmd`. Cập nhật ba tệp cùng nhau trong thư mục chạy QA, sau khi dừng Core QA cũ và sao lưu các tệp thay thế. Bản QA dùng `data/`, `static/`, `policy_data/` và bộ OCR đã có trong thư mục đó. Khi tạo bộ QA trống, đặt biến môi trường `HSPO_RECOVERY_QA_ADMIN_PASSWORD` trước lần chạy đầu để khởi tạo tài khoản thử nghiệm.
+
+Mở `MO_BAN_QA.cmd` để bật Server QA và trình duyệt ở `http://127.0.0.1:18971/`. Nhấp phải biểu tượng HQTN_HSPO QA trong khay hệ thống để xem trạng thái ở dòng đầu và bật, tắt, khởi động lại Server hoặc thoát hẳn. **Khởi động cùng Windows** áp dụng cho tài khoản Windows hiện hành và chạy Server QA ở nền sau khi đăng nhập. Bỏ dấu chọn trước khi chuyển thư mục hoặc quay lại bộ launcher cũ.
+
+Tray quản lý Core và các tiến trình OCR do Core QA khởi chạy bằng một Windows Job Object. Khi gặp cổng đang được tiến trình khác sử dụng, Tray báo lỗi để phân biệt với Server do Tray quản lý. `build_qa_windows.ps1` chạy bài kiểm thử vòng đời Core, cô lập cổng và bật/tắt mục khởi động bằng một khóa Registry thử nghiệm.
 
 ## Đọc MSDS trên bản tích hợp QA Windows
 

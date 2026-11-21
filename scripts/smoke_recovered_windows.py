@@ -67,6 +67,9 @@ def smoke_once(runtime, password, bootstrap, expected_history=None, check_accoun
                     recent = json.load(response)["recent"]
                 assert len(recent) == 1
                 assert all(recent[0].get(key) == value for key, value in expected_history.items())
+            with client.open(Request(url + "/api/shutdown", method="POST"), timeout=3) as response:
+                assert json.load(response)["ok"]
+            assert process.wait(timeout=6) == 0
         finally:
             if process.poll() is None:
                 process.terminate()

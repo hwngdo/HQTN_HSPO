@@ -1,4 +1,4 @@
-package main
+package dataupdate
 
 import (
 	"context"
@@ -29,6 +29,54 @@ type githubReleaseAsset struct {
 	Digest string `json:"digest"`
 	Size   int64  `json:"size"`
 	State  string `json:"state"`
+}
+
+type GitHubSource = githubReleaseSource
+type GitHubAsset = githubReleaseAsset
+
+type GitHubRelease struct {
+	Tag        string        `json:"tag_name"`
+	Draft      bool          `json:"draft"`
+	Prerelease bool          `json:"prerelease"`
+	Published  time.Time     `json:"published_at"`
+	Assets     []GitHubAsset `json:"assets"`
+}
+
+func NewGitHubSource(repository, token string) *GitHubSource {
+	return newGitHubReleaseSource(repository, token)
+}
+
+func (s *githubReleaseSource) List(ctx context.Context) ([]GitHubRelease, error) {
+	ctx, cancel := context.WithTimeout(ctx, 15*time.Second)
+	defer cancel()
+	resp, err := s.request(ctx, "?per_page=30", "application/vnd.github+json")
+	if err != nil {
+		return nil, errors.New("Không kết nối được GitHub để đọc bản phát hành")
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("Không đọc được bản phát hành GitHub (HTTP %d). Kiểm tra quyền đọc kho", resp.StatusCode)
+	}
+	var releases []GitHubRelease
+	if json.NewDecoder(io.LimitReader(resp.Body, 2<<20)).Decode(&releases) != nil {
+		return nil, errors.New("Không đọc được danh sách bản phát hành GitHub")
+	}
+	return releases, nil
+}
+
+func (s *githubReleaseSource) Download(ctx context.Context, asset GitHubAsset) (io.ReadCloser, error) {
+	if asset.ID <= 0 || asset.State != "uploaded" || asset.Size <= 0 {
+		return nil, errors.New("Thông tin tệp GitHub không hợp lệ")
+	}
+	response, err := s.request(ctx, fmt.Sprintf("/assets/%d", asset.ID), "application/octet-stream")
+	if err != nil {
+		return nil, errors.New("Không tải được tệp từ GitHub")
+	}
+	if response.StatusCode != http.StatusOK || (response.ContentLength >= 0 && response.ContentLength != asset.Size) {
+		response.Body.Close()
+		return nil, errors.New("Tệp tải xuống không khớp thông tin phát hành")
+	}
+	return response.Body, nil
 }
 
 func newGitHubReleaseSource(repository, token string) *githubReleaseSource {
@@ -66,25 +114,9 @@ func (s *githubReleaseSource) request(ctx context.Context, suffix, accept string
 }
 
 func (s *githubReleaseSource) latestDataAsset(ctx context.Context) (string, githubReleaseAsset, error) {
-	ctx, cancel := context.WithTimeout(ctx, 15*time.Second)
-	defer cancel()
-	resp, err := s.request(ctx, "?per_page=30", "application/vnd.github+json")
+	releases, err := s.List(ctx)
 	if err != nil {
-		return "", githubReleaseAsset{}, errors.New("Không kết nối được GitHub để đọc bản phát hành")
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return "", githubReleaseAsset{}, fmt.Errorf("Không đọc được bản phát hành GitHub (HTTP %d)", resp.StatusCode)
-	}
-	var releases []struct {
-		Tag        string               `json:"tag_name"`
-		Draft      bool                 `json:"draft"`
-		Prerelease bool                 `json:"prerelease"`
-		Published  time.Time            `json:"published_at"`
-		Assets     []githubReleaseAsset `json:"assets"`
-	}
-	if json.NewDecoder(io.LimitReader(resp.Body, 2<<20)).Decode(&releases) != nil {
-		return "", githubReleaseAsset{}, errors.New("Không đọc được danh sách bản phát hành GitHub")
+		return "", githubReleaseAsset{}, err
 	}
 	var selected githubReleaseAsset
 	var tag string
@@ -116,29 +148,33 @@ func (s *githubReleaseSource) latestDataAsset(ctx context.Context) (string, gith
 	return tag, selected, nil
 }
 
+func (g *Gateway) githubSource() *GitHubSource {
+	if g.github != nil || g.privateSource == nil {
+		return g.github
+	}
+	return g.privateSource()
+}
+
 func (g *Gateway) previewGitHubPackage(w http.ResponseWriter, r *http.Request, username string) {
 	if err := g.postCheck(r); err != nil {
 		jerr(w, http.StatusForbidden, err.Error())
 		return
 	}
-	if g.github == nil {
+	source := g.githubSource()
+	if source == nil {
 		jerr(w, http.StatusServiceUnavailable, "Máy chủ chưa cấu hình nguồn GitHub")
 		return
 	}
-	tag, asset, err := g.github.latestDataAsset(r.Context())
+	tag, asset, err := source.latestDataAsset(r.Context())
 	if err != nil {
 		jerr(w, http.StatusBadGateway, err.Error())
 		return
 	}
-	response, err := g.github.request(r.Context(), fmt.Sprintf("/assets/%d", asset.ID), "application/octet-stream")
+	body, err := source.Download(r.Context(), asset)
 	if err != nil {
-		jerr(w, http.StatusBadGateway, "Không tải được gói dữ liệu từ GitHub")
+		jerr(w, http.StatusBadGateway, err.Error())
 		return
 	}
-	defer response.Body.Close()
-	if response.StatusCode != http.StatusOK || (response.ContentLength >= 0 && response.ContentLength != asset.Size) {
-		jerr(w, http.StatusBadGateway, "Tệp tải xuống không khớp thông tin phát hành")
-		return
-	}
-	g.previewDataPackage(w, response.Body, username, asset.Digest, tag)
+	defer body.Close()
+	g.previewDataPackage(w, body, username, asset.Digest, tag)
 }

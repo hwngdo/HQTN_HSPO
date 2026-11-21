@@ -3,12 +3,14 @@
 package main
 
 import (
+	"flag"
 	"fmt"
- "net/http"
 	"net"
+	"net/http"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"syscall"
 	"time"
@@ -17,6 +19,7 @@ import (
 
 const (
 	WM_DESTROY       = 0x0002
+	WM_CLOSE         = 0x0010
 	WM_TIMER         = 0x0113
 	WM_RBUTTONUP     = 0x0205
 	WM_LBUTTONDBLCLK = 0x0203
@@ -44,19 +47,19 @@ const (
 
 	MB_OK              = 0x00000000
 	MB_ICONINFORMATION = 0x00000040
- MB_YESNO = 0x00000004
- IDYES=6
+	MB_YESNO           = 0x00000004
+	IDYES              = 6
 
 	SW_SHOWNORMAL = 1
 
-	CMD_OPEN  = 1001
-	CMD_ABOUT = 1002
-	CMD_HIDE  = 1003
-	CMD_STOP  = 1004
- CMD_SERVER_START = 1005
- CMD_SERVER_STOP = 1006
- CMD_SERVER_RESTART = 1007
- CMD_SERVER_STATUS = 1008
+	CMD_OPEN           = 1001
+	CMD_ABOUT          = 1002
+	CMD_HIDE           = 1003
+	CMD_STOP           = 1004
+	CMD_SERVER_START   = 1005
+	CMD_SERVER_STOP    = 1006
+	CMD_SERVER_RESTART = 1007
+	CMD_SERVER_STATUS  = 1008
 
 	trayID = 1
 )
@@ -113,32 +116,34 @@ var (
 	modShell32  = syscall.NewLazyDLL("shell32.dll")
 	modKernel32 = syscall.NewLazyDLL("kernel32.dll")
 
-	procRegisterClassExW    = modUser32.NewProc("RegisterClassExW")
-	procCreateWindowExW     = modUser32.NewProc("CreateWindowExW")
-	procDefWindowProcW      = modUser32.NewProc("DefWindowProcW")
-	procDestroyWindow       = modUser32.NewProc("DestroyWindow")
-	procGetMessageW         = modUser32.NewProc("GetMessageW")
-	procTranslateMessage    = modUser32.NewProc("TranslateMessage")
-	procDispatchMessageW    = modUser32.NewProc("DispatchMessageW")
-	procPostQuitMessage     = modUser32.NewProc("PostQuitMessage")
-	procCreatePopupMenu     = modUser32.NewProc("CreatePopupMenu")
-	procAppendMenuW         = modUser32.NewProc("AppendMenuW")
-	procTrackPopupMenu      = modUser32.NewProc("TrackPopupMenu")
-	procDestroyMenu         = modUser32.NewProc("DestroyMenu")
-	procGetCursorPos        = modUser32.NewProc("GetCursorPos")
-	procSetForegroundWindow = modUser32.NewProc("SetForegroundWindow")
-	procMessageBoxW         = modUser32.NewProc("MessageBoxW")
-	procLoadImageW          = modUser32.NewProc("LoadImageW")
-	procLoadIconW           = modUser32.NewProc("LoadIconW")
-	procSetTimer            = modUser32.NewProc("SetTimer")
-	procKillTimer           = modUser32.NewProc("KillTimer")
+	procRegisterClassExW       = modUser32.NewProc("RegisterClassExW")
+	procCreateWindowExW        = modUser32.NewProc("CreateWindowExW")
+	procDefWindowProcW         = modUser32.NewProc("DefWindowProcW")
+	procDestroyWindow          = modUser32.NewProc("DestroyWindow")
+	procGetMessageW            = modUser32.NewProc("GetMessageW")
+	procTranslateMessage       = modUser32.NewProc("TranslateMessage")
+	procDispatchMessageW       = modUser32.NewProc("DispatchMessageW")
+	procPostQuitMessage        = modUser32.NewProc("PostQuitMessage")
+	procCreatePopupMenu        = modUser32.NewProc("CreatePopupMenu")
+	procAppendMenuW            = modUser32.NewProc("AppendMenuW")
+	procTrackPopupMenu         = modUser32.NewProc("TrackPopupMenu")
+	procDestroyMenu            = modUser32.NewProc("DestroyMenu")
+	procGetCursorPos           = modUser32.NewProc("GetCursorPos")
+	procSetForegroundWindow    = modUser32.NewProc("SetForegroundWindow")
+	procMessageBoxW            = modUser32.NewProc("MessageBoxW")
+	procLoadImageW             = modUser32.NewProc("LoadImageW")
+	procLoadIconW              = modUser32.NewProc("LoadIconW")
+	procSetTimer               = modUser32.NewProc("SetTimer")
+	procKillTimer              = modUser32.NewProc("KillTimer")
+	procPostMessageW           = modUser32.NewProc("PostMessageW")
+	procFindWindowW            = modUser32.NewProc("FindWindowW")
+	procRegisterWindowMessageW = modUser32.NewProc("RegisterWindowMessageW")
 
 	procShellNotifyIconW = modShell32.NewProc("Shell_NotifyIconW")
 	procShellExecuteW    = modShell32.NewProc("ShellExecuteW")
 
 	procGetModuleHandleW = modKernel32.NewProc("GetModuleHandleW")
 	procCreateMutexW     = modKernel32.NewProc("CreateMutexW")
-	procGetLastError     = modKernel32.NewProc("GetLastError")
 )
 
 var (
@@ -147,6 +152,8 @@ var (
 	loadedIcon     uintptr
 	currentVersion string
 	mutexHandle    uintptr
+	taskbarCreated uint32
+	currentTip     string
 )
 
 func u16(s string) *uint16 {
@@ -175,6 +182,7 @@ func appDir() string {
 func readVersion() string {
 	candidates := []string{
 		filepath.Join(appDir(), "VERSION.txt"),
+		filepath.Join(appDir(), "static", "VERSION.txt"),
 		"VERSION.txt",
 	}
 	for _, path := range candidates {
@@ -242,13 +250,24 @@ func showAbout() {
 }
 
 func openApp() {
-	procShellExecuteW.Call(
+	if qa != nil {
+		runQAAction(CMD_OPEN)
+		return
+	}
+	openURL("http://localhost:8867")
+}
+
+func openURL(url string) {
+	result, _, _ := procShellExecuteW.Call(
 		mainHwnd,
 		uintptr(unsafe.Pointer(u16("open"))),
-		uintptr(unsafe.Pointer(u16("http://localhost:8867"))),
+		uintptr(unsafe.Pointer(u16(url))),
 		0, 0,
 		SW_SHOWNORMAL,
 	)
+	if qa != nil && result <= 32 {
+		showTrayError("Không mở được trình duyệt. Địa chỉ QA: " + url)
+	}
 }
 
 func runHidden(name string, args ...string) {
@@ -273,43 +292,82 @@ func stopAll() {
 	}
 }
 
-
 func serverReady(port string) bool {
- cli:=&http.Client{Timeout:700*time.Millisecond}
- resp,err:=cli.Get("http://127.0.0.1:"+port+"/")
- if err!=nil{return false}; defer resp.Body.Close();return resp.StatusCode<500
+	cli := &http.Client{Timeout: 700 * time.Millisecond}
+	resp, err := cli.Get("http://127.0.0.1:" + port + "/")
+	if err != nil {
+		return false
+	}
+	defer resp.Body.Close()
+	return resp.StatusCode < 500
 }
-func waitServer(port string,d time.Duration) bool {until:=time.Now().Add(d);for time.Now().Before(until){if serverReady(port){return true};time.Sleep(350*time.Millisecond)};return false}
-func ask(title,body string) bool {
- v,_,_:=procMessageBoxW.Call(mainHwnd,uintptr(unsafe.Pointer(u16(body))),uintptr(unsafe.Pointer(u16(title))),MB_YESNO|MB_ICONINFORMATION)
- return v==IDYES
+func waitServer(port string, d time.Duration) bool {
+	until := time.Now().Add(d)
+	for time.Now().Before(until) {
+		if serverReady(port) {
+			return true
+		}
+		time.Sleep(350 * time.Millisecond)
+	}
+	return false
 }
-func showTrayError(t string){procMessageBoxW.Call(mainHwnd,uintptr(unsafe.Pointer(u16(t))),uintptr(unsafe.Pointer(u16("HQTN_HSPO - Server"))),MB_OK|MB_ICONINFORMATION)}
+func ask(title, body string) bool {
+	v, _, _ := procMessageBoxW.Call(mainHwnd, uintptr(unsafe.Pointer(u16(body))), uintptr(unsafe.Pointer(u16(title))), MB_YESNO|MB_ICONINFORMATION)
+	return v == IDYES
+}
+func showTrayError(t string) {
+	procMessageBoxW.Call(mainHwnd, uintptr(unsafe.Pointer(u16(t))), uintptr(unsafe.Pointer(u16("HQTN_HSPO - Server"))), MB_OK|MB_ICONINFORMATION)
+}
 func trayLaunch(name string) error {
- full:=filepath.Join(appDir(),name);if _,err:=os.Stat(full);err!=nil{return fmt.Errorf("Thiếu %s: %w",name,err)}
- c:=exec.Command(full);c.Dir=appDir();c.SysProcAttr=&syscall.SysProcAttr{HideWindow:true};return c.Start()
+	full := filepath.Join(appDir(), name)
+	if _, err := os.Stat(full); err != nil {
+		return fmt.Errorf("Thiếu %s: %w", name, err)
+	}
+	c := exec.Command(full)
+	c.Dir = appDir()
+	c.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
+	return c.Start()
 }
 func startServer() error {
- // Do not create a duplicate server when the original is already responsive.
- if serverReady("8867") {return nil}
- if !serverReady("8872") {if err:=trayLaunch("HQTN_HSPO_OCR_Bridge.exe");err!=nil{return err}}
- if portStatus("127.0.0.1:8865")!="Đang hoạt động" {
-   if err:=trayLaunch("HQTN_HSPO_Launcher.exe");err!=nil{return err}
- }
- if !waitServer("8865",15*time.Second){return fmt.Errorf("Core 8865 chưa phản hồi")}
- if err:=trayLaunch("HQTN_HSPO_UpdateGateway.exe");err!=nil{return err}
- if !waitServer("8867",12*time.Second){return fmt.Errorf("Gateway 8867 chưa phản hồi")}
- return nil
+	// Do not create a duplicate server when the original is already responsive.
+	if serverReady("8867") {
+		return nil
+	}
+	if !serverReady("8872") {
+		if err := trayLaunch("HQTN_HSPO_OCR_Bridge.exe"); err != nil {
+			return err
+		}
+	}
+	if portStatus("127.0.0.1:8865") != "Đang hoạt động" {
+		if err := trayLaunch("HQTN_HSPO_Launcher.exe"); err != nil {
+			return err
+		}
+	}
+	if !waitServer("8865", 15*time.Second) {
+		return fmt.Errorf("Core 8865 chưa phản hồi")
+	}
+	if err := trayLaunch("HQTN_HSPO_UpdateGateway.exe"); err != nil {
+		return err
+	}
+	if !waitServer("8867", 12*time.Second) {
+		return fmt.Errorf("Gateway 8867 chưa phản hồi")
+	}
+	return nil
 }
 func stopServer() {
- // Server components only; tray survives. These names follow the original launcher.
- for _,n:=range []string{"HQTN_HSPO_UpdateGateway.exe","HQTN_HSPO_Launcher.exe","HQTN_HSPO_Core.exe","HQTN_HSPO_OCR_Bridge.exe"}{runHidden("taskkill.exe","/F","/IM",n)}
+	// Server components only; tray survives. These names follow the original launcher.
+	for _, n := range []string{"HQTN_HSPO_UpdateGateway.exe", "HQTN_HSPO_Launcher.exe", "HQTN_HSPO_Core.exe", "HQTN_HSPO_OCR_Bridge.exe"} {
+		runHidden("taskkill.exe", "/F", "/IM", n)
+	}
 }
 func serverStatusText() string {
- return fmt.Sprintf("Gateway 8867: %s\r\nCore 8865: %s\r\nOCR 8872: %s",portStatus("127.0.0.1:8867"),portStatus("127.0.0.1:8865"),portStatus("127.0.0.1:8872"))
+	return fmt.Sprintf("Gateway 8867: %s\r\nCore 8865: %s\r\nOCR 8872: %s", portStatus("127.0.0.1:8867"), portStatus("127.0.0.1:8865"), portStatus("127.0.0.1:8872"))
 }
 func loadTrayIcon() uintptr {
 	iconPath := filepath.Join(appDir(), "HQTN_HSPO.ico")
+	if qa != nil {
+		iconPath = filepath.Join(appDir(), "static", "hspo.ico")
+	}
 	h, _, _ := procLoadImageW.Call(
 		0,
 		uintptr(unsafe.Pointer(u16(iconPath))),
@@ -326,7 +384,6 @@ func loadTrayIcon() uintptr {
 }
 
 func addTray() bool {
-	loadedIcon = loadTrayIcon()
 	trayData = notifyIconData{}
 	trayData.CbSize = uint32(unsafe.Sizeof(trayData))
 	trayData.HWnd = mainHwnd
@@ -335,19 +392,38 @@ func addTray() bool {
 	trayData.UCallbackMessage = WM_TRAYICON
 	trayData.HIcon = loadedIcon
 	currentVersion = readVersion()
-	copyUTF16(trayData.SzTip[:], "HQTN_HSPO v"+currentVersion+" - đang chạy")
+	currentTip = trayTip()
+	copyUTF16(trayData.SzTip[:], currentTip)
 	r, _, _ := procShellNotifyIconW.Call(NIM_ADD, uintptr(unsafe.Pointer(&trayData)))
+	if r == 0 {
+		trayData.HWnd = 0
+	}
 	return r != 0
 }
 
+func trayTip() string {
+	if qa != nil {
+		return "HQTN_HSPO QA · " + qaStatus()
+	}
+	return "HQTN_HSPO v" + currentVersion + " - đang chạy"
+}
+
 func refreshTrayVersion() {
-	version := readVersion()
-	if version == currentVersion {
+	currentVersion = readVersion()
+	if trayData.HWnd == 0 {
+		if qa != nil {
+			addTray()
+		}
 		return
 	}
-	currentVersion = version
-	copyUTF16(trayData.SzTip[:], "HQTN_HSPO v"+currentVersion+" - đang chạy")
-	procShellNotifyIconW.Call(NIM_MODIFY, uintptr(unsafe.Pointer(&trayData)))
+	tip := trayTip()
+	if currentTip == tip {
+		return
+	}
+	copyUTF16(trayData.SzTip[:], tip)
+	if ok, _, _ := procShellNotifyIconW.Call(NIM_MODIFY, uintptr(unsafe.Pointer(&trayData))); ok != 0 {
+		currentTip = tip
+	}
 }
 
 func removeTray() {
@@ -373,41 +449,50 @@ func showTrayMenu() {
 	}
 	defer procDestroyMenu.Call(menu)
 
+	if qa != nil {
+		showQAMenu(menu)
+		return
+	}
+
 	appendMenu(menu, MF_STRING, CMD_OPEN, "Mở ứng dụng")
 	appendMenu(menu, MF_STRING, CMD_ABOUT, "Giới thiệu")
- appendMenu(menu, MF_STRING, CMD_SERVER_STATUS, "Kiểm tra trạng thái Server")
- appendMenu(menu, MF_SEPARATOR, 0, "")
- appendMenu(menu, MF_STRING, CMD_SERVER_START, "Bật Server")
- appendMenu(menu, MF_STRING, CMD_SERVER_STOP, "Tắt Server (giữ Tray)")
- appendMenu(menu, MF_STRING, CMD_SERVER_RESTART, "Khởi động lại Server")
+	appendMenu(menu, MF_STRING, CMD_SERVER_STATUS, "Kiểm tra trạng thái Server")
+	appendMenu(menu, MF_SEPARATOR, 0, "")
+	appendMenu(menu, MF_STRING, CMD_SERVER_START, "Bật Server")
+	appendMenu(menu, MF_STRING, CMD_SERVER_STOP, "Tắt Server (giữ Tray)")
+	appendMenu(menu, MF_STRING, CMD_SERVER_RESTART, "Khởi động lại Server")
 	appendMenu(menu, MF_SEPARATOR, 0, "")
 	appendMenu(menu, MF_STRING, CMD_HIDE, "Ẩn biểu tượng (Server vẫn chạy)")
 	appendMenu(menu, MF_STRING, CMD_STOP, "Tắt HQTN_HSPO hoàn toàn")
 
-	var pt point
-	procGetCursorPos.Call(uintptr(unsafe.Pointer(&pt)))
-	procSetForegroundWindow.Call(mainHwnd)
-	cmd, _, _ := procTrackPopupMenu.Call(
-		menu,
-		TPM_RETURNCMD|TPM_NONOTIFY|TPM_RIGHTBUTTON,
-		uintptr(pt.X), uintptr(pt.Y),
-		0, mainHwnd, 0,
-	)
-
-	switch cmd {
+	switch trackTrayMenu(menu) {
 	case CMD_OPEN:
 		openApp()
 	case CMD_ABOUT:
 		showAbout()
 	case CMD_SERVER_STATUS:
-  showTrayError(serverStatusText())
- case CMD_SERVER_START:
-  if err:=startServer();err!=nil{showTrayError("Không bật được Server: "+err.Error())}else{showTrayError("Server: "+serverStatusText())}
- case CMD_SERVER_STOP:
-  if ask("Tắt Server?","Dừng các dịch vụ trên máy này? Những người đang tra cứu sẽ bị ngắt kết nối. Tray vẫn hoạt động."){stopServer()}
- case CMD_SERVER_RESTART:
-  if ask("Khởi động lại Server?","Kết nối đang sử dụng sẽ bị gián đoạn. Tiếp tục?"){stopServer();time.Sleep(800*time.Millisecond);if err:=startServer();err!=nil{showTrayError("Không khởi động lại được: "+err.Error())}else{showTrayError("Đã yêu cầu khởi động lại. "+serverStatusText())}}
- case CMD_HIDE:
+		showTrayError(serverStatusText())
+	case CMD_SERVER_START:
+		if err := startServer(); err != nil {
+			showTrayError("Không bật được Server: " + err.Error())
+		} else {
+			showTrayError("Server: " + serverStatusText())
+		}
+	case CMD_SERVER_STOP:
+		if ask("Tắt Server?", "Dừng các dịch vụ trên máy này? Những người đang tra cứu sẽ bị ngắt kết nối. Tray vẫn hoạt động.") {
+			stopServer()
+		}
+	case CMD_SERVER_RESTART:
+		if ask("Khởi động lại Server?", "Kết nối đang sử dụng sẽ bị gián đoạn. Tiếp tục?") {
+			stopServer()
+			time.Sleep(800 * time.Millisecond)
+			if err := startServer(); err != nil {
+				showTrayError("Không khởi động lại được: " + err.Error())
+			} else {
+				showTrayError("Đã yêu cầu khởi động lại. " + serverStatusText())
+			}
+		}
+	case CMD_HIDE:
 		removeTray()
 		procDestroyWindow.Call(mainHwnd)
 	case CMD_STOP:
@@ -417,8 +502,35 @@ func showTrayMenu() {
 	}
 }
 
+func trackTrayMenu(menu uintptr) uintptr {
+	var pt point
+	procGetCursorPos.Call(uintptr(unsafe.Pointer(&pt)))
+	procSetForegroundWindow.Call(mainHwnd)
+	cmd, _, _ := procTrackPopupMenu.Call(
+		menu, TPM_RETURNCMD|TPM_NONOTIFY|TPM_RIGHTBUTTON,
+		uintptr(pt.X), uintptr(pt.Y), 0, mainHwnd, 0,
+	)
+	procPostMessageW.Call(mainHwnd, 0, 0, 0)
+	return cmd
+}
+
 func wndProc(hwnd uintptr, message uint32, wParam, lParam uintptr) uintptr {
+	if taskbarCreated != 0 && message == taskbarCreated {
+		addTray()
+		return 0
+	}
 	switch message {
+	case wmQAResult:
+		finishQAAction()
+		return 0
+	case wmQAOpen:
+		openApp()
+		return 0
+	case WM_CLOSE:
+		if qa != nil {
+			runQAAction(CMD_STOP)
+			return 0
+		}
 	case WM_TRAYICON:
 		switch uint32(lParam) {
 		case WM_RBUTTONUP:
@@ -430,6 +542,9 @@ func wndProc(hwnd uintptr, message uint32, wParam, lParam uintptr) uintptr {
 		}
 	case WM_TIMER:
 		refreshTrayVersion()
+		if qa != nil {
+			pollProgramUpdate()
+		}
 		return 0
 	case WM_DESTROY:
 		procKillTimer.Call(hwnd, 1)
@@ -441,32 +556,83 @@ func wndProc(hwnd uintptr, message uint32, wParam, lParam uintptr) uintptr {
 	return r
 }
 
-func singleInstance() bool {
+func singleInstance(name string) (bool, error) {
 	const ERROR_ALREADY_EXISTS = 183
-	name := u16("Local\\HQTN_HSPO_TRAY_DYNAMIC_SINGLE_INSTANCE")
-	h, _, _ := procCreateMutexW.Call(0, 0, uintptr(unsafe.Pointer(name)))
+	h, _, err := procCreateMutexW.Call(0, 0, uintptr(unsafe.Pointer(u16(name))))
 	if h == 0 {
-		return true // fail open rather than blocking the tray entirely
+		return false, err
 	}
 	mutexHandle = h
-	e, _, _ := procGetLastError.Call()
-	return e != ERROR_ALREADY_EXISTS
+	return err != syscall.Errno(ERROR_ALREADY_EXISTS), nil
 }
 
 func main() {
-	if !singleInstance() {
+	runtime.LockOSThread()
+	qaMode := flag.Bool("qa", strings.EqualFold(filepath.Base(os.Args[0]), "HQTN_HSPO_Tray_QA.exe"), "run the isolated QA server")
+	port := flag.Int("qa-port", 18971, "QA loopback port")
+	background := flag.Bool("background", false, "start without opening the browser")
+	applyUpdate := flag.String("apply-program-update", "", "install a previously authorized and signed program release")
+	parentPID := flag.Int("parent-pid", 0, "process to wait for before replacing Tray")
+	flag.Parse()
+	if *applyUpdate != "" {
+		err := applyProgramRelease(*applyUpdate, *parentPID, *port)
+		if err != nil {
+			updateNotice("Không hoàn tất được cập nhật chương trình.\r\n" + err.Error())
+			os.Exit(1)
+		}
+		return
+	}
+	mutexName := "Local\\HQTN_HSPO_TRAY_DYNAMIC_SINGLE_INSTANCE"
+	windowClass := "HQTN_HSPO_TRAY_CLASS_DYNAMIC"
+	if *qaMode {
+		if *port < 1024 || *port > 65535 || *port == 8865 || *port == 8867 || *port == 8872 {
+			showTrayError("Cổng QA không hợp lệ hoặc dành cho bản 1.9.8.")
+			return
+		}
+		exe, err := os.Executable()
+		if err != nil {
+			showTrayError("Không xác định được vị trí tệp Tray QA: " + err.Error())
+			return
+		}
+		dir := filepath.Dir(exe)
+		if upgradeInProgress(dir) {
+			updateNotice("Đang cài bản cập nhật HQTN_HSPO QA.")
+			return
+		}
+		id := qaInstanceID(dir)
+		mutexName = "Local\\HQTN_HSPO_QA_TRAY_" + id
+		windowClass = "HQTN_HSPO_QA_TRAY_" + id
+		qa = &qaServer{dir: dir, port: *port}
+		qaStartup = qaStartupEntry(exe, id, *port)
+	}
+	first, err := singleInstance(mutexName)
+	if mutexHandle != 0 {
+		defer syscall.CloseHandle(syscall.Handle(mutexHandle))
+	}
+	if err != nil && qa != nil {
+		showTrayError("Không khởi tạo được Tray QA: " + err.Error())
+		return
+	}
+	if !first && err == nil {
+		if qa != nil && !*background {
+			hwnd, _, _ := procFindWindowW.Call(uintptr(unsafe.Pointer(u16(windowClass))), 0)
+			if hwnd != 0 {
+				procPostMessageW.Call(hwnd, wmQAOpen, 0, 0)
+			}
+		}
 		return
 	}
 
 	hInstance, _, _ := procGetModuleHandleW.Call(0)
-	className := u16("HQTN_HSPO_TRAY_CLASS_DYNAMIC")
+	className := u16(windowClass)
+	loadedIcon = loadTrayIcon()
 	wc := wndClassEx{
 		CbSize:        uint32(unsafe.Sizeof(wndClassEx{})),
 		LpfnWndProc:   syscall.NewCallback(wndProc),
 		HInstance:     hInstance,
 		LpszClassName: className,
-		HIcon:         loadTrayIcon(),
-		HIconSm:       loadTrayIcon(),
+		HIcon:         loadedIcon,
+		HIconSm:       loadedIcon,
 	}
 	atom, _, _ := procRegisterClassExW.Call(uintptr(unsafe.Pointer(&wc)))
 	if atom == 0 {
@@ -485,15 +651,28 @@ func main() {
 		return
 	}
 	mainHwnd = hwnd
+	msgID, _, _ := procRegisterWindowMessageW.Call(uintptr(unsafe.Pointer(u16("TaskbarCreated"))))
+	taskbarCreated = uint32(msgID)
 
-	if !addTray() {
+	if !addTray() && qa == nil {
 		procDestroyWindow.Call(mainHwnd)
 		return
 	}
 
 	// Refresh VERSION.txt regularly, so even a package update that changes
 	// VERSION.txt while the tray stays alive will update the tooltip.
-	procSetTimer.Call(mainHwnd, 1, 30000, 0)
+	interval := uintptr(30000)
+	if qa != nil {
+		interval = 3000
+	}
+	procSetTimer.Call(mainHwnd, 1, interval, 0)
+	if qa != nil {
+		if *background {
+			runQAAction(CMD_SERVER_START)
+		} else {
+			runQAAction(CMD_OPEN)
+		}
+	}
 
 	var m msg
 	for {

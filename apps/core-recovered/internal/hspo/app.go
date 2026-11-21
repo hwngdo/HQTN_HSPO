@@ -18,6 +18,9 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"hspo/release-v198/appupdate"
+	"hspo/release-v198/dataupdate"
 )
 
 const sessionCookie = "hspo_session"
@@ -30,14 +33,16 @@ type App struct {
 	HTTPPort  int
 	HTTPSPort int
 
-	mu       sync.RWMutex
-	ocrMu    sync.Mutex
-	Users    []User
-	Verify   []VerifyItem
-	History  []HistoryItem
-	Sessions map[string]string // session token -> username
-	Presence map[string]Presence
-	Shutdown func()
+	mu            sync.RWMutex
+	ocrMu         sync.Mutex
+	Users         []User
+	Verify        []VerifyItem
+	History       []HistoryItem
+	Sessions      map[string]string // session token -> username
+	Presence      map[string]Presence
+	Shutdown      func()
+	dataUpdate    http.Handler
+	ManagedByTray bool
 }
 
 func New(root string) (*App, error) {
@@ -65,7 +70,26 @@ func New(root string) (*App, error) {
 	if err := a.load(); err != nil {
 		return nil, err
 	}
+	program := appupdate.WebHandler(root, func() bool { return a.ManagedByTray })
+	update, err := dataupdate.NewHandler(root, a.authorizeDataUpdate, program, func() *dataupdate.GitHubSource {
+		return dataupdate.NewGitHubSource(appupdate.Repository, appupdate.Token())
+	})
+	if err != nil {
+		return nil, err
+	}
+	a.dataUpdate = update
 	return a, nil
+}
+
+func (a *App) authorizeDataUpdate(r *http.Request) (string, error) {
+	user, err := a.userFromReq(r)
+	if err != nil {
+		return "", errors.New("chưa đăng nhập hoặc phiên đã hết hạn")
+	}
+	if user.Role != "admin" {
+		return "", errors.New("chỉ Admin được cập nhật dữ liệu")
+	}
+	return user.Username, nil
 }
 
 func (a *App) load() error {
@@ -240,6 +264,7 @@ func (a *App) Handler() http.Handler { return securityHeaders(a.routes()) }
 
 func (a *App) routes() http.Handler {
 	mux := http.NewServeMux()
+	mux.Handle(dataupdate.RoutePrefix, a.dataUpdate)
 	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		jsonOut(w, 200, map[string]any{"ok": true, "version": "recovered-v1.9.4.1", "ocr_mode": "local_qa"})
 	})

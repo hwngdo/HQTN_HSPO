@@ -19,13 +19,13 @@
     },
     {
       "path": ".github/workflows/qa-windows.yml",
-      "size": 1329,
-      "sha256": "eac6826cde4a2dc4d56ae67da5cffceb805d8e48448dd4587d14edfc39607e21"
+      "size": 1229,
+      "sha256": "c142b59b45bd1370f9d2bb5f97b9c0e43ff6af091b10db59eb49af999eba6de6"
     },
     {
       "path": ".gitignore",
-      "size": 299,
-      "sha256": "f1f012c7903aca0cd8e79d21d1859ca19e3260adcf16bd31d1503cf25ff236f5"
+      "size": 326,
+      "sha256": "59673a916982cb4a601cbb5a625c68a6a758e37925fec83fcfe9c88e57c09e62"
     },
     {
       "path": "AGENTS.md",
@@ -49,8 +49,18 @@
     },
     {
       "path": "apps/core-recovered/cmd/hspo-core/main.go",
-      "size": 1425,
-      "sha256": "47cc3b6ddc089a6eb64b458391f911121b3837f4cd67e1d77dcd3583da84ce8d"
+      "size": 2529,
+      "sha256": "58eecdf5161704ef0e169960665f016054f4e06b46d89091a6db062a79f0bc91"
+    },
+    {
+      "path": "apps/core-recovered/cmd/hspo-core/tray_stop_other.go",
+      "size": 239,
+      "sha256": "e3b32aa2f064c215d8c58d6645653501a0704acaf73c15d9e480b176ee4e2424"
+    },
+    {
+      "path": "apps/core-recovered/cmd/hspo-core/tray_stop_windows.go",
+      "size": 831,
+      "sha256": "7872e7a73cf9fb48b7fc999b62e879794ed3b65c4d0ba043352ca067a23f440a"
     },
     {
       "path": "apps/core-recovered/cmd/hspo-launcher/main.go",
@@ -69,8 +79,8 @@
     },
     {
       "path": "apps/core-recovered/go.mod",
-      "size": 38,
-      "sha256": "22650b991e50a6b6bcde8534a6214f6bfcebf32746f6e4923c40c758888ec449"
+      "size": 118,
+      "sha256": "927dabcffea836c1ee58285c74c4ac61cacd63d72de1b187e3012522918f2900"
     },
     {
       "path": "apps/core-recovered/internal/hspo/accounts.go",
@@ -79,8 +89,8 @@
     },
     {
       "path": "apps/core-recovered/internal/hspo/app.go",
-      "size": 16514,
-      "sha256": "f395d07971859dee2907ee33b58f33352ca4e7f069fd48137b8388722663a3bc"
+      "size": 17378,
+      "sha256": "31c5cd1ebf222028d88706db15084a8ee970166757d2e33d954c2bed433f25ed"
     },
     {
       "path": "apps/core-recovered/internal/hspo/app_test.go",
@@ -283,34 +293,99 @@
       "sha256": "49eb1071484e42819cab65b5c3329cdfac09309233565bea47ba70c65d3e9390"
     },
     {
+      "path": "apps/release-v198/appupdate/release.go",
+      "size": 8870,
+      "sha256": "cc8ff4afa6772625b1134c23b972bc66f87ffb6e730d82804891c63c1980b038"
+    },
+    {
+      "path": "apps/release-v198/appupdate/release_test.go",
+      "size": 6688,
+      "sha256": "306d9b2027f38e10b28ce3527f0cd27e7bdefbf38dba5864faea49bc5c00ff63"
+    },
+    {
+      "path": "apps/release-v198/appupdate/token_other.go",
+      "size": 192,
+      "sha256": "1e1b2a3c71647dd6b29edb5ccf979f2ab30d4d0ac6f4f289da3ba4d68e7b8000"
+    },
+    {
+      "path": "apps/release-v198/appupdate/token_windows.go",
+      "size": 3322,
+      "sha256": "8a57c8d0af775db70a53ce0b92e9f3c52f29aab8f3372c3e08b554b4599f2d99"
+    },
+    {
+      "path": "apps/release-v198/appupdate/web.go",
+      "size": 1873,
+      "sha256": "22efc471e05fdc9495466615bbb1dbf1a83d7217af9cd2d14c73208240448fab"
+    },
+    {
+      "path": "apps/release-v198/cmd/hspo-release/main.go",
+      "size": 1888,
+      "sha256": "5eb0e44cad678c23e738c58ae34bb3091375734c2746e5a2960974de2ffd8120"
+    },
+    {
       "path": "apps/release-v198/cmd/launcher/main.go",
       "size": 5911,
       "sha256": "1747e048b5afee6c8a3a16dfe336424eb6f8a1587b412a98f5b25a151637b482"
     },
     {
       "path": "apps/release-v198/cmd/tray/main.go",
-      "size": 14543,
-      "sha256": "296b398bb077d60900e18319590ff7fbebe90f842cbf04c190ac1af24d004017"
+      "size": 18353,
+      "sha256": "bf870334bf3d4970edc928b49b607963509a2f8d71b686d87fa61bf98981c488"
     },
     {
-      "path": "apps/release-v198/cmd/update-gateway/github_release.go",
-      "size": 5100,
-      "sha256": "aa24c52a99b88e177644c7b95bb244dcece78b2fe9c9d7ff6419c5db782b5fff"
+      "path": "apps/release-v198/cmd/tray/qa_menu_windows.go",
+      "size": 5648,
+      "sha256": "3650fd10fb218acae975e39aca12246d0855b61e5d9b5183f1a8cada5b7ea3d5"
     },
     {
-      "path": "apps/release-v198/cmd/update-gateway/github_release_test.go",
-      "size": 3752,
-      "sha256": "2c978235f2904da969bfcb526d29ee7c17c797697a493881fa8fd0b32458ad8f"
+      "path": "apps/release-v198/cmd/tray/qa_program_update_windows.go",
+      "size": 9889,
+      "sha256": "3f6ba357b6c53c9b169fb2d2cc159fcdba5fa788d89966bce1b8c9af306f34a3"
+    },
+    {
+      "path": "apps/release-v198/cmd/tray/qa_program_update_windows_test.go",
+      "size": 1530,
+      "sha256": "4e92bfea3c783ed09a070992cb3b2c517223b0bfd5bf86816f12ce3cfd8fba66"
+    },
+    {
+      "path": "apps/release-v198/cmd/tray/qa_server_windows.go",
+      "size": 7219,
+      "sha256": "78bc2e515fdd9363eb936f83b6b9dca3318fa03824cae502fc57989c054d3f15"
+    },
+    {
+      "path": "apps/release-v198/cmd/tray/qa_server_windows_test.go",
+      "size": 3597,
+      "sha256": "52969e1a06809682d0218857f66a44bb3a7d620ae0272359f475c8b476ed64c8"
+    },
+    {
+      "path": "apps/release-v198/cmd/tray/qa_startup_windows.go",
+      "size": 2874,
+      "sha256": "c5a2e3461e29ce1dd1efe532b18904629eae3c5dc79a799ac98c2ef67c9e67ec"
     },
     {
       "path": "apps/release-v198/cmd/update-gateway/main.go",
-      "size": 28756,
-      "sha256": "aa73360d0de7265578fadfeb4faa896f8da8a4c648f722cb54c30203bae96bb4"
+      "size": 100,
+      "sha256": "0a114a3b1936531839743b7208b533d745ceeed4e2b7d6049be609150e487b8f"
     },
     {
-      "path": "apps/release-v198/cmd/update-gateway/main_test.go",
-      "size": 7780,
-      "sha256": "efe3e987d3ac5cebfed8da757f95cabc81b48d4a8ea20ebb1d2b8f827a79b444"
+      "path": "apps/release-v198/dataupdate/gateway.go",
+      "size": 30175,
+      "sha256": "55ddd4f953b67c0a3f2fd8b7946e8680b082b5015ff3ed4cb266dfcd0b9dfb59"
+    },
+    {
+      "path": "apps/release-v198/dataupdate/gateway_test.go",
+      "size": 7786,
+      "sha256": "a9b0ad2cc4354c263b0454c9304f94ed415107cc2b6886e0c9ecf985cbe8103f"
+    },
+    {
+      "path": "apps/release-v198/dataupdate/github_release.go",
+      "size": 5976,
+      "sha256": "9ea56a9e17aab7abd5aeba7e36ccc963f25ea8e9d05fc7e81155f301bb758733"
+    },
+    {
+      "path": "apps/release-v198/dataupdate/github_release_test.go",
+      "size": 3758,
+      "sha256": "c9aaff0e4ae7f6c73ae0d7841fb195368fdfa5b5aeffc330bd4bab96b914b2aa"
     },
     {
       "path": "apps/release-v198/go.mod",
@@ -344,8 +419,8 @@
     },
     {
       "path": "apps/release-v198/web/static/index.html",
-      "size": 252737,
-      "sha256": "da6ce919ec8c6da93382d31c539e22709f57c65ec3962095ae079771f56f6c3d"
+      "size": 256765,
+      "sha256": "68b7e75479a08e91e9216e67a3c787c89d84023fa7f39b6f716c72bcecf0e495"
     },
     {
       "path": "apps/release-v198/web/static/tariff-data.js",
@@ -1279,13 +1354,13 @@
     },
     {
       "path": "docs/GITHUB_RELEASE_AND_SERVER_MIGRATION.md",
-      "size": 5411,
-      "sha256": "72faef73a7fa75c9db724029bc206ff021b3c360b9c09d80a2911163f3a36911"
+      "size": 5513,
+      "sha256": "e520a192c7c559a6afb9cf798006a10296a519824f280ffde62da00be6ccfd34"
     },
     {
       "path": "docs/INTEGRATION_V198.md",
-      "size": 6027,
-      "sha256": "ef6586ae93e461f763841974d587d23e2cb2d9a306ce8c597b6aa887a08d7cb5"
+      "size": 7776,
+      "sha256": "ef418df4b58d709d653959b03e9ad97006178a2e187ba316122178462313c954"
     },
     {
       "path": "docs/RELEASE_BASELINE_AND_PROVENANCE.md",
@@ -1331,6 +1406,21 @@
       "path": "go.work",
       "size": 127,
       "sha256": "91a3f4454176b5539d6b2bf6a9d521fd3f7579932a8c498d3df70d8e6fe469c6"
+    },
+    {
+      "path": "installer/HQTN_HSPO_QA.iss",
+      "size": 6181,
+      "sha256": "7223efd92d5c7cbfda18d8581bd31d04172a2c6c9cd0dfe453bfa0d05772544b"
+    },
+    {
+      "path": "installer/README_QA.md",
+      "size": 4457,
+      "sha256": "4879bae778e9fb205f33dddc3def3b11e8ff4fe5d35e04e7d232413159b96b8b"
+    },
+    {
+      "path": "installer/RELEASE_NOTES_QA.md",
+      "size": 482,
+      "sha256": "5a873d32f3a03126e65f337cd17a944ad729aca285cf94471ae427dce16967b1"
     },
     {
       "path": "reference/earlier-legal-attempt/build_legal_module.py",
@@ -1398,9 +1488,19 @@
       "sha256": "bb1e5618e47b1c848db815f4140bec431cbcbf5e60616849f8e191b92e4de433"
     },
     {
+      "path": "scripts/MO_BAN_QA.cmd",
+      "size": 192,
+      "sha256": "2cce19039918ac99ad1c35675f0643338822dd64d7ef8db3dc22b0c94acaad0c"
+    },
+    {
+      "path": "scripts/build_installer_qa.ps1",
+      "size": 5852,
+      "sha256": "ab7d44a73c0095a3c8b2c6d07ec9264b097fdf04f92a5fe9d4e2148518423b2e"
+    },
+    {
       "path": "scripts/build_qa_windows.ps1",
-      "size": 2305,
-      "sha256": "efbcd7f9ab366ac9349317d62809079e53f14772f2d45782e76836a7ddeee8f9"
+      "size": 2951,
+      "sha256": "7e2c6017c7c59cc2c4348adf779bcc29b69ea75a8aa1776b1c4d1243ae43f816"
     },
     {
       "path": "scripts/check_policy_snapshot.py",
@@ -1428,9 +1528,14 @@
       "sha256": "311c1660c29a2d9b062c7d18ae222da5331c03635b6f79fe28f05bdf0726da8e"
     },
     {
+      "path": "scripts/smoke_installer_windows.py",
+      "size": 13540,
+      "sha256": "761d528f240e3baac861cb906f0e2ba78841c2253b7829cc03f02e06126f84cc"
+    },
+    {
       "path": "scripts/smoke_recovered_windows.py",
-      "size": 10937,
-      "sha256": "61849557911fa0b160e5df7e3159e31e9393f7d41372fbb9fad0c142c83cf017"
+      "size": 11134,
+      "sha256": "80a53687cc95e3e8c7fcc989daf90ef4f9070150bb65b8cdd17b37cd1fd973ed"
     },
     {
       "path": "scripts/stage_legacy_userdata.py",

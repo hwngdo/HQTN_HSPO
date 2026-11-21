@@ -30,11 +30,10 @@ jobs:
           python -B scripts/verify_package.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -B scripts/test_server_migration.py
-      - name: Go regression and static analysis
-        run: |
-          go test ./apps/core-recovered/... ./apps/qa-gateway/... ./apps/uat-preview-8970/... ./apps/release-v198/...
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          go vet ./apps/core-recovered/... ./apps/qa-gateway/... ./apps/uat-preview-8970/... ./apps/release-v198/...
+      - name: Build Windows QA and exercise Tray lifecycle
+        run: ./scripts/build_qa_windows.ps1
+      - name: Go static analysis
+        run: go vet ./apps/core-recovered/... ./apps/qa-gateway/... ./apps/uat-preview-8970/... ./apps/release-v198/...
       - name: Check search scripts
         run: |
           foreach ($file in Get-ChildItem apps/release-v198/web/static -Filter '*.js' -File) {

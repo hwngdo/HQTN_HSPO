@@ -290,6 +290,7 @@ tr.sel{background:#e4f3ff;box-shadow:inset 4px 0 #138dd3}
 <section id="p-system" class="hidden"><div class="panel"><div class="subtabs systemSubtabs">
 <button class="active" data-sys="info">Thông tin</button>
 <button data-sys="data">Dữ liệu</button>
+<button id="programUpdateTab" data-sys="program" class="hidden">Cập nhật chương trình</button>
 <button data-sys="verify">Cần xác minh</button>
 <button id="sysHistoryTab" data-sys="history">Lịch sử tra cứu</button>
 <button data-sys="users">Người sử dụng <span id="onlineBadge"></span></button>
@@ -298,6 +299,20 @@ tr.sel{background:#e4f3ff;box-shadow:inset 4px 0 #138dd3}
 <button data-sys="connect">Kết nối máy trạm</button>
 </div><div class="subbody">
 <div id="s-info"><div class="logoHero"><img src="/static/logo.svg"/><div><div class="kicker">Hải quan Thái Nguyên</div><div class="aboutName">HQTN_HSPO</div><div class="aboutTag">HS &amp; Product Policy · Chemical/CAS · Shared Knowledge</div><div class="systemVersionInfo">Phiên bản ứng dụng: <strong id="systemVersion">Đang tải…</strong></div><div class="systemVersionInfo">Dữ liệu: <strong id="systemDataVersion">Đang tải…</strong> &nbsp;·&nbsp; Quy tắc cảnh báo: <strong id="systemRuleVersion">Đang tải…</strong></div><div class="systemVersionInfo">Hồ sơ kiểm tra hiệu lực: <strong id="dataLegalReviewStatus">Đang tải…</strong></div></div></div><span class="badgeOnline"><span class="dot"></span>Web nội bộ LAN · HTTPS · Không yêu cầu Internet</span><p>HQTN_HSPO là ứng dụng tra cứu nghiệp vụ nội bộ, hỗ trợ công chức Hải quan Thái Nguyên tiếp cận nhanh và có hệ thống các thông tin về biểu thuế, chính sách chất lượng sản phẩm hàng hóa và quản lý hóa chất. Ứng dụng hướng tới xây dựng nguồn tri thức dùng chung, tăng khả năng kiểm chứng căn cứ pháp lý, hỗ trợ trao đổi và xác minh nghiệp vụ trên môi trường mạng nội bộ an toàn, không phụ thuộc Internet. Từ v1.7.9, lịch sử tra cứu được ghi tập trung để phục vụ thống kê và đánh giá nghiệp vụ khi cần.</p><div class="field"><b>Tác giả</b>Đỗ Quang Hưng – Công chức<br/>Lê Thị Huê – Công chức<br/>Nguyễn Trường Thành – Công chức</div><div id="systemInfo"></div><div class="copyright">Bản quyền thuộc Hải quan Thái Nguyên</div></div>
+<div id="s-program" class="hidden">
+ <h2 class="sectionTitle">Cập nhật chương trình</h2>
+ <p>Phiên bản đang chạy <strong id="programCurrent">—</strong></p>
+ <div class="actions">
+  <button type="button" class="btn primary" id="programCheck" onclick="checkProgramUpdate()">Kiểm tra cập nhật</button>
+  <button type="button" class="btn good hidden" id="programInstall" onclick="applyProgramUpdate()">Tải và cài đặt</button>
+ </div>
+ <p id="programUpdateState" class="info" aria-live="polite"></p>
+ <div class="dataSection hidden" id="programRelease">
+  <h3>Phiên bản <span id="programAvailable"></span></h3>
+  <h4>Nội dung cập nhật</h4>
+  <p id="programNotes" style="white-space:pre-wrap;overflow-wrap:anywhere"></p>
+ </div>
+</div>
 <div id="s-data" class="hidden">
 <div class="systemDataHead">
   <div><h2 class="sectionTitle"><svg class="icon"><use href="#i-db"/></svg>Dữ liệu hệ thống</h2><p class="muted">Thư viện văn bản theo hệ thống pháp luật; xếp Luật → Nghị định → Quyết định Thủ tướng → Thông tư. Dữ liệu và sao lưu đặt bên dưới.</p></div>
@@ -314,17 +329,18 @@ tr.sel{background:#e4f3ff;box-shadow:inset 4px 0 #138dd3}
  <div class="dataSectionTitle">QUẢN LÝ CẬP NHẬT DỮ LIỆU · HQTN_HSPO</div>
  <h3 style="margin:8px 0">Văn bản pháp luật · mã HS/CAS · thuế · quy tắc cảnh báo</h3>
  <div class="info">Dữ liệu hiện tại: <b id="dataUpdateRevision">Đang tải…</b> &nbsp; · &nbsp; Cảnh báo: <b id="ruleUpdateRevision">Đang tải…</b></div>
- <div class="footerNote" style="margin:10px 0">Chương trình 1.9.8 giữ nguyên. Admin tải gói ZIP cập nhật từ máy trạm hoặc máy chủ, kiểm tra danh sách thay đổi và hồ sơ rà soát hiệu lực, sau đó mới được phê duyệt. Tự sao lưu trước cập nhật; có thể khôi phục khi cần.</div>
+ <div class="footerNote" style="margin:10px 0">Admin xem trước thay đổi và hồ sơ rà soát trước khi áp dụng. Hệ thống tự sao lưu các tệp bị thay đổi.</div>
  <div id="hspoUpdateActions" class="hidden">
    <div id="hspoGatewayState" class="info" style="margin:10px 0">Đang kiểm tra kết nối máy chủ cập nhật…</div>
    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0">
      <input id="hspoPackageFile" type="file" accept=".zip" style="max-width:430px" aria-label="Chọn gói dữ liệu ZIP" />
-     <button type="button" class="btn primary" onclick="hspoPreview()">1. Kiểm tra gói ZIP</button>
-     <button type="button" class="btn hidden" id="hspoGitHubPreviewBtn" onclick="hspoPreviewGitHub()">Kiểm tra gói trên GitHub</button>
-     <button type="button" class="btn good" id="hspoApplyBtn" disabled onclick="hspoApply()">2. Áp dụng cập nhật</button>
+     <button type="button" class="btn primary" id="hspoOfflinePreviewBtn" onclick="hspoPreview()">Kiểm tra gói ZIP offline</button>
+     <button type="button" class="btn" id="hspoGitHubPreviewBtn" disabled onclick="hspoPreviewGitHub()">Kiểm tra GitHub online</button>
+     <button type="button" class="btn good" id="hspoApplyBtn" disabled onclick="hspoApply()">Áp dụng cập nhật</button>
      <button type="button" class="btn" onclick="hspoRefresh()">Làm mới</button>
    </div>
-   <div id="hspoUpdatePreview" class="footerNote">Chưa chọn gói ZIP.</div>
+   <div id="hspoGitHubState" class="footerNote"></div>
+   <div id="hspoUpdatePreview" class="footerNote" aria-live="polite"></div>
    <h3 style="margin:20px 0 9px">Sao lưu và khôi phục dữ liệu chính sách</h3>
    <p class="muted">Mỗi lần áp dụng, hệ thống tự lưu toàn bộ tệp sẽ bị thay đổi. Chọn bản sao lưu bên dưới để khôi phục; cả cập nhật và khôi phục đều yêu cầu khởi động lại máy chủ để sử dụng dữ liệu mới đồng nhất.</p>
    <div id="hspoDataBackups" class="footerNote">Đang kiểm tra các bản sao lưu…</div>
@@ -395,8 +411,8 @@ function previewCustomTheme(){let t={id:'custom',name:'Tùy chỉnh',headerFrom:
 function saveCustomTheme(){let t={id:'custom',name:'Tùy chỉnh',headerFrom:validHex($('themeHeaderFromHex')?.value,'#064777'),headerTo:validHex($('themeHeaderToHex')?.value,'#0b6ea8'),primary:validHex($('themePrimaryHex')?.value,'#0b6ea8'),accent:validHex($('themeAccentHex')?.value,'#d6a62b')};persistTheme(t)}
 function resetTheme(){selectThemePreset('customs_classic')}
 
-function initRememberedUser(){let u=localStorage.getItem('hqtn_remember_user')||'';$('lu').value=u||'admin';$('rememberUser').checked=!!u}function showLogin(){initRememberedUser();$('login').classList.remove('hidden');$('app').classList.add('hidden')}async function init(){await loadAppVersion();await loadDataVersions();initRememberedUser();try{let x=await api('/api/me');ME=normalizeUserRecord(x.user);showApp()}catch(e){showLogin()}}async function login(){try{let username=$('lu').value.trim();let x=await api('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username,password:$('lp').value})});if(!x.ok){$('lerr').textContent=x.error;return}if($('rememberUser').checked)localStorage.setItem('hqtn_remember_user',username);else localStorage.removeItem('hqtn_remember_user');ME=normalizeUserRecord(x.user);showApp()}catch(e){$('lerr').textContent='Không kết nối được máy chủ.'}}async function logout(){await api('/api/logout',{method:'POST'});location.reload()}function showApp(){$('login').classList.add('hidden');$('app').classList.remove('hidden');$('who').textContent=userDisplayName(ME)||ME.username||'—';$('role').textContent=ME.role==='admin'?'Admin':'Người dùng';$('addUserBox').classList.toggle('hidden',ME.role!=='admin');$('adminUpdateBox').classList.toggle('hidden',ME.role!=='admin');$('hspoUpdateActions').classList.toggle('hidden',ME.role!=='admin');$('sysHistoryTab').classList.remove('hidden');loadSavedTheme();renderAppearance();loadVerify();loadSources();loadSystem();loadUsers();loadNotices();loadSearchHistory();if(ME.role==='admin'){loadBackups();hspoRefresh()}sendHeartbeat();if(!window._hqtnTimer)window._hqtnTimer=setInterval(()=>{sendHeartbeat();loadNotices(false)},30000);setTimeout(()=>{enableColumnResize('hsTable');enableSplit('hsSplit','hs');enableSplit('chemSplit','chem');enableSplit('tariffSplit','tariff')},50)}
-document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('main>section').forEach(s=>s.classList.add('hidden'));$('p-'+b.dataset.page).classList.remove('hidden');if(b.dataset.page==='system'){loadSystem();loadUsers();loadVerify();loadSources();if(ME&&ME.role==='admin')loadSearchHistory()}if(b.dataset.page==='tariff')loadUnifiedData();if(b.dataset.page==='hs'){loadHSMasterData();loadQualityData();loadQuarantineData()}});document.querySelectorAll('[data-sub]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-sub]').forEach(x=>x.classList.remove('active'));b.classList.add('active');['verify','sources','history'].forEach(x=>$('d-'+x).classList.toggle('hidden',b.dataset.sub!==x));if(b.dataset.sub==='verify')loadVerify();if(b.dataset.sub==='sources')loadSources();if(b.dataset.sub==='history')loadSearchHistory()});document.querySelectorAll('[data-sys]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-sys]').forEach(x=>x.classList.remove('active'));b.classList.add('active');['info','data','verify','history','users','notice','appearance','connect'].forEach(x=>$('s-'+x).classList.toggle('hidden',b.dataset.sys!==x));if(b.dataset.sys==='data'){loadSources();if(ME&&ME.role==='admin')loadBackups()}if(b.dataset.sys==='verify')loadVerify();if(b.dataset.sys==='history')loadSearchHistory();if(b.dataset.sys==='users')loadUsers();if(b.dataset.sys==='notice')loadNotices();if(b.dataset.sys==='appearance')renderAppearance();if(b.dataset.sys==='connect')loadSystem()});/* unified keyboard search handlers initialized by init1972SearchKeyboard */
+function initRememberedUser(){let u=localStorage.getItem('hqtn_remember_user')||'';$('lu').value=u||'admin';$('rememberUser').checked=!!u}function showLogin(){initRememberedUser();$('login').classList.remove('hidden');$('app').classList.add('hidden')}async function init(){await loadAppVersion();await loadDataVersions();initRememberedUser();try{let x=await api('/api/me');ME=normalizeUserRecord(x.user);showApp()}catch(e){showLogin()}}async function login(){try{let username=$('lu').value.trim();let x=await api('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username,password:$('lp').value})});if(!x.ok){$('lerr').textContent=x.error;return}if($('rememberUser').checked)localStorage.setItem('hqtn_remember_user',username);else localStorage.removeItem('hqtn_remember_user');ME=normalizeUserRecord(x.user);showApp()}catch(e){$('lerr').textContent='Không kết nối được máy chủ.'}}async function logout(){await api('/api/logout',{method:'POST'});location.reload()}function showApp(){$('login').classList.add('hidden');$('app').classList.remove('hidden');$('who').textContent=userDisplayName(ME)||ME.username||'—';$('role').textContent=ME.role==='admin'?'Admin':'Người dùng';$('addUserBox').classList.toggle('hidden',ME.role!=='admin');$('adminUpdateBox').classList.toggle('hidden',ME.role!=='admin');$('hspoUpdateActions').classList.toggle('hidden',ME.role!=='admin');$('sysHistoryTab').classList.remove('hidden');loadSavedTheme();renderAppearance();loadVerify();loadSources();loadSystem();loadUsers();loadNotices();loadSearchHistory();if(ME.role==='admin'){$('programUpdateTab').classList.remove('hidden');loadBackups();hspoRefresh();if(location.hash==='#cap-nhat'){document.querySelector('[data-page=system]').click();$('programUpdateTab').click();}}sendHeartbeat();if(!window._hqtnTimer)window._hqtnTimer=setInterval(()=>{sendHeartbeat();loadNotices(false)},30000);setTimeout(()=>{enableColumnResize('hsTable');enableSplit('hsSplit','hs');enableSplit('chemSplit','chem');enableSplit('tariffSplit','tariff')},50)}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('main>section').forEach(s=>s.classList.add('hidden'));$('p-'+b.dataset.page).classList.remove('hidden');if(b.dataset.page==='system'){loadSystem();loadUsers();loadVerify();loadSources();if(ME&&ME.role==='admin')loadSearchHistory()}if(b.dataset.page==='tariff')loadUnifiedData();if(b.dataset.page==='hs'){loadHSMasterData();loadQualityData();loadQuarantineData()}});document.querySelectorAll('[data-sub]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-sub]').forEach(x=>x.classList.remove('active'));b.classList.add('active');['verify','sources','history'].forEach(x=>$('d-'+x).classList.toggle('hidden',b.dataset.sub!==x));if(b.dataset.sub==='verify')loadVerify();if(b.dataset.sub==='sources')loadSources();if(b.dataset.sub==='history')loadSearchHistory()});document.querySelectorAll('[data-sys]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-sys]').forEach(x=>x.classList.remove('active'));b.classList.add('active');['info','data','program','verify','history','users','notice','appearance','connect'].forEach(x=>$('s-'+x).classList.toggle('hidden',b.dataset.sys!==x));if(b.dataset.sys==='data'){loadSources();if(ME&&ME.role==='admin')loadBackups()}if(b.dataset.sys==='program')programUpdateStatus();if(b.dataset.sys==='verify')loadVerify();if(b.dataset.sys==='history')loadSearchHistory();if(b.dataset.sys==='users')loadUsers();if(b.dataset.sys==='notice')loadNotices();if(b.dataset.sys==='appearance')renderAppearance();if(b.dataset.sys==='connect')loadSystem()});/* unified keyboard search handlers initialized by init1972SearchKeyboard */
 async function loadStaticGzipJson(url,label){let r=await fetch(url,{cache:'force-cache'});if(!r.ok)throw Error('Không đọc được '+label);let ab=await r.arrayBuffer();if(!('DecompressionStream' in window))throw Error('Trình duyệt chưa hỗ trợ giải nén dữ liệu cục bộ. Hãy dùng Microsoft Edge/Chrome mới.');let ds=new DecompressionStream('gzip'),txt=await new Response(new Blob([ab]).stream().pipeThrough(ds)).text();return JSON.parse(txt)}
 async function loadHSMasterData(){if(HS_MASTER)return HS_MASTER;let st=$('hsMasterStatus');if(st)st.textContent='Đang nạp HS master...';try{let d=await loadStaticGzipJson('/static/hs_master_31_2022.json.gz','HS master TT31');d._byhs=new Map();d._leaf=[];d.records.forEach((x,i)=>{x.hs=String(x.hs||'').replace(/\D/g,'');x._seq=i;x._nvi=normText(x.vi);x._nen=normText(x.en);d._byhs.set(x.hs,x)});d.records.forEach(x=>{x._p4=x.hs.length>4?d._byhs.get(x.hs.slice(0,4))||null:null;x._p6=x.hs.length>6?d._byhs.get(x.hs.slice(0,6))||null:null;let path=[x._p4?.vi,x._p6?.vi,x.vi].filter(Boolean).join(' ');x._pathSearch=normText(path+' '+(x.en||''));if(Number(x.level)===8)d._leaf.push(x)});HS_MASTER=d;if(st){st.textContent=d._leaf.length.toLocaleString('vi-VN')+' mã HS 8 số · TT31';st.className='tag green'}return d}catch(e){if(st){st.textContent='Lỗi HS master';st.className='tag red'}throw e}}
 async function loadQualityData(){if(QUALITY_DATA)return QUALITY_DATA;let st=$('qualityStatus');if(st)st.textContent='Đang nạp chính sách...';try{let d=await loadStaticGzipJson('/static/quality_policy_2026.json.gz','chính sách chất lượng'),rows=Array.isArray(d)?d:(d.records||[]);QUALITY_DATA={records:rows,_bycode:new Map()};for(let x of rows){let h=String(x.hs_digits||x.hs_code||'').replace(/\D/g,'');x._hs=h;x._search=normText([x.product_name,x.description,x.parent_group,x.sector,x.issuing_body,x.qcvn,x.source_list_description,x.high_risk_conditions].filter(Boolean).join(' '));if(!QUALITY_DATA._bycode.has(h))QUALITY_DATA._bycode.set(h,[]);QUALITY_DATA._bycode.get(h).push(x)}if(st){st.textContent=rows.length.toLocaleString('vi-VN')+' bản ghi chính sách';st.className='tag green'}return QUALITY_DATA}catch(e){if(st){st.textContent='Lỗi chính sách';st.className='tag red'}throw e}}
@@ -531,6 +547,56 @@ async function saveUserEdit(){let st=window._editUserState;if(!st)return;let dis
 async function deleteUser(username){if(!confirm('Xóa tài khoản '+username+'? Nếu tài khoản đã có lịch sử nghiệp vụ, hệ thống sẽ chuyển sang vô hiệu hóa để giữ audit.'))return;try{let x=await userAdmin({action:'delete',username});if(x.disabled_instead_of_deleted)alert('Tài khoản đã có lịch sử nghiệp vụ nên đã được vô hiệu hóa thay vì xóa cứng.')}catch(e){alert(e.message)}}
 async function changeMyPassword(){let oldp=$('myOldPass').value,newp=$('myNewPass').value;if(!oldp&&newp==='')return alert('Nhập mật khẩu hiện tại và mật khẩu mới.');try{let x=await api('/api/account/password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({current_password:oldp,new_password:newp})});if(!x.ok)throw Error(x.error||'Không đổi được mật khẩu');$('myOldPass').value=$('myNewPass').value='';alert('Đã đổi mật khẩu.')}catch(e){alert(e.message)}}
 async function loadBackups(){if(ME.role!=='admin')return;try{let x=await api('/api/admin/backups');let a=x.backups||[];$('backupList').innerHTML=a.length?a.map(b=>`<div class="backupRow"><b>${esc(b.name)}</b><span>${(b.size/1024/1024).toFixed(2)} MB</span><span>${esc(b.modified)}</span>${b.kind==='data'?`<button class="btn warn" onclick="rollbackData('${esc(b.name)}')">Rollback</button>`:'<span class="muted">userdata</span>'}</div>`).join(''):'<div class="empty">Chưa có backup</div>'}catch(e){}}async function manualBackup(){try{let x=await api('/api/admin/backup',{method:'POST'});if(!x.ok)throw Error(x.error);let fs=x.files||[];$('backupMsg').textContent=fs.length?'Đã tạo '+fs.join(' và '):'Đã tạo '+(x.file||'backup');loadBackups()}catch(e){alert(e.message)}}let HSPO_UPDATE_CSRF='',HSPO_UPDATE_STAGE='';
+let HSPO_UPDATE_BUSY=false, HSPO_GITHUB_ENABLED=false;
+let PROGRAM_UPDATE_OFFER='', PROGRAM_UPDATING=false;
+async function programUpdateStatus(){
+ const out=$('programUpdateState');
+ try{
+  const x=await hspoAdminRequest('program-status');
+  $('programCurrent').textContent=x.current;
+  out.textContent=!x.managed?'Mở bộ cài QA bằng Tray trên máy chủ.':x.configured?'Sẵn sàng kiểm tra GitHub.':'Cấp quyền đọc GitHub một lần qua menu Tray trên máy chủ.';
+ }catch(e){out.textContent=e.message;}
+}
+async function checkProgramUpdate(){
+ if(PROGRAM_UPDATING)return;
+ const out=$('programUpdateState'),button=$('programCheck');
+ PROGRAM_UPDATING=true;button.disabled=true;PROGRAM_UPDATE_OFFER='';
+ $('programRelease').classList.add('hidden');$('programInstall').classList.add('hidden');
+ out.textContent='Đang kiểm tra phiên bản trên GitHub…';
+ try{
+  if(!HSPO_UPDATE_CSRF)HSPO_UPDATE_CSRF=(await hspoAdminRequest('status')).csrf;
+  const x=await hspoAdminRequest('program-check',{method:'POST'});
+  $('programCurrent').textContent=x.current;
+  out.textContent=x.release?'Đã tìm thấy bản cập nhật.':'Anh đang dùng phiên bản mới nhất trên kênh QA.';
+  if(x.release){
+   PROGRAM_UPDATE_OFFER=x.release.version;
+   $('programAvailable').textContent=x.release.version;
+   $('programNotes').textContent=x.release.notes||'Chưa có ghi chú phát hành.';
+   $('programRelease').classList.remove('hidden');
+   $('programInstall').classList.remove('hidden');
+  }
+ }catch(e){out.textContent=e.message;}
+ finally{PROGRAM_UPDATING=false;button.disabled=false;}
+}
+async function applyProgramUpdate(){
+ if(PROGRAM_UPDATING||!PROGRAM_UPDATE_OFFER)return;
+ if(!confirm('Cài phiên bản '+PROGRAM_UPDATE_OFFER+'? Server sẽ khởi động lại và các phiên đăng nhập hiện tại sẽ kết thúc.'))return;
+ PROGRAM_UPDATING=true;
+ const status=$('programUpdateState');
+ $('programInstall').disabled=true;$('programCheck').disabled=true;
+ status.textContent='Đang tải và xác minh bộ cài. Anh có thể tiếp tục tra cứu trong lúc tải.';
+ try{
+  await hspoAdminRequest('program-install',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({version:PROGRAM_UPDATE_OFFER})});
+  PROGRAM_UPDATE_OFFER='';
+  $('programInstall').classList.add('hidden');
+  status.textContent='Đã tải xong. Tray sẽ cài bản mới và mở lại Server. Anh tải lại trang sau khi cài xong.';
+ }catch(e){status.textContent=e.message;}
+ finally{PROGRAM_UPDATING=false;$('programInstall').disabled=false;$('programCheck').disabled=false;}
+}
+function hspoEnablePreviewOptions(){
+ $('hspoOfflinePreviewBtn').disabled=HSPO_UPDATE_BUSY;
+ $('hspoGitHubPreviewBtn').disabled=HSPO_UPDATE_BUSY||!HSPO_GITHUB_ENABLED;
+}
 async function hspoAdminRequest(endpoint, options={}){
  const hdr=Object.assign({'X-HSPO-CSRF':HSPO_UPDATE_CSRF},options.headers||{});
  const resp=await fetch('/__hspo_admin/'+endpoint,Object.assign({cache:'no-store',credentials:'same-origin'},options,{headers:hdr}));
@@ -543,7 +609,9 @@ async function hspoRefresh(){
  const state=$('hspoGatewayState');if(!state)return;
  try{
   const x=await hspoAdminRequest('status');HSPO_UPDATE_CSRF=x.csrf||'';
-  $('hspoGitHubPreviewBtn')?.classList.toggle('hidden',x.github_enabled!==true);
+  HSPO_GITHUB_ENABLED=x.github_enabled===true;
+  hspoEnablePreviewOptions();
+  $('hspoGitHubState').textContent=HSPO_GITHUB_ENABLED?'':'Máy chủ cần cấu hình kho GitHub và token đọc để bật cập nhật online. Gói ZIP offline có thể dùng ngay.';
   const d=x.data||{};
   state.textContent='Đã kết nối với bộ cập nhật trên máy chủ · Admin: '+(x.username||'—')+(x.pending_restart?' · Đang chờ khởi động lại máy chủ để kích hoạt dữ liệu mới':' · Sẵn sàng');
   if(d.data_version){$('dataUpdateRevision').textContent=d.data_version;}
@@ -551,33 +619,35 @@ async function hspoRefresh(){
   const history=$('hspoDataHistory');if(history)history.innerHTML=(x.history||[]).length?(x.history||[]).slice().reverse().map(t=>'<div>'+esc(t)+'</div>').join(''):'Chưa có lịch sử cập nhật qua cổng quản trị mới.';
   await hspoBackups();
  }catch(e){
-  state.textContent='Không kết nối được bộ cập nhật: '+e.message+'. Hãy mở HSPO bằng HQTN_HSPO.exe của bộ mới và truy cập cổng 8867 (không phải 8865).';
+  state.textContent='Không kết nối được bộ cập nhật: '+e.message+'. Hãy mở lại ứng dụng bằng biểu tượng HQTN_HSPO.';
   const b=$('hspoApplyBtn');if(b)b.disabled=true;
-  $('hspoGitHubPreviewBtn')?.classList.add('hidden');
+  HSPO_GITHUB_ENABLED=false;
+  hspoEnablePreviewOptions();
+  $('hspoGitHubState').textContent='';
  }
 }
 async function hspoPreview(){
  const file=$('hspoPackageFile')?.files?.[0];if(!file)return alert('Anh chọn một gói dữ liệu .zip trước.');
- HSPO_UPDATE_STAGE='';$('hspoApplyBtn').disabled=true;
- const out=$('hspoUpdatePreview');out.textContent='Đang kiểm tra định dạng ZIP, danh mục tệp, SHA-256 và hồ sơ rà soát…';
- try{
-  if(!HSPO_UPDATE_CSRF)await hspoRefresh();
-  const form=new FormData();form.append('file',file,file.name);
-  const x=await hspoAdminRequest('preview',{method:'POST',body:form});
-  hspoRenderDataPreview(x,out);
- }catch(e){out.textContent='Không thể kiểm tra gói: '+e.message;}
+ const form=new FormData();form.append('file',file,file.name);
+ await hspoPreviewPackage('preview',{method:'POST',body:form},'Đang kiểm tra gói ZIP…');
 }
 async function hspoPreviewGitHub(){
- const button=$('hspoGitHubPreviewBtn'),out=$('hspoUpdatePreview');
+ await hspoPreviewPackage('github-preview',{method:'POST'},'Đang tải và kiểm tra gói dữ liệu từ GitHub…');
+}
+async function hspoPreviewPackage(endpoint, options, message){
+ if(HSPO_UPDATE_BUSY)return;
+ HSPO_UPDATE_BUSY=true;
+ hspoEnablePreviewOptions();
+ const out=$('hspoUpdatePreview');
  HSPO_UPDATE_STAGE='';
  $('hspoApplyBtn').disabled=true;
- button.disabled=true;
- out.textContent='Đang tải và kiểm tra gói dữ liệu từ GitHub…';
+ out.textContent=message;
  try{
-  const x=await hspoAdminRequest('github-preview',{method:'POST'});
+  if(!HSPO_UPDATE_CSRF)await hspoRefresh();
+  const x=await hspoAdminRequest(endpoint,options);
   hspoRenderDataPreview(x,out);
- }catch(e){out.textContent='Không thể kiểm tra gói GitHub: '+e.message;}
- finally{button.disabled=false}
+ }catch(e){out.textContent='Không thể kiểm tra gói: '+e.message;}
+ finally{HSPO_UPDATE_BUSY=false;hspoEnablePreviewOptions();}
 }
 function hspoRenderDataPreview(x,out){
   HSPO_UPDATE_STAGE=x.id;
@@ -591,14 +661,17 @@ function hspoRenderDataPreview(x,out){
   $('hspoApplyBtn').disabled=!valid;
 }
 async function hspoApply(){
+ if(HSPO_UPDATE_BUSY)return;
  if(!HSPO_UPDATE_STAGE)return alert('Hãy kiểm tra gói ZIP trước khi áp dụng.');
  if(!confirm('Xác nhận sao lưu và áp dụng gói pháp luật/cảnh báo? Sau khi thành công cần khởi động lại máy chủ HSPO.'))return;
  const out=$('hspoUpdatePreview');$('hspoApplyBtn').disabled=true;
+ HSPO_UPDATE_BUSY=true;hspoEnablePreviewOptions();
  try{
   const x=await hspoAdminRequest('apply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:HSPO_UPDATE_STAGE,confirm:'AP_DUNG'})});
   HSPO_UPDATE_STAGE='';out.textContent='Đã ghi dữ liệu thành công. Bản sao lưu: '+x.backup+'. HÃY KHỞI ĐỘNG LẠI HSPO TRÊN MÁY CHỦ để Core nạp dữ liệu mới; máy trạm làm mới trình duyệt.';
   await hspoRefresh();
  }catch(e){out.textContent='Không áp dụng được: '+e.message;}
+ finally{HSPO_UPDATE_BUSY=false;hspoEnablePreviewOptions();}
 }
 async function hspoBackups(){
  const out=$('hspoDataBackups');if(!out)return;

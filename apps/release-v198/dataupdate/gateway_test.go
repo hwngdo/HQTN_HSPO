@@ -1,4 +1,4 @@
-package main
+package dataupdate
 
 import (
 	"archive/zip"

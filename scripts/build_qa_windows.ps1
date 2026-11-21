@@ -27,7 +27,12 @@ try {
 } finally { Pop-Location }
 Push-Location (Join-Path $root "apps\release-v198")
 try {
-  go test ./...; if ($LASTEXITCODE -ne 0) { throw "v1.9.8 component tests failed" }
+  $previousTestCore = $env:HSPO_TRAY_TEST_CORE
+  try {
+    $env:HSPO_TRAY_TEST_CORE = Join-Path $dist "HQTN_HSPO_Recovered_Core_REFERENCE_NOT_PRODUCTION.exe"
+    go test ./...
+    if ($LASTEXITCODE -ne 0) { throw "v1.9.8 component or QA Tray tests failed" }
+  } finally { $env:HSPO_TRAY_TEST_CORE = $previousTestCore }
   $targets = @(
     @{ Command = "./cmd/update-gateway"; Name = "HQTN_HSPO_UpdateGateway" },
     @{ Command = "./cmd/launcher"; Name = "HQTN_HSPO"; LinkerFlags = "-H=windowsgui" },
@@ -40,5 +45,10 @@ try {
     go @buildArgs
     if ($LASTEXITCODE -ne 0) { throw "Windows build failed: $($target.Name)" }
   }
+  $qaTray = Join-Path $dist "tray_runtime"
+  New-Item -ItemType Directory -Force -Path $qaTray | Out-Null
+  Copy-Item (Join-Path $dist "HQTN_HSPO_Tray_QA_NOT_PRODUCTION.exe") (Join-Path $qaTray "HQTN_HSPO_Tray_QA.exe")
+  Copy-Item (Join-Path $dist "HQTN_HSPO_Recovered_Core_REFERENCE_NOT_PRODUCTION.exe") (Join-Path $qaTray "HQTN_HSPO_Core_QA.exe")
+  Copy-Item (Join-Path $PSScriptRoot "MO_BAN_QA.cmd") $qaTray
 } finally { Pop-Location }
 Write-Host "QA only. No production binaries have been replaced."
